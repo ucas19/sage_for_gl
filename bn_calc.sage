@@ -117,8 +117,9 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
     else:
         print(f"*********注意!*********")
         print(f"投射后不一定是最小权")
+        return None
 
-    lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,8)
+    lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,20)
     if flag == 1:
 #        lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,8)
         immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
@@ -184,7 +185,7 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
         print(f"*********注意!*********")
         print(f"投射后不一定是最小权")
 
-    lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
+    lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,20)
     if flag == 1:
 #        lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
 
@@ -383,7 +384,7 @@ if __name__ == "__main__":
             countss = 0
             in_consider_weight = []
             for lambda_sp_plus_so in P_mu_tensor_V_after_Pr:
-                lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,8)
+                lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,20)
 
                 if len(lambda_judge_hash) <= user_sum:
                     print(" ")
@@ -459,6 +460,9 @@ if __name__ == "__main__":
             elif which_mod==3:
                 print("使用模:g")# 将输入转换为有理数列表并创建向量
             P_mu_tensor_V_after_Pr = again_calc(again_lam, P_weights, which_mod,n,m)
+            if P_mu_tensor_V_after_Pr is None:
+                print(f"不是极小权，结束循环")
+                continue
             print(f"循环要处理的总数: {len(P_mu_tensor_V_after_Pr)}")
 
  #           with open("test://front2.txt", "w", encoding="utf-8") as f:
@@ -471,6 +475,7 @@ if __name__ == "__main__":
                 for typical_lambda_sp_plus_so in minest_tem:
                     print("------------------------")
                     print(f"处理的极小权为: {typical_lambda_sp_plus_so} \n")
+                    print(f"剩下: {len(weight_set)}")
                     typical_lambda_sp = typical_lambda_sp_plus_so[:n]
                     typical_lambda_so = typical_lambda_sp_plus_so[-m:]
                     
@@ -547,7 +552,7 @@ if __name__ == "__main__":
 
     again_lam = lowest_weight[0]
     print(f"现在计算{again_lam}------------------")
-    lambda_judge_hash, lambda_judge = judge_mu_in_P(again_lam,2,1,8)
+    lambda_judge_hash, lambda_judge = judge_mu_in_P(again_lam,2,1,20)
     for v in weight_set:
         v_hash = tuple(v)
         if v_hash not in lambda_judge_hash:
