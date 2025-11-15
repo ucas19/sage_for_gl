@@ -59598,4 +59598,594 @@ M_{\fracc{3},\fracc{3},-\fracc{1}|\fracc{3}}
 6,直接计算typical权
 7,计算P_tensor_W,但是不投射,找到极小权
 8,整理权集
-9
+9,批量直接计算atypical权集的特征标
+10,慎用,一条龙计算,出发点是一个front文件, 一个behind文件, 一个lam文件
+11,慎用,暴力寻解,计算速度极慢.计算可能能用来计算的权
+12,文件中的向量转化成latex代码
+你的选择是: ^CTraceback (most recent call last):
+  File "/home/wei/sagemath/bn_calc.sage.py", line 385, in <module>
+    select_case = int(input("你的选择是: "))
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "cysignals/signals.pyx", line 355, in cysignals.signals.python_check_interrupt
+KeyboardInterrupt
+
+[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;31m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hggi[1m[31mg[1m[31mi[0m[39m[90mt pu[90ms[90mh -u origin main[39m[K[A[19C[1m[31mg[1m[31mi[1m[31mt[0m[39m[0m[32mg[0m[32mi[0m[32mt[39m[32mt[32m [39m[32mt[39m[39m [39ma[K[1B[K[A[39C[4ma[24m[90md[90md[90m .[39m[K[A[36C[4ma[39m[4md[24m[90md[39m[A[38C[24ma[24md[90md[39m[39mdd[39m [39m.[4m.[24m[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;32m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hg[32mg[39m[32mg[39m[90mit ad[90md[90m .[39m[K[A[32C[32mg[32mi[39m[1m[31mg[1m[31mi[0m[39m[1m[31mg[1m[31mi[1m[31mt[0m[39m[0m[32mg[0m[32mi[0m[32mt[39m[32mt[32m [39m[32mt[39m[39m [39mc[K[1B[K[A[39C[90mo[90mm[90mmit -m "把10的功能修改成了批量计算多个[7m[90m [27m[39m[90m。[90m读取文件(),[]的向量"[39m[K[A[A[17C[39mo[90mm[39m[39mmm[39mm[39mi[39mt[39m [39m-[39mm[39m [39m"[39m把[39m[39m1[39m0[39m的[39m[39m功[39m[39m能[39m[39m修[39m[39m改[39m[39m成[39m[39m了[39m[39m批[39m[39m量[39m[39m计[39m[39m算[39m[39m多[39m[39m个[39m[39m[7m [27m。[39m读[39m[39m取[39m[39m文[39m[39m件[39m[39m([39m)[39m,[39m[[39m][39m的[39m[39m向[39m[39m量[39m[39m"[A[14D[33m"[33m把[33m[33m1[33m0[33m的[33m[33m功[33m[33m能[33m[33m修[33m[33m改[33m[33m成[33m[33m了[33m[33m批[33m[33m量[33m[33m计[33m[33m算[33m[33m多[33m[33m个[33m[7m[33m [27m[39m[33m。[33m读[33m[33m取[33m[33m文[33m[33m件[33m[33m([33m)[33m,[33m[[33m][33m的[33m[33m向[33m[33m量[33m[33m"[39m[33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [A[37C[27m[33m"[39m [39m [K[A[37C[33m"[39m[39m [K[1B[K[A[37C[33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [39m [33m增[33m[33m"[39m[A[23C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m"加"[A[21C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m"[39m[33m1[33m"[39m[33m2[33m"[39m[33mf[33m"[39m[33mg[33m"[39m[33mo[33m"[39m[33mn[33m"[39m[33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [33m"[39m[39m [33m功[33m[33m"[39m[A[17C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m"能"[A[15C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m"[39m[33m，[33m[33m"[39m[33m把[33m[33m"[39m[33m向[33m[33m"[39m[A[9C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m"量"[A[7C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m"[39m[33m转[33m[33m"[39m[A[5C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m量[39m[39m转[39m[39m"成"[A[3C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m转[33m[33m成[33m[33m"[39m[33ml[33m"[39m[A[2C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m量[39m[39m转[39m[39m成[39m[39ml[39m"a"t"e"x"[A[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m转[33m[33m成[33m[33ml[33ma[33mt[33me[33mx[33m"[39m[33md[33m"[39m[33m"[39m[39m [33m代[33m[33m"[39m[A[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m量[39m[39m转[39m[39m成[39m[39ml[39ma[39mt[39me[39mx[39m代[39m[39m"码"[K[A[A[34C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m转[33m[33m成[33m[33ml[33ma[33mt[33me[33mx[33m代[33m[33m码[33m[33m"[39m[A[38C[2C[33m集[33m[33m转[33m[33m成[33m[33ml[33ma[33mt[33me[33mx[33m代[33m[33m码[33m"[39m[A[26C[A[5C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m量[39m[39m集[39m[39m转[39m[39m成[39m[39ml[39ma[39mt[39me[39mx[39m代[39m码[39m"[A[26C合转成latex代码"[A[26C[A[3C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m集[33m[33m合[33m[33m转[33m[33m成[33m[33ml[33ma[33mt[33me[33mx[33m代[33m码[33m[33m"[39m[A[26C[2C[2C[1C[1C[1C[1C[1B[2C[2C[33m方[33m[33m"[39m[A[A[28C[39mg[39mi[39mt[1B[29D[39m"[39m增[39m[39m加[39m[39m1[39m2[39m功[39m[39m能[39m[39m，[39m[39m把[39m[39m向[39m[39m量[39m[39m集[39m[39m合[39m[39m转[39m[39m成[39m[39ml[39ma[39mt[39me[39mx代[39m码[39m[39m方[39m[39m"便"[A[A[26C[32mg[32mi[32mt[39m[1B[29D[33m"[33m增[33m[33m加[33m[33m1[33m2[33m功[33m[33m能[33m[33m，[33m[33m把[33m[33m向[33m[33m量[33m[33m集[33m[33m合[33m[33m转[33m[33m成[33m[33ml[33ma[33mt[33me[33mx[33m代[33m码[33m[33m方[33m[33m便[33m[33m"[39m[33m写[33m[33m"[39m[?1l>[?2004l
+]2;git commit -m ]1;git[main da662d4] 增加12功能，把向量集合转成latex代码方便写
+ 35 files changed, 61482 insertions(+), 484 deletions(-)
+ create mode 100644 session.log
+ create mode 100644 test/behind3.txt
+ create mode 100644 test/front3.txt
+ create mode 100644 test/min3.txt
+[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;32m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hggit[32mg[32mi[32mt[39m[90m co[90mm[90mmit -m "增加12功能，把向量集合转成latex[90m代[90m码方便写"[39m[K[A[A[26C[32mt[32m [39m[32mt[39m[39m [39mp[K[1B[K[1B[K[A[A[39C[90mu[90ms[90mh -u origin main[39m[K[A[22C[39mu[90ms[39m[39mss[39mh[39m [39m-[39mu[39m [39mo[39mr[39mi[39mg[39mi[39mn[39m [39mm[39ma[39mi[39mn[?1l>[?2004l[1B]2;git push -u origin main]1;gitEnumerating objects: 73, done.
+Counting objects:   1% (1/72)Counting objects:   2% (2/72)Counting objects:   4% (3/72)Counting objects:   5% (4/72)Counting objects:   6% (5/72)Counting objects:   8% (6/72)Counting objects:   9% (7/72)Counting objects:  11% (8/72)Counting objects:  12% (9/72)Counting objects:  13% (10/72)Counting objects:  15% (11/72)Counting objects:  16% (12/72)Counting objects:  18% (13/72)Counting objects:  19% (14/72)Counting objects:  20% (15/72)Counting objects:  22% (16/72)Counting objects:  23% (17/72)Counting objects:  25% (18/72)Counting objects:  26% (19/72)Counting objects:  27% (20/72)Counting objects:  29% (21/72)Counting objects:  30% (22/72)Counting objects:  31% (23/72)Counting objects:  33% (24/72)Counting objects:  34% (25/72)Counting objects:  36% (26/72)Counting objects:  37% (27/72)Counting objects:  38% (28/72)Counting objects:  40% (29/72)Counting objects:  41% (30/72)Counting objects:  43% (31/72)Counting objects:  44% (32/72)Counting objects:  45% (33/72)Counting objects:  47% (34/72)Counting objects:  48% (35/72)Counting objects:  50% (36/72)Counting objects:  51% (37/72)Counting objects:  52% (38/72)Counting objects:  54% (39/72)Counting objects:  55% (40/72)Counting objects:  56% (41/72)Counting objects:  58% (42/72)Counting objects:  59% (43/72)Counting objects:  61% (44/72)Counting objects:  62% (45/72)Counting objects:  63% (46/72)Counting objects:  65% (47/72)Counting objects:  66% (48/72)Counting objects:  68% (49/72)Counting objects:  69% (50/72)Counting objects:  70% (51/72)Counting objects:  72% (52/72)Counting objects:  73% (53/72)Counting objects:  75% (54/72)Counting objects:  76% (55/72)Counting objects:  77% (56/72)Counting objects:  79% (57/72)Counting objects:  80% (58/72)Counting objects:  81% (59/72)Counting objects:  83% (60/72)Counting objects:  84% (61/72)Counting objects:  86% (62/72)Counting objects:  87% (63/72)Counting objects:  88% (64/72)Counting objects:  90% (65/72)Counting objects:  91% (66/72)Counting objects:  93% (67/72)Counting objects:  94% (68/72)Counting objects:  95% (69/72)Counting objects:  97% (70/72)Counting objects:  98% (71/72)Counting objects: 100% (72/72)Counting objects: 100% (72/72), done.
+Delta compression using up to 20 threads
+Compressing objects:   2% (1/37)Compressing objects:   5% (2/37)Compressing objects:   8% (3/37)Compressing objects:  10% (4/37)Compressing objects:  13% (5/37)Compressing objects:  16% (6/37)Compressing objects:  18% (7/37)Compressing objects:  21% (8/37)Compressing objects:  24% (9/37)Compressing objects:  27% (10/37)Compressing objects:  29% (11/37)Compressing objects:  32% (12/37)Compressing objects:  35% (13/37)Compressing objects:  37% (14/37)Compressing objects:  40% (15/37)Compressing objects:  43% (16/37)Compressing objects:  45% (17/37)Compressing objects:  48% (18/37)Compressing objects:  51% (19/37)Compressing objects:  54% (20/37)Compressing objects:  56% (21/37)Compressing objects:  59% (22/37)Compressing objects:  62% (23/37)Compressing objects:  64% (24/37)Compressing objects:  67% (25/37)Compressing objects:  70% (26/37)Compressing objects:  72% (27/37)Compressing objects:  75% (28/37)Compressing objects:  78% (29/37)Compressing objects:  81% (30/37)Compressing objects:  83% (31/37)Compressing objects:  86% (32/37)Compressing objects:  89% (33/37)Compressing objects:  91% (34/37)Compressing objects:  94% (35/37)Compressing objects:  97% (36/37)Compressing objects: 100% (37/37)Compressing objects: 100% (37/37), done.
+Writing objects:   2% (1/39)Writing objects:   5% (2/39)Writing objects:   7% (3/39)Writing objects:  10% (4/39)Writing objects:  12% (5/39)Writing objects:  15% (6/39)Writing objects:  17% (7/39)Writing objects:  20% (8/39)Writing objects:  23% (9/39)Writing objects:  25% (10/39)Writing objects:  28% (11/39)Writing objects:  30% (12/39)Writing objects:  33% (13/39)Writing objects:  35% (14/39)Writing objects:  38% (15/39)Writing objects:  41% (16/39)Writing objects:  43% (17/39)Writing objects:  46% (18/39)Writing objects:  48% (19/39)Writing objects:  51% (20/39)Writing objects:  53% (21/39)Writing objects:  58% (23/39)Writing objects:  61% (24/39)Writing objects:  64% (25/39)Writing objects:  66% (26/39)Writing objects:  71% (28/39)Writing objects:  74% (29/39)Writing objects:  76% (30/39)Writing objects:  79% (31/39)Writing objects:  82% (32/39)Writing objects:  84% (33/39)Writing objects:  87% (34/39)Writing objects:  89% (35/39)Writing objects:  92% (36/39)Writing objects:  94% (37/39)Writing objects:  97% (38/39)Writing objects: 100% (39/39)Writing objects: 100% (39/39), 335.29 KiB | 1.15 MiB/s, done.
+Total 39 (delta 17), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 11 local objects.[K
+To github.com:ucas19/sage_for_character.git
+   0c67942..da662d4  main -> main
+branch 'main' set up to track 'origin/main'.
+[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;32m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hppip[32mp[32mi[32mp[39m[90m in[90ms[90mtall ortools[39m[K[A[24C[32mp[32m [39m[32mp[39m[39m [39ml[K[1B[K[A[39C[4ml[24m[90mi[90ms[90mt[39m[K[A[37C[4ml[39m[4mi[24m[90ms[39m[A[38C[24ml[24mi[90ms[39m[39mss[39mt[?1l>[?2004l
+]2;pip list]1;pipPackage                       Version
+----------------------------- --------------
+absl-py                       2.3.1
+alabaster                     1.0.0
+anyio                         4.11.0
+argon2-cffi                   25.1.0
+argon2-cffi-bindings          25.1.0
+arrow                         1.3.0
+asttokens                     3.0.0
+async-lru                     2.0.5
+attrs                         25.3.0
+babel                         2.17.0
+beautifulsoup4                4.13.5
+beniget                       0.4.2.post1
+bleach                        6.2.0
+Brotli                        1.1.0
+cached-property               1.5.2
+certifi                       2025.8.3
+cffi                          1.17.1
+charset-normalizer            3.4.3
+colorama                      0.4.6
+colorlog                      6.9.0
+comm                          0.2.3
+contourpy                     1.3.3
+conway-polynomials            0.10
+cvxopt                        1.3.2
+cycler                        0.12.1
+cypari2                       2.2.2
+cysignals                     1.12.4
+Cython                        3.1.4
+debugpy                       1.8.17
+decorator                     5.2.1
+defusedxml                    0.7.1
+docutils                      0.21.2
+exceptiongroup                1.3.0
+executing                     2.2.1
+fastjsonschema                2.21.2
+fonttools                     4.60.0
+fpylll                        0.6.4
+fqdn                          1.5.1
+future                        1.0.0
+gast                          0.6.0
+gmpy2                         2.2.1
+h11                           0.16.0
+h2                            4.3.0
+hpack                         4.1.0
+httpcore                      1.0.9
+httpx                         0.28.1
+hyperframe                    6.1.0
+idna                          3.10
+imagesize                     1.4.1
+immutabledict                 4.2.1
+importlib_metadata            8.7.0
+ipykernel                     6.30.1
+ipython                       8.37.0
+ipywidgets                    8.1.7
+isoduration                   20.11.0
+jedi                          0.19.2
+Jinja2                        3.1.6
+json5                         0.12.1
+jsonpointer                   3.0.0
+jsonschema                    4.25.1
+jsonschema-specifications     2025.9.1
+jupyter_client                8.6.3
+jupyter_core                  5.8.1
+jupyter-events                0.12.0
+jupyter-lsp                   2.3.0
+jupyter_server                2.17.0
+jupyter_server_terminals      0.5.3
+jupyterlab                    4.4.7
+jupyterlab_pygments           0.3.0
+jupyterlab_server             2.27.3
+jupyterlab_widgets            3.0.15
+kiwisolver                    1.4.9
+lark                          1.3.0
+lrcalc                        2.1
+MarkupSafe                    3.0.2
+matplotlib                    3.10.6
+matplotlib-inline             0.1.7
+memory_allocator              0.1.3
+mistune                       3.1.4
+mpmath                        1.3.0
+munkres                       1.1.4
+nbclient                      0.8.0
+nbconvert                     7.16.6
+nbformat                      5.10.4
+nest_asyncio                  1.6.0
+networkx                      3.5
+notebook                      7.4.5
+notebook_shim                 0.2.4
+numpy                         2.3.3
+ortools                       9.14.6206
+overrides                     7.7.0
+packaging                     25.0
+pandas                        2.3.2
+pandocfilters                 1.5.0
+parso                         0.8.5
+pexpect                       4.9.0
+pickleshare                   0.7.5
+pillow                        11.3.0
+pip                           25.2
+pkgconfig                     1.5.5
+platformdirs                  4.4.0
+ply                           3.11
+pplpy                         0.8.9
+primecountpy                  0.1.1
+prometheus_client             0.23.1
+prompt_toolkit                3.0.52
+protobuf                      6.31.1
+psutil                        7.1.0
+ptyprocess                    0.7.0
+pure_eval                     0.2.3
+pycparser                     2.22
+Pygments                      2.19.2
+pyparsing                     3.2.5
+PySocks                       1.7.1
+python-dateutil               2.9.0.post0
+python-json-logger            2.0.7
+pythran                       0.17.0
+pytz                          2025.2
+PyYAML                        6.0.2
+pyzmq                         27.1.0
+referencing                   0.36.2
+requests                      2.32.5
+rfc3339_validator             0.1.4
+rfc3986-validator             0.1.1
+rfc3987-syntax                1.1.0
+roman-numerals-py             3.1.0
+rpds-py                       0.27.1
+rpy2                          3.6.3
+rpy2-rinterface               3.6.3
+rpy2-robjects                 3.6.2
+sagemath-standard             10.7
+sagetex                       3.6.1
+scipy                         1.16.2
+Send2Trash                    1.8.3
+setuptools                    80.9.0
+six                           1.17.0
+sniffio                       1.3.1
+snowballstemmer               3.0.1
+soupsieve                     2.8
+Sphinx                        8.2.3
+sphinxcontrib-applehelp       2.0.0
+sphinxcontrib-devhelp         2.0.0
+sphinxcontrib-htmlhelp        2.1.0
+sphinxcontrib-jsmath          1.0.1
+sphinxcontrib-qthelp          2.0.0
+sphinxcontrib-serializinghtml 1.1.10
+stack_data                    0.6.3
+sympy                         1.14.0
+terminado                     0.18.1
+tinycss2                      1.4.0
+tomli                         2.2.1
+tornado                       6.5.2
+traitlets                     5.14.3
+types-python-dateutil         2.9.0.20250822
+typing_extensions             4.15.0
+typing_utils                  0.1.0
+tzdata                        2025.2
+tzlocal                       5.3.1
+unicodedata2                  16.0.0
+uri-template                  1.3.0
+urllib3                       2.5.0
+wcwidth                       0.2.14
+webcolors                     24.11.1
+webencodings                  0.5.1
+websocket-client              1.8.0
+wheel                         0.45.1
+widgetsnbextension            4.0.14
+zipp                          3.23.0
+zstandard                     0.25.0
+[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;32m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hc[1m[31mc[0m[39m[1m[31mc[1m[31mo[0m[39m[90mnda [90ma[90mctivate mysage[39m[K[A[21C[1m[31mc[1m[31mo[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[1m[31md[1m[31ma[0m[39m[0m[32mc[0m[32mo[0m[32mn[0m[32md[0m[32ma[39m[32ma[32m [39m[90ma[39m[A[38C[32ma[39m[39m [90ma[39m[39ml[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[4ml[24m[4ml[24m[90mist[39m[4ml[39m[4mi[24m[24ml[24mi[39ms[39mt[?1l>[?2004l
+]2;conda list]1;conda# packages in environment at /home/wei/.conda/envs/mysage:
+#
+# Name                               Version          Build                 Channel
+_libgcc_mutex                        0.1              conda_forge           conda-forge
+_openmp_mutex                        4.5              2_gnu                 conda-forge
+_python_abi3_support                 1.0              hd8ed1ab_2            conda-forge
+_r-mutex                             1.0.1            anacondar_1           conda-forge
+_x86_64-microarch-level              3                2_skylake             conda-forge
+absl-py                              2.3.1            pypi_0                pypi
+alabaster                            1.0.0            pyhd8ed1ab_1          conda-forge
+alsa-lib                             1.2.14           hb9d3cd8_0            conda-forge
+anyio                                4.11.0           pyhcf101f3_0          conda-forge
+argon2-cffi                          25.1.0           pyhd8ed1ab_0          conda-forge
+argon2-cffi-bindings                 25.1.0           py312h4c3975b_0       conda-forge
+arpack                               3.9.1            nompi_hf03ea27_102    conda-forge
+arrow                                1.3.0            pyhd8ed1ab_1          conda-forge
+asttokens                            3.0.0            pyhd8ed1ab_1          conda-forge
+async-lru                            2.0.5            pyh29332c3_0          conda-forge
+attrs                                25.3.0           pyh71513ae_0          conda-forge
+babel                                2.17.0           pyhd8ed1ab_0          conda-forge
+bdw-gc                               8.2.8            h5888daf_2            conda-forge
+beautifulsoup4                       4.13.5           pyha770c72_0          conda-forge
+beniget                              0.4.2.post1      pyhd8ed1ab_1          conda-forge
+binutils_impl_linux-64               2.44             h4bf12b8_1            conda-forge
+blas-devel                           3.9.0            36_h1ea3ea9_openblas  conda-forge
+bleach                               6.2.0            pyh29332c3_4          conda-forge
+bleach-with-css                      6.2.0            h82add2a_4            conda-forge
+brotli                               1.1.0            hb03c661_4            conda-forge
+brotli-bin                           1.1.0            hb03c661_4            conda-forge
+brotli-python                        1.1.0            py312h1289d80_4       conda-forge
+bwidget                              1.10.1           ha770c72_1            conda-forge
+bzip2                                1.0.8            hda65f42_8            conda-forge
+c-ares                               1.34.5           hb9d3cd8_0            conda-forge
+ca-certificates                      2025.8.3         hbd8a1cb_0            conda-forge
+cached-property                      1.5.2            hd8ed1ab_1            conda-forge
+cached_property                      1.5.2            pyha770c72_1          conda-forge
+cairo                                1.18.4           h3394656_0            conda-forge
+cddlib                               1!0.94m          h9202a9a_0            conda-forge
+certifi                              2025.8.3         pyhd8ed1ab_0          conda-forge
+cffi                                 1.17.1           py312h35888ee_1       conda-forge
+charset-normalizer                   3.4.3            pyhd8ed1ab_0          conda-forge
+cliquer                              1.22             hd590300_1            conda-forge
+colorama                             0.4.6            pyhd8ed1ab_1          conda-forge
+colorlog                             6.9.0            pyh707e725_1          conda-forge
+comm                                 0.2.3            pyhe01879c_0          conda-forge
+conda-gcc-specs                      15.1.0           hc55bae6_5            conda-forge
+contourpy                            1.3.3            py312hd9148b4_2       conda-forge
+conway-polynomials                   0.10             pyhd8ed1ab_1          conda-forge
+cpython                              3.12.11          py312hd8ed1ab_0       conda-forge
+curl                                 8.14.1           h332b0f4_0            conda-forge
+cvxopt                               1.3.2            py312h9a1927c_4       conda-forge
+cycler                               0.12.1           pyhd8ed1ab_1          conda-forge
+cypari2                              2.2.2            py312hb7bab4f_0       conda-forge
+cysignals                            1.12.4           py312h1289d80_0       conda-forge
+cython                               3.1.4            py312h7c45ced_2       conda-forge
+debugpy                              1.8.17           py312h8285ef7_0       conda-forge
+decorator                            5.2.1            pyhd8ed1ab_0          conda-forge
+defusedxml                           0.7.1            pyhd8ed1ab_0          conda-forge
+docutils                             0.21.2           pyhd8ed1ab_1          conda-forge
+dsdp                                 5.8              hd9d9efa_1203         conda-forge
+ecl                                  24.5.10          h75482ee_1            conda-forge
+eclib                                20250627         hd0dfdeb_0            conda-forge
+ecm                                  7.0.6            h90cbb55_0            conda-forge
+exceptiongroup                       1.3.0            pyhd8ed1ab_0          conda-forge
+executing                            2.2.1            pyhd8ed1ab_0          conda-forge
+fflas-ffpack                         2.5.0            h4f9960b_0            conda-forge
+fftw                                 3.3.10           nompi_hf1063bd_110    conda-forge
+flintqs                              1.0              h85f3911_1001         conda-forge
+font-ttf-dejavu-sans-mono            2.37             hab24e00_0            conda-forge
+font-ttf-inconsolata                 3.000            h77eed37_0            conda-forge
+font-ttf-source-code-pro             2.038            h77eed37_0            conda-forge
+font-ttf-ubuntu                      0.83             h77eed37_3            conda-forge
+fontconfig                           2.15.0           h7e30c49_1            conda-forge
+fonts-conda-ecosystem                1                0                     conda-forge
+fonts-conda-forge                    1                0                     conda-forge
+fonttools                            4.60.0           py312h8a5da7c_0       conda-forge
+fplll                                5.5.0            hd20a173_0            conda-forge
+fpylll                               0.6.4            py312ha4ee43a_0       conda-forge
+fqdn                                 1.5.1            pyhd8ed1ab_1          conda-forge
+freetype                             2.14.1           ha770c72_0            conda-forge
+fribidi                              1.0.16           hb03c661_0            conda-forge
+future                               1.0.0            pyhd8ed1ab_2          conda-forge
+gap-core                             4.14.0           h3b03731_5            conda-forge
+gap-defaults                         4.14.0           ha770c72_5            conda-forge
+gast                                 0.6.0            pyhd8ed1ab_0          conda-forge
+gcc                                  15.1.0           hd165ed4_5            conda-forge
+gcc_impl_linux-64                    15.1.0           h4393ad2_5            conda-forge
+gf2x                                 1.3.0            h55551d5_3            conda-forge
+gfan                                 0.6.2            hb86e20a_1003         conda-forge
+gfortran_impl_linux-64               15.1.0           h3b9cdf2_5            conda-forge
+giac                                 1.9.0.21         hca478b9_3            conda-forge
+giflib                               5.2.2            hd590300_0            conda-forge
+givaro                               4.2.0            h49654ea_3            conda-forge
+glpk                                 5.0              h445213a_0            conda-forge
+gmp                                  6.3.0            hac33072_2            conda-forge
+gmpy2                                2.2.1            py312hcaba1f9_1       conda-forge
+graphite2                            1.3.14           hecca717_2            conda-forge
+gsl                                  2.7              he838d99_0            conda-forge
+gxx                                  15.1.0           h33e79ad_5            conda-forge
+gxx_impl_linux-64                    15.1.0           h6a1bac1_5            conda-forge
+h11                                  0.16.0           pyhd8ed1ab_0          conda-forge
+h2                                   4.3.0            pyhcf101f3_0          conda-forge
+harfbuzz                             11.4.5           h15599e2_0            conda-forge
+hpack                                4.1.0            pyhd8ed1ab_0          conda-forge
+httpcore                             1.0.9            pyh29332c3_0          conda-forge
+httpx                                0.28.1           pyhd8ed1ab_0          conda-forge
+hyperframe                           6.1.0            pyhd8ed1ab_0          conda-forge
+icu                                  75.1             he02047a_0            conda-forge
+idna                                 3.10             pyhd8ed1ab_1          conda-forge
+igraph                               0.10.17          hfe3e89f_1            conda-forge
+imagesize                            1.4.1            pyhd8ed1ab_0          conda-forge
+iml                                  1.0.5            h623f65a_1004         conda-forge
+immutabledict                        4.2.1            pypi_0                pypi
+importlib-metadata                   8.7.0            pyhe01879c_1          conda-forge
+ipykernel                            6.30.1           pyh82676e8_0          conda-forge
+ipython                              8.37.0           pyh8f84b5b_0          conda-forge
+ipywidgets                           8.1.7            pyhd8ed1ab_0          conda-forge
+isoduration                          20.11.0          pyhd8ed1ab_1          conda-forge
+jedi                                 0.19.2           pyhd8ed1ab_1          conda-forge
+jinja2                               3.1.6            pyhd8ed1ab_0          conda-forge
+jmol                                 14.32.10         ha770c72_0            conda-forge
+json5                                0.12.1           pyhd8ed1ab_0          conda-forge
+jsonpointer                          3.0.0            py312h7900ff3_2       conda-forge
+jsonschema                           4.25.1           pyhe01879c_0          conda-forge
+jsonschema-specifications            2025.9.1         pyhcf101f3_0          conda-forge
+jsonschema-with-format-nongpl        4.25.1           he01879c_0            conda-forge
+jupyter-lsp                          2.3.0            pyhcf101f3_0          conda-forge
+jupyter_client                       8.6.3            pyhd8ed1ab_1          conda-forge
+jupyter_core                         5.8.1            pyh31011fe_0          conda-forge
+jupyter_events                       0.12.0           pyh29332c3_0          conda-forge
+jupyter_server                       2.17.0           pyhcf101f3_0          conda-forge
+jupyter_server_terminals             0.5.3            pyhd8ed1ab_1          conda-forge
+jupyterlab                           4.4.7            pyhd8ed1ab_0          conda-forge
+jupyterlab_pygments                  0.3.0            pyhd8ed1ab_2          conda-forge
+jupyterlab_server                    2.27.3           pyhd8ed1ab_1          conda-forge
+jupyterlab_widgets                   3.0.15           pyhd8ed1ab_0          conda-forge
+kernel-headers_linux-64              5.14.0           he073ed8_2            conda-forge
+keyutils                             1.6.3            hb9d3cd8_0            conda-forge
+kiwisolver                           1.4.9            py312h0a2e395_1       conda-forge
+krb5                                 1.21.3           h659f571_0            conda-forge
+lark                                 1.3.0            pyhd8ed1ab_0          conda-forge
+lcalc                                2.1.1            h9cf73fc_0            conda-forge
+lcms2                                2.17             h717163a_0            conda-forge
+ld_impl_linux-64                     2.44             h1423503_1            conda-forge
+lerc                                 4.0.0            h0aef613_1            conda-forge
+libamd                               3.3.3            haaf9dc3_7100102      conda-forge
+libblas                              3.9.0            36_h4a7cf45_openblas  conda-forge
+libbraiding                          1.3.1            h5888daf_0            conda-forge
+libbrial                             1.2.14           hf69d4a9_0            conda-forge
+libbrotlicommon                      1.1.0            hb03c661_4            conda-forge
+libbrotlidec                         1.1.0            hb03c661_4            conda-forge
+libbrotlienc                         1.1.0            hb03c661_4            conda-forge
+libbtf                               2.3.2            h32481e8_7100102      conda-forge
+libcamd                              3.3.3            h32481e8_7100102      conda-forge
+libcblas                             3.9.0            36_h0358290_openblas  conda-forge
+libccolamd                           3.3.4            h32481e8_7100102      conda-forge
+libcholmod                           5.3.1            h59ddab4_7100102      conda-forge
+libcolamd                            3.3.4            h32481e8_7100102      conda-forge
+libcups                              2.3.3            hb8b1518_5            conda-forge
+libcurl                              8.14.1           h332b0f4_0            conda-forge
+libcxsparse                          4.4.1            h32481e8_7100102      conda-forge
+libdeflate                           1.24             h86f0d12_0            conda-forge
+libedit                              3.1.20250104     pl5321h7949ede_0      conda-forge
+libev                                4.33             hd590300_2            conda-forge
+libexpat                             2.7.1            hecca717_0            conda-forge
+libffi                               3.4.6            h2dba641_1            conda-forge
+libflint                             3.2.2            h754cb6e_0            conda-forge
+libfreetype                          2.14.1           ha770c72_0            conda-forge
+libfreetype6                         2.14.1           h73754d4_0            conda-forge
+libgcc                               15.1.0           h767d61c_5            conda-forge
+libgcc-devel_linux-64                15.1.0           h4c094af_105          conda-forge
+libgcc-ng                            15.1.0           h69a702a_5            conda-forge
+libgd                                2.3.3            h6f5c62b_11           conda-forge
+libgfortran                          15.1.0           h69a702a_5            conda-forge
+libgfortran-ng                       15.1.0           h69a702a_5            conda-forge
+libgfortran5                         15.1.0           hcea5267_5            conda-forge
+libglib                              2.84.3           hf39c6af_0            conda-forge
+libgomp                              15.1.0           h767d61c_5            conda-forge
+libhomfly                            1.02r6           hd590300_1            conda-forge
+libiconv                             1.18             h3b78370_2            conda-forge
+libjpeg-turbo                        3.1.0            hb9d3cd8_0            conda-forge
+libklu                               2.3.5            hf24d653_7100102      conda-forge
+liblapack                            3.9.0            36_h47877c9_openblas  conda-forge
+liblapacke                           3.9.0            36_h6ae95b6_openblas  conda-forge
+libldl                               3.3.2            h32481e8_7100102      conda-forge
+liblzma                              5.8.1            hb9d3cd8_2            conda-forge
+libnghttp2                           1.67.0           had1ee68_0            conda-forge
+libnsl                               2.0.1            hb9d3cd8_1            conda-forge
+libopenblas                          0.3.30           pthreads_h94d23a6_2   conda-forge
+libparu                              1.0.0            h17147ab_7100102      conda-forge
+libpng                               1.6.50           h421ea60_1            conda-forge
+librbio                              4.3.4            h32481e8_7100102      conda-forge
+libsanitizer                         15.1.0           h97b714f_5            conda-forge
+libsodium                            1.0.20           h4ab18f5_0            conda-forge
+libspex                              3.2.3            had10066_7100102      conda-forge
+libspqr                              4.3.4            h852d39f_7100102      conda-forge
+libsqlite                            3.50.4           h0c1763c_0            conda-forge
+libssh2                              1.11.1           hcf80075_0            conda-forge
+libstdcxx                            15.1.0           h8f9b012_5            conda-forge
+libstdcxx-devel_linux-64             15.1.0           h4c094af_105          conda-forge
+libstdcxx-ng                         15.1.0           h4852527_5            conda-forge
+libsuitesparseconfig                 7.10.1           h92d6892_7100102      conda-forge
+libtiff                              4.7.1            h8261f1e_0            conda-forge
+libumfpack                           6.3.5            heb53515_7100102      conda-forge
+libuuid                              2.41.2           he9a06e4_0            conda-forge
+libwebp-base                         1.6.0            hd42ef1d_0            conda-forge
+libxcb                               1.17.0           h8a09558_0            conda-forge
+libxcrypt                            4.4.36           hd590300_1            conda-forge
+libxml2                              2.15.0           h26afc86_1            conda-forge
+libxml2-16                           2.15.0           ha9997c6_1            conda-forge
+libxml2-devel                        2.15.0           h26afc86_1            conda-forge
+libzlib                              1.3.1            hb9d3cd8_2            conda-forge
+linbox                               1.7.1            he8fce6e_0            conda-forge
+lrcalc                               2.1              h5888daf_7            conda-forge
+m4ri                                 20250128         h36e74d4_0            conda-forge
+m4rie                                20250128         h36e74d4_0            conda-forge
+make                                 4.4.1            hb9d3cd8_2            conda-forge
+markupsafe                           3.0.2            py312h178313f_1       conda-forge
+matplotlib-base                      3.10.6           py312he3d6523_1       conda-forge
+matplotlib-inline                    0.1.7            pyhd8ed1ab_1          conda-forge
+maxima                               5.48.1           h0673e8f_0            conda-forge
+memory-allocator                     0.1.3            py312h66e93f0_1       conda-forge
+metis                                5.1.0            hd0bcaf9_1007         conda-forge
+mistune                              3.1.4            pyhcf101f3_0          conda-forge
+mpc                                  1.3.1            h24ddda3_1            conda-forge
+mpfi                                 1.5.4            h9f54685_1001         conda-forge
+mpfr                                 4.2.1            h90cbb55_3            conda-forge
+mpmath                               1.3.0            pyhd8ed1ab_1          conda-forge
+munkres                              1.1.4            pyhd8ed1ab_1          conda-forge
+nauty                                2.9.1            hb03c661_0            conda-forge
+nbclient                             0.8.0            pyhd8ed1ab_0          conda-forge
+nbconvert                            7.16.6           hb482800_0            conda-forge
+nbconvert-core                       7.16.6           pyh29332c3_0          conda-forge
+nbconvert-pandoc                     7.16.6           hed9df3c_0            conda-forge
+nbformat                             5.10.4           pyhd8ed1ab_1          conda-forge
+ncurses                              6.5              h2d0b736_3            conda-forge
+nest-asyncio                         1.6.0            pyhd8ed1ab_1          conda-forge
+networkx                             3.5              pyhe01879c_0          conda-forge
+notebook                             7.4.5            pyhd8ed1ab_0          conda-forge
+notebook-shim                        0.2.4            pyhd8ed1ab_1          conda-forge
+ntl                                  11.4.3           hef3c4d3_1            conda-forge
+numpy                                2.3.3            py312h33ff503_0       conda-forge
+openblas                             0.3.30           pthreads_h6ec200e_2   conda-forge
+openjdk                              24.0.2           h5755bd7_0            conda-forge
+openjpeg                             2.5.4            h55fea9a_0            conda-forge
+openssl                              3.5.3            h26f9b46_1            conda-forge
+ortools                              9.14.6206        pypi_0                pypi
+overrides                            7.7.0            pyhd8ed1ab_1          conda-forge
+packaging                            25.0             pyh29332c3_1          conda-forge
+palp                                 2.21             hb03c661_0            conda-forge
+pandas                               2.3.2            pypi_0                pypi
+pandoc                               3.8              ha770c72_0            conda-forge
+pandocfilters                        1.5.0            pyhd8ed1ab_0          conda-forge
+pango                                1.56.4           hadf4263_0            conda-forge
+pari                                 2.17.2           ha40142e_5_pthread    conda-forge
+pari-galdata                         0.0.20180411     0                     conda-forge
+pari-seadata-small                   0.0.20090618     0                     conda-forge
+parso                                0.8.5            pyhcf101f3_0          conda-forge
+pcre2                                10.45            hc749103_0            conda-forge
+perl                                 5.32.1           7_hd590300_perl5      conda-forge
+pexpect                              4.9.0            pyhd8ed1ab_1          conda-forge
+pickleshare                          0.7.5            pyhd8ed1ab_1004       conda-forge
+pillow                               11.3.0           py312h7b42cdd_3       conda-forge
+pip                                  25.2             pyh8b19718_0          conda-forge
+pixman                               0.46.4           h54a6638_1            conda-forge
+pkg-config                           0.29.2           h4bc722e_1009         conda-forge
+pkgconfig                            1.5.5            pyhd8ed1ab_5          conda-forge
+planarity                            4.0.0.0          hb03c661_0            conda-forge
+platformdirs                         4.4.0            pyhcf101f3_0          conda-forge
+ply                                  3.11             pyhd8ed1ab_3          conda-forge
+ppl                                  1.2              h6ec01c2_1006         conda-forge
+pplpy                                0.8.9            py312h7383a07_2       conda-forge
+primecount                           7.19             h530483c_0            conda-forge
+primecountpy                         0.1.1            py312hd9148b4_0       conda-forge
+primesieve                           12.8             h5888daf_0            conda-forge
+prometheus_client                    0.23.1           pyhd8ed1ab_0          conda-forge
+prompt-toolkit                       3.0.52           pyha770c72_0          conda-forge
+protobuf                             6.31.1           pypi_0                pypi
+psutil                               7.1.0            py312h4c3975b_0       conda-forge
+pthread-stubs                        0.4              hb9d3cd8_1002         conda-forge
+ptyprocess                           0.7.0            pyhd8ed1ab_1          conda-forge
+pure_eval                            0.2.3            pyhd8ed1ab_1          conda-forge
+pycparser                            2.22             pyh29332c3_1          conda-forge
+pygments                             2.19.2           pyhd8ed1ab_0          conda-forge
+pyparsing                            3.2.5            pyhcf101f3_0          conda-forge
+pysocks                              1.7.1            pyha55dd90_7          conda-forge
+python                               3.12.11          h9e4cc4f_0_cpython    conda-forge
+python-dateutil                      2.9.0.post0      pyhe01879c_2          conda-forge
+python-fastjsonschema                2.21.2           pyhe01879c_0          conda-forge
+python-gil                           3.12.11          hd8ed1ab_0            conda-forge
+python-json-logger                   2.0.7            pyhd8ed1ab_0          conda-forge
+python-lrcalc                        2.1              py312h2ec8cdc_7       conda-forge
+python_abi                           3.12             8_cp312               conda-forge
+pythran                              0.17.0           pyha804496_2          conda-forge
+pytz                                 2025.2           pyhd8ed1ab_0          conda-forge
+pyyaml                               6.0.2            py312h178313f_2       conda-forge
+pyzmq                                27.1.0           py312hfb55c3c_0       conda-forge
+qd                                   2.3.22           h2cc385e_1004         conda-forge
+qhull                                2020.2           h434a139_5            conda-forge
+r-base                               4.4.3            h85845a0_2            conda-forge
+readline                             8.2              h8c095d6_2            conda-forge
+referencing                          0.36.2           pyh29332c3_0          conda-forge
+requests                             2.32.5           pyhd8ed1ab_0          conda-forge
+rfc3339-validator                    0.1.4            pyhd8ed1ab_1          conda-forge
+rfc3986-validator                    0.1.1            pyh9f0ad1d_0          conda-forge
+rfc3987-syntax                       1.1.0            pyhe01879c_1          conda-forge
+roman-numerals-py                    3.1.0            pyhd8ed1ab_0          conda-forge
+rpds-py                              0.27.1           py312h868fb18_1       conda-forge
+rpy2                                 3.6.3            py312r44h5afe730_0    conda-forge
+rpy2-rinterface                      3.6.3            pypi_0                pypi
+rpy2-robjects                        3.6.2            pypi_0                pypi
+rubiks                               20070912         h58526e2_1001         conda-forge
+rw                                   0.9              hd590300_2            conda-forge
+sage                                 10.7             hd8ed1ab_0            conda-forge
+sagelib                              10.7             py312hc359987_1       conda-forge
+sagemath-db-combinatorial-designs    20140630         1                     conda-forge
+sagemath-db-elliptic-curves          0.8.1            hecc5488_0            conda-forge
+sagemath-db-graphs                   20210214         hd8ed1ab_0            conda-forge
+sagemath-db-polytopes                20170220         1                     conda-forge
+sagetex                              3.6.1            pyhd8ed1ab_1          conda-forge
+scipy                                1.16.2           py312h7a1785b_0       conda-forge
+sed                                  4.9              h6688a6e_0            conda-forge
+send2trash                           1.8.3            pyh0d859eb_1          conda-forge
+setuptools                           80.9.0           pyhff2d567_0          conda-forge
+singular                             4.4.1            h7ee4ccf_1            conda-forge
+six                                  1.17.0           pyhe01879c_1          conda-forge
+sniffio                              1.3.1            pyhd8ed1ab_1          conda-forge
+snowballstemmer                      3.0.1            pyhd8ed1ab_0          conda-forge
+soupsieve                            2.8              pyhd8ed1ab_0          conda-forge
+sphinx                               8.2.3            pyhd8ed1ab_0          conda-forge
+sphinxcontrib-applehelp              2.0.0            pyhd8ed1ab_1          conda-forge
+sphinxcontrib-devhelp                2.0.0            pyhd8ed1ab_1          conda-forge
+sphinxcontrib-htmlhelp               2.1.0            pyhd8ed1ab_1          conda-forge
+sphinxcontrib-jsmath                 1.0.1            pyhd8ed1ab_1          conda-forge
+sphinxcontrib-qthelp                 2.0.0            pyhd8ed1ab_1          conda-forge
+sphinxcontrib-serializinghtml        1.1.10           pyhd8ed1ab_1          conda-forge
+sqlite                               3.50.4           hbc0de68_0            conda-forge
+stack_data                           0.6.3            pyhd8ed1ab_1          conda-forge
+suitesparse                          7.10.1           ha0f6916_7100102      conda-forge
+symmetrica                           3.1.0            hb03c661_0            conda-forge
+sympow                               2.023.6          h3028977_4            conda-forge
+sympy                                1.14.0           pyh2585a3b_105        conda-forge
+sysroot_linux-64                     2.34             h087de78_2            conda-forge
+tachyon                              0.99b6           hba7d16a_1002         conda-forge
+terminado                            0.18.1           pyh0d859eb_0          conda-forge
+three.js                             122              hd8ed1ab_2            conda-forge
+threejs-sage                         122              hd8ed1ab_2            conda-forge
+tinycss2                             1.4.0            pyhd8ed1ab_0          conda-forge
+tk                                   8.6.13           noxft_hd72426e_102    conda-forge
+tktable                              2.10             h8d826fa_7            conda-forge
+tomli                                2.2.1            pyhe01879c_2          conda-forge
+tornado                              6.5.2            py312h4c3975b_1       conda-forge
+traitlets                            5.14.3           pyhd8ed1ab_1          conda-forge
+types-python-dateutil                2.9.0.20250822   pyhd8ed1ab_0          conda-forge
+typing-extensions                    4.15.0           h396c80c_0            conda-forge
+typing_extensions                    4.15.0           pyhcf101f3_0          conda-forge
+typing_utils                         0.1.0            pyhd8ed1ab_1          conda-forge
+tzdata                               2025.2           pypi_0                pypi
+tzlocal                              5.3.1            pyh8f84b5b_0          conda-forge
+unicodedata2                         16.0.0           py312h4c3975b_1       conda-forge
+uri-template                         1.3.0            pyhd8ed1ab_1          conda-forge
+urllib3                              2.5.0            pyhd8ed1ab_0          conda-forge
+wcwidth                              0.2.14           pyhd8ed1ab_0          conda-forge
+webcolors                            24.11.1          pyhd8ed1ab_0          conda-forge
+webencodings                         0.5.1            pyhd8ed1ab_3          conda-forge
+websocket-client                     1.8.0            pyhd8ed1ab_1          conda-forge
+wheel                                0.45.1           pyhd8ed1ab_1          conda-forge
+widgetsnbextension                   4.0.14           pyhd8ed1ab_0          conda-forge
+xorg-libice                          1.1.2            hb9d3cd8_0            conda-forge
+xorg-libsm                           1.2.6            he73a12e_0            conda-forge
+xorg-libx11                          1.8.12           h4f16b4b_0            conda-forge
+xorg-libxau                          1.0.12           hb9d3cd8_0            conda-forge
+xorg-libxdmcp                        1.1.5            hb9d3cd8_0            conda-forge
+xorg-libxext                         1.3.6            hb9d3cd8_0            conda-forge
+xorg-libxfixes                       6.0.1            hb9d3cd8_0            conda-forge
+xorg-libxi                           1.8.2            hb9d3cd8_0            conda-forge
+xorg-libxrandr                       1.5.4            hb9d3cd8_0            conda-forge
+xorg-libxrender                      0.9.12           hb9d3cd8_0            conda-forge
+xorg-libxt                           1.3.1            hb9d3cd8_0            conda-forge
+xorg-libxtst                         1.2.5            hb9d3cd8_3            conda-forge
+yaml                                 0.2.5            h280c20c_3            conda-forge
+zeromq                               4.3.5            h387f397_9            conda-forge
+zipp                                 3.23.0           pyhd8ed1ab_0          conda-forge
+zlib                                 1.3.1            hb9d3cd8_2            conda-forge
+zn_poly                              0.9.2            h9202a9a_0            conda-forge
+zstandard                            0.25.0           py312h5253ce2_0       conda-forge
+zstd                                 1.5.7            hb8e6e7a_2            conda-forge
+[1m[7m%[27m[1m[0m                                        ]2;wei@LAPTOPWEI:~/sagemath]1;~/sagemath]7;file://LAPTOPWEI/home/wei/sagemath\[0m[27m[24m[J(mysage) [01;32m➜  [36msagemath[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004ha[4ma[24m[4ma[24m[90mrch |[90m [90mgrep python[39m[K[A[23C[K[1B[K[A[34Cp[1m[31mp[0m[39m[1m[31mp[0m[39m[90mip li[90ms[90mt[39m[K[A[33C[1m[31mp[1m[31mi[0m[39m[1m[31mp[1m[31mi[1m[31mp[0m[39m[0m[32mp[0m[32mi[0m[32mp[39m[32mp[32m [39m[32mp[39m[39m [39mf[K[1B[K[A[39C[4mf[24m[90mr[90me[90meze > requirement.txt[39m[K[A[17C[4mf[39m[4mr[24m[90me[39m[A[38C[24mf[24mr[90me[39m[39mee[39me[39mz[39me[39m [39m>[33m>[39m[33m>[33m [39m[33m>[39m[39m [39mr[39me[39mq[39mu[39mi[39mr[39me[39mm[39me[39mn[39mt[39m.[39mt[39mx[39mt[15D[4mr[4me[4mq[4mu[4mi[4mr[4me[4mm[4me[4mn[4mt[4m.[4mt[4mx[4mt[24m[?1l>[?2004l
+]2;pip freeze > requirement.txt]1;pip[1m[7m%[27m[1m[0m                                        

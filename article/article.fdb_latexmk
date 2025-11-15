@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1763193589.35385 "article.xdv" "article.pdf" "article" 1763193589.7367 0
-  "article.xdv" 1763193589.27158 49724 49c65edc1d6e8ed55b68ffef866581c4 "xelatex"
+["xdvipdfmx"] 1763194409.59514 "article.xdv" "article.pdf" "article" 1763194409.93888 0
+  "article.xdv" 1763194409.5235 50624 12abd9ea1c2b8c63226df6d4c8b70bea "xelatex"
   (generated)
   "article.pdf"
   (rewritten before read)
-["xelatex"] 1763193587.84277 "article.tex" "article.xdv" "article" 1763193589.73488 0
+["xelatex"] 1763194408.2976 "article.tex" "article.xdv" "article" 1763194409.93721 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1755987285 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1755987285 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1755987285 1004 54797486969f23fa377b128694d548df ""
@@ -106,8 +106,8 @@
   "/usr/share/texmf-dist/tex/xelatex/xecjk/xeCJKfntef.sty" 1755987285 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1755987285 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1762927570 4767648 763ad127edea07e0832044e22cbe888b ""
-  "article.aux" 1763193589.26758 495 171944b538cc0019fd5b6e0e35db79cb "xelatex"
-  "article.tex" 1763193587.22358 14344 6d814ff6bd7cb4c742a86d6c3ace8c1d ""
+  "article.aux" 1763194409.5235 592 dd51cc3442fb01e3d32243e60e1161ee "xelatex"
+  "article.tex" 1763194406.1635 14520 a69de3039003bb482c8f0f1ea50ba3f3 ""
   (generated)
   "article.aux"
   "article.log"
