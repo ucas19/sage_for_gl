@@ -147,6 +147,38 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
     return P_mu_tensor_V_after_Pr
 
 
+def again_calc_for_ten(L_sp_so_next,P_after,which_mod,n,m):
+    lambda_sp_plus_so = L_sp_so_next[:]
+    sum_sp_plus_so = P_after[:]
+    lowest_module = Lowest_Module(n,m)
+
+    if which_mod ==1:
+        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
+    elif which_mod==2:
+        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S2V,n,m)
+    elif which_mod==3:
+        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
+    elif which_mod==4:
+        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
+    else:
+        print("---------输入有误---------")
+        
+
+    flag = 0
+    if is_tensor_V_true(lambda_sp_plus_so, P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
+        print(f"投射成立，lambda是极小权")
+        flag = 1
+    else:
+        print(f"*********注意!*********")
+        print(f"投射后不一定是最小权")
+        return None
+
+    return P_mu_tensor_V_after_Pr
+
+
+
+
+
 def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,which_mod):
 
     n = nn
@@ -172,7 +204,7 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
     sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
 
     lowest_module = Lowest_Module(n,m)
-    print(sum_sp_plus_so)
+    print(f"sum_sp_plus_so: {len(sum_sp_plus_so)}")
     if which_mod ==1:
         P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
     elif which_mod==2:
@@ -180,10 +212,14 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
     elif which_mod==3:
         P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
     elif which_mod==4:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
+        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
     else:
         print("--------输入错误----------")
     flag = 0
+
+    print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
+    print(f"P_mu_tensor_V_after_Pr: {len(P_mu_tensor_V_after_Pr)}")
+
     if is_tensor_V_true(at_lambda_sp_plus_so, P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
         print(f"投射成立，lambda{at_lambda_sp_plus_so}是极小权")
         flag=1
@@ -337,7 +373,7 @@ def find_path_vector( lam, n, m , which_mod):
 
 def deal_with_typi_ten(again_lam, P_weights, which_mod , n, m ):
 
-        P_mu_tensor_V_after_Pr = again_calc(again_lam, P_weights, which_mod,n,m)
+        P_mu_tensor_V_after_Pr = again_calc_for_ten(again_lam, P_weights, which_mod,n,m)
 
         if P_mu_tensor_V_after_Pr is None:
             print(f"不是极小权，结束循环")
@@ -606,7 +642,7 @@ if __name__ == "__main__":
                 
             P_mu_tensor_V_after_Pr = read_vectors_from_file("test//"+user_input+".txt")
             
-            user_input_W = input("请输入模1，2，3:  ")# 将输入转换为有理数列表并创建向量
+            user_input_W = input("请输入模1，2，3，4:  ")# 将输入转换为有理数列表并创建向量
 
             which_mod = int(user_input_W)
             if which_mod ==1:
@@ -618,6 +654,7 @@ if __name__ == "__main__":
             elif which_mod==3:
                 print("使用模:g")# 将输入转换为有理数列表并创建向量
                 P_tensor_V_show(P_mu_tensor_V_after_Pr,3,n,m)
+            elif which_mod==4:
                 print("使用模:S3V")# 将输入转换为有理数列表并创建向量
                 P_tensor_V_show(P_mu_tensor_V_after_Pr,4,n,m)
 

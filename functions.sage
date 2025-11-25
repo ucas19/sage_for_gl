@@ -219,7 +219,7 @@ def P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,V,n,m):
     print("P_mu_tensor_V如下:")
     P_mu_tensor_V_befor_Pr = []
     P_mu_tensor_V_after_Pr = []
-    calc_sum = 1
+    calc_sum = 0
     for v in sum_sp_plus_so:
         for w in V:
             P_mu_tensor_V_befor_Pr.append(v+w)
@@ -292,18 +292,21 @@ def selete_block(P_mu_tensor_V_befor_Pr,n,m):
 def P_tensor_V_show(sum_sp_plus_so,which_mod,n,m):
     
     lowest_module = Lowest_Module(n,m)
+    V = []
     if which_mod ==1:
         V = lowest_module.V
     elif which_mod ==2:
         V = lowest_module.S2V
     elif which_mod ==3:
         V = lowest_module.g
+    elif which_mod ==4:
+        V = lowest_module.S3V
     else:
         print("输入有误")
 
     print("P_mu_tensor_V如下:")
     P_mu_tensor_V_befor_Pr = []
-    calc_sum = 1
+    calc_sum = 0
     for v in sum_sp_plus_so:
         for w in V:
             P_mu_tensor_V_befor_Pr.append(v+w)
