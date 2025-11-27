@@ -454,6 +454,10 @@ if __name__ == "__main__":
         if select_case==_sage_const_0 :
             lowest_module = Lowest_Module(n,m)
             print(f"测试:{len(lowest_module.S3V)}")
+            print(f"测试:{len(lowest_module.S3VV)}")
+            print(f"测试:{len(lowest_module.W3V)}")
+            tem = vectors_set_min(lowest_module.S3VV,lowest_module.S3V)
+            print(tem)
             
 
 

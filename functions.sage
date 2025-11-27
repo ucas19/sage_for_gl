@@ -301,6 +301,8 @@ def P_tensor_V_show(sum_sp_plus_so,which_mod,n,m):
         V = lowest_module.g
     elif which_mod ==4:
         V = lowest_module.S3V
+    elif which_mod ==5:
+        V = lowest_module.W3V
     else:
         print("输入有误")
 

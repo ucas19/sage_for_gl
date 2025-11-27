@@ -75,6 +75,103 @@ def check_arrays(A, B, n, m):
         return True
     return False
 
+def sym_3( n, m):
+
+    V_0 = []
+    V_1 = []
+    result = []
+    v = zero_vector(QQ, n+m)
+    V_0.append(v[:])
+    for i in range(m):
+        v = zero_vector(QQ, n+m)
+        v[n+i] = 1
+        V_0.append(v[:])
+        v[n+i] = -1
+        V_0.append(v[:])
+
+    for i in range(n):
+        v = zero_vector(QQ, n+m)
+        v[i] = 1
+        V_1.append(v[:])
+        v[i] = -1
+        V_1.append(v[:])
+    
+    for i in range(len(V_1)):
+        for j in range(i+1,len(V_1)):
+            for k in range(j+1,len(V_1)):
+                tem = V_1[i]+V_1[j]+V_1[k]
+                result.append(tem[:])
+
+    for i in range(len(V_1)):
+        for j in range(i+1,len(V_1)):
+            for k in range(len(V_0)):
+                tem = V_1[i]+V_1[j]+V_0[k]
+                result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i,len(V_0)):
+            for k in range(len(V_1)):
+                tem = V_0[i]+V_0[j]+V_1[k]
+                result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i,len(V_0)):
+            for k in range(j,len(V_0)):
+                tem = V_0[i]+V_0[j]+V_0[k]
+                result.append(tem[:])
+    return result
+
+def wedge_3( n, m):
+
+    V_0 = []
+    V_1 = []
+    result = []
+    v = zero_vector(QQ, n+m)
+    V_0.append(v[:])
+    for i in range(m):
+        v = zero_vector(QQ, n+m)
+        v[n+i] = 1
+        V_0.append(v[:])
+        v[n+i] = -1
+        V_0.append(v[:])
+
+    for i in range(n):
+        v = zero_vector(QQ, n+m)
+        v[i] = 1
+        V_1.append(v[:])
+        v[i] = -1
+        V_1.append(v[:])
+    
+    for i in range(len(V_0)):
+        for j in range(i+1,len(V_0)):
+            for k in range(j+1,len(V_0)):
+                tem = V_0[i]+V_0[j]+V_0[k]
+                result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i+1,len(V_0)):
+            for k in range(len(V_1)):
+                tem = V_0[i]+V_0[j]+V_1[k]
+                result.append(tem[:])
+
+
+    for i in range(len(V_1)):
+        for j in range(i,len(V_1)):
+            for k in range(len(V_0)):
+                tem = V_1[i]+V_1[j]+V_0[k]
+                result.append(tem[:])
+
+    for i in range(len(V_1)):
+        for j in range(i,len(V_1)):
+            for k in range(j,len(V_1)):
+                tem = V_1[i]+V_1[j]+V_1[k]
+                result.append(tem[:])
+    return result
+
+
+
+
+
 class Lowest_Module:
     
     def __init__(self, n, m):
@@ -82,6 +179,8 @@ class Lowest_Module:
         self.S2V = []
         self.g = []
         self.S3V = []
+        self.W3V = wedge_3(n,m)
+        self.S3VV = sym_3(n,m)
         self.basis_plus = []
         
         for i in range(n+m-1):
@@ -340,3 +439,5 @@ class Lowest_Module:
 
 
 
+
+        
