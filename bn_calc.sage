@@ -295,28 +295,27 @@ def find_path_vector( lam, n, m , which_mod):
 
 
     anti_repeat_vectors_hash = []
-    if which_mod ==1:
-        for w_sp in W_sp.W:
-            for w_so in W_so.W:
-                lam_sp_after = w_sp.to_matrix() * lam_sp
-                lam_so_after = w_so.to_matrix() * lam_so
-                sp_plus_so = vector(QQ, list(lam_sp_after)+list(lam_so_after))
-                for v in lowest_module_V:
-                    at_lambda_sp_plus_so = v + sp_plus_so
-                    at_lambda_sp_plus_so_hash = tuple(at_lambda_sp_plus_so) 
-                    if at_lambda_sp_plus_so_hash in anti_repeat_vectors_hash:
-                        continue
-                    anti_repeat_vectors_hash.append(at_lambda_sp_plus_so_hash)
+    for w_sp in W_sp.W:
+        for w_so in W_so.W:
+            lam_sp_after = w_sp.to_matrix() * lam_sp
+            lam_so_after = w_so.to_matrix() * lam_so
+            sp_plus_so = vector(QQ, list(lam_sp_after)+list(lam_so_after))
+            for v in lowest_module_V:
+                at_lambda_sp_plus_so = v + sp_plus_so
+                at_lambda_sp_plus_so_hash = tuple(at_lambda_sp_plus_so) 
+                if at_lambda_sp_plus_so_hash in anti_repeat_vectors_hash:
+                    continue
+                anti_repeat_vectors_hash.append(at_lambda_sp_plus_so_hash)
 
     
-                    lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
-                    P_vectors = []
-                    for result_ju in lambda_judge:
-                        P_vectors.append(result_ju.result)
+                lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
+                P_vectors = []
+                for result_ju in lambda_judge:
+                    P_vectors.append(result_ju.result)
     
-                    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V_not_show(lam, P_vectors,lowest_module_V,n,m)
-                    if is_tensor_V_true_not_show(lam,P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
-                        results_V.append(at_lambda_sp_plus_so)
+                P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V_not_show(lam, P_vectors,lowest_module_V,n,m)
+                if is_tensor_V_true_not_show(lam,P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
+                    results_V.append(at_lambda_sp_plus_so)
     return results_V
     """
 
