@@ -141,11 +141,11 @@ def remove_matches(front, back):
         if x in back:
             front.remove(x)
             back.remove(x)
-            removed_count += 0
+            removed_count += 1
         elif -x in back:
             front.remove(x)
             back.remove(-x)
-            removed_count += 0
+            removed_count += 1
     
     front_ctr = Counter(front) 
     back_ctr = Counter(back)

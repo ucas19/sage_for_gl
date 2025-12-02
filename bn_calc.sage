@@ -1,4 +1,5 @@
 
+from os import remove
 from typing import Counter
 #from functions import show_steps
 #from functions import is_tensor_V_true
@@ -21,6 +22,15 @@ def contains_with_counts(A, B):
     count_A = Counter(immutable_vecs_A)
     count_B = Counter(immutable_vecs_B)
     return all(count_A[x] >= count_B[x] for x in count_B)
+
+
+def add_store(lowest_weight,weight_set):
+
+    print(f"即将储存特征标:{lowest_weight}")
+    try:
+        store.add_group(lowest_weight, weight_set)
+    except ValueError as e:
+        print(e)  # Key vector ... already exists
 
 
 
@@ -145,13 +155,28 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
 
     lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,20)
     if flag == 1:
-#        lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,8)
+#        lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,8)       
+        check_counts = 0
         immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
         P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
         for v,k in P_mu_tensor_V_after_Pr_dic.items():
             v_hash = tuple(v)
             if v_hash not in lambda_judge_hash:
                 print(f"{v}不能判断是否在里面")
+            else:
+                check_counts = check_counts+1
+#                print(f"{v}在里面")
+#                show_steps(v,lambda_judge)
+        if not check_counts == len(lambda_judge_hash):
+            print("***********************")
+            print("数据有问题, 本次计算作废!!!")
+            print("***********************")
+            flag = 0
+
+        else:
+            print("\n")
+            print("-----计算kl折叠:------")
+            show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
 #            else:
 #                print(f"{v}在里面")
 #                show_steps(v,lambda_judge)
@@ -164,6 +189,13 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
     for result_ju in lambda_judge:
         print(f"{calc_sum}: {result_ju.result}")
         calc_sum +=1
+
+    if flag ==1:
+
+        is_store = input(f"是否储存本次特征标计算结果？")
+        if is_store == "yes":
+            add_store(lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+
     return P_mu_tensor_V_after_Pr
 
 
@@ -254,25 +286,38 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
     lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,20)
     if flag == 1:
 #        lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
-
+        check_counts = 0
         immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
         P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
         for v,k in P_mu_tensor_V_after_Pr_dic.items():
             v_hash = tuple(v)
             if v_hash not in lambda_judge_hash:
                 print(f"{v}不能判断是否在里面")
-#            else:
+            else:
+                check_counts = check_counts+1
 #                print(f"{v}在里面")
 #                show_steps(v,lambda_judge)
-        print("\n")
-        print("-----计算kl折叠:------")
-        show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
+        if not check_counts == len(lambda_judge_hash):
+            print("***********************")
+            print("数据有问题, 本次计算作废!!!")
+            print("***********************")
+            flag = 0
+
+        else:
+            print("\n")
+            print("-----计算kl折叠:------")
+            show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
 
     calc_sum = 1
     print("直接计算得到的在不在里面:")
     for result_ju in lambda_judge:
         print(f"{calc_sum}: {result_ju.result}")
         calc_sum +=1
+
+    if flag == 1:
+        is_store = input(f"是否储存本次特征标计算结果？")
+        if is_store == "yes":
+            add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
 
 
 
@@ -439,7 +484,6 @@ def deal_with_typi_ten(again_lam, P_weights, which_mod , n, m ):
 
 
 
-
 if __name__ == "__main__":
 
     lambda_sp = vector(QQ,[3/2, 3/2])
@@ -509,10 +553,13 @@ if __name__ == "__main__":
             if sub_select_case == 4:
                 store.list_keys()
 
-
             elif sub_select_case == 3:
 
                 user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
+                if user_input=='':
+                    print("返回操作")
+                    continue
+
                 with open('test//'+user_input+'.txt', 'r') as f:
                     lines = f.readlines()
 
@@ -522,6 +569,9 @@ if __name__ == "__main__":
 
             elif sub_select_case == 2 :
                 user_input = input("请输入权集合set所在文档的名字:")# 将输入转换为有理数列表并创建向量
+                if user_input=='':
+                    print("返回操作")
+                    continue
                 weight_set = read_vectors_from_file("test//"+user_input+".txt")
                 lowest_module = Lowest_Module(n,m)
                 lowest_weight = which_one_lowest(weight_set,lowest_module.basis_plus)
@@ -543,7 +593,12 @@ if __name__ == "__main__":
                 rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
                 key1 = vector(QQ,rat_list)          
                 
+                if not store.exists(key1):
+                    print(f"还未储存向量:{key1}")
+                    continue
+
                 retrieved = store.get_group(key1)
+                print(f"向量: {key1}")
                 print(retrieved)  # [ (1, 0), (0, 1, 1/2) ]
 
 
@@ -646,6 +701,13 @@ if __name__ == "__main__":
             typical_lambda_sp_plus_so = vector(QQ, rat_list)          
             
             print(f"要计算的tipycal有理数向量lambda(用逗号,分隔):{typical_lambda_sp_plus_so}")# 将输入转换为有理数列表并创建向量
+            front = typical_lambda_sp_plus_so[:n] 
+            back =  typical_lambda_sp_plus_so[n:]
+            front_a, back_a, front_ctr, back_ctr, removed_count   =  remove_matches(front.list(),back.list())
+#            print(f"---------{removed_count}")
+            if not removed_count == 0:
+                print(f"请检查, 并非typical向量:{typical_lambda_sp_plus_so}")
+                continue
 
             which_mod = int(lines[2])
             if which_mod ==1:
@@ -674,29 +736,74 @@ if __name__ == "__main__":
                 typical_lambda_so = typical_lambda_sp_plus_so[-m:]
                 test_K_L(n,m,typical_lambda_sp,typical_lambda_so)
         elif select_case==3:
-            user_input = input("请输入P所在文档的名字:")# 将输入转换为有理数列表并创建向量
                 
-            P_mu_tensor_V_after_Pr = read_vectors_from_file("test//"+user_input+".txt")
-            
-            user_input = input("请输入要投射的块lambda所在文档名字:")# 将输入转换为有理数列表并创建向量
-            with open('test//'+user_input+'.txt', 'r') as f:
-                lines = f.readlines()
-            rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
-            again_lam = vector(QQ,rat_list)          
-            print(f"要投射的块是{again_lam}")
+            print("1.文件取用")
+            print("2.数据库取用")
+            while True:
+                try:
+                    sub_select_case = int(input("你的选择是: "))
+                    break  # 如果成功转换为整数，跳出循环
+                except ValueError:
+                    print("输入无效，请输入一个整数。")
+            if sub_select_case == 2:
+                user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
+                with open('test//'+user_input+'.txt', 'r') as f:
+                    lines = f.readlines()
 
-            which_mod = int(lines[1])
-            if which_mod ==1:
-                print("使用模:V")# 将输入转换为有理数列表并创建向量
-            elif which_mod==2:
-                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
-            elif which_mod==3:
-                print("使用模:g")# 将输入转换为有理数列表并创建向量
-            elif which_mod==4:
-                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
-            elif which_mod==5:
-                print("使用模:W3V")# 将输入转换为有理数列表并创建向量
-            P_mu_tensor_V_after_Pr = again_calc(again_lam,P_mu_tensor_V_after_Pr,which_mod,n,m)
+                rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
+                atypical_lambda_sp_plus_so = vector(QQ,rat_list)          
+                print(f"要计算的atipycal有理数向量lambda(用逗号,分隔):{atypical_lambda_sp_plus_so}")# 将输入转换为有理数列表并创建向量
+
+
+                rat_list = [QQ(x.strip()) for x in lines[1].split(',')]
+                typical_lambda_sp_plus_so = vector(QQ, rat_list)          
+                print(f"使用的数据库中有理数向量lambda(用逗号,分隔):{typical_lambda_sp_plus_so}")# 将输入转换为有理数列表并创建向量
+                
+
+                if not store.exists(typical_lambda_sp_plus_so) :
+                    print("数据库中不存在这个特征标")
+                    continue
+
+                P_mu_tensor_V_after_Pr = store.get_group(typical_lambda_sp_plus_so)
+
+                which_mod = int(lines[2])
+                if which_mod ==1:
+                    print("使用模:V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==2:
+                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==3:
+                    print("使用模:g")# 将输入转换为有理数列表并创建向量
+                elif which_mod==4:
+                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==5:
+                    print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+
+                P_mu_tensor_V_after_Pr = again_calc(atypical_lambda_sp_plus_so,P_mu_tensor_V_after_Pr,which_mod,n,m)
+            elif sub_select_case ==1:
+
+                user_input = input("请输入P所在文档的名字:")# 将输入转换为有理数列表并创建向量
+                    
+                P_mu_tensor_V_after_Pr = read_vectors_from_file("test//"+user_input+".txt")
+                
+                user_input = input("请输入要投射的块lambda所在文档名字:")# 将输入转换为有理数列表并创建向量
+                with open('test//'+user_input+'.txt', 'r') as f:
+                    lines = f.readlines()
+                rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
+                again_lam = vector(QQ,rat_list)          
+                print(f"要投射的块是{again_lam}")
+
+                which_mod = int(lines[1])
+                if which_mod ==1:
+                    print("使用模:V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==2:
+                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==3:
+                    print("使用模:g")# 将输入转换为有理数列表并创建向量
+                elif which_mod==4:
+                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==5:
+                    print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+                P_mu_tensor_V_after_Pr = again_calc(again_lam,P_mu_tensor_V_after_Pr,which_mod,n,m)
         elif select_case==4:
             user_input = input("请输入权集合set所在文档的名字:")# 将输入转换为有理数列表并创建向量
             weight_set = read_vectors_from_file("test//"+user_input+".txt")
@@ -705,6 +812,11 @@ if __name__ == "__main__":
             print(f"2:仅计算最小权")
             user_input = input("我的选择:")# 将输入转换为有理数列表并创建向量
             if user_input == '' or user_input =='2':
+                lowest_weight = which_one_lowest(weight_set,lowest_module.basis_plus)
+                print(f"极小权有{cases}: ")
+                for v in lowest_weight:
+                    print(f" {v} ")
+                print("---------------------")
                 continue
             cases = 1
 
