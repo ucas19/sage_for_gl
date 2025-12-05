@@ -19,6 +19,7 @@ from sage_integer_com import is_nonnegative_integer_combination_sage
 #from functions import *
 from Mu_with_message import *
 from functions_file import read_rational_vectors, read_vectors_from_file
+from datetime import datetime
 load("functions.sage")
 def contains_with_counts(A, B):
 
@@ -29,19 +30,40 @@ def contains_with_counts(A, B):
     return all(count_A[x] >= count_B[x] for x in count_B)
 
 
+def remove_matches_vec(typical_lambda_sp_plus_so,n,m):
+    front = typical_lambda_sp_plus_so[:n] 
+    back =  typical_lambda_sp_plus_so[n:]
+    front_a, back_a, front_ctr, back_ctr, removed_count   =  remove_matches(front.list(),back.list())
+    return removed_count
+
 def add_store(lowest_weight,weight_set):
 
     print(f"即将储存特征标:{lowest_weight}")
     if store.exists(lowest_weight):
         items = store.get_group(lowest_weight)
         if not ( contains_with_counts(items,weight_set) and contains_with_counts(weight_set,items) ):
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            with open('a.txt', 'a', encoding='utf-8') as f:
+                f.write("\n")
+                f.write(f"-- {current_time} --警告,数据有问题")
+                f.write("\n")
+                f.write("\n")
             print(f"警告,数据有问题")
             print(f"警告,数据有问题")
             print(f"警告,数据有问题")
             print(f"警告,数据有问题")
             print(f"警告,数据有问题")
+
     try:
         store.add_group(lowest_weight, weight_set)
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open('a.txt', 'a', encoding='utf-8') as f:
+            f.write("\n")
+            f.write(f"-- {current_time} --写入特征标:{lowest_weight}")
+            f.write(f"\n")
+            f.write(f"{weight_set}")
+            f.write(f"\n")
+            f.write(f"\n")
     except ValueError as e:
         print(e)  # Key vector ... already exists
 
@@ -56,6 +78,8 @@ def pre_treatment_wheather_in_P(P_mu_tensor_V_after_Pr,n,m):
     count = _sage_const_1 
     countss = _sage_const_0 
     in_consider_weight = []
+    print(f"处理总数={user_sum}")
+    zhengli(P_mu_tensor_V_after_Pr)
 
     immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
     P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
@@ -64,13 +88,20 @@ def pre_treatment_wheather_in_P(P_mu_tensor_V_after_Pr,n,m):
         if store.exists(lambda_sp_plus_so):
             contains_lam_judge = []
             contains_lam_judge = store.get_group(lambda_sp_plus_so)
-
+            print(" ")
+            print(f"{count}: {lambda_sp_plus_so} 数量:{len(contains_lam_judge)}")
+            print("--------------------")
+            print(" ")
+            count +=_sage_const_1 
             if contains_with_counts(P_mu_tensor_V_after_Pr,contains_lam_judge):
                 countss = countss+_sage_const_1 
-                count +=_sage_const_1 
                 in_consider_weight.append(lambda_sp_plus_so)
-                print("上面这个权可以要单独考虑")
-                continue
+                print("在数据库找到了, 上面这个权可以要单独考虑")
+                print("***********************")
+            else:
+                print("这个权不用考虑了。因为剩下的不能把这些直接计算的权包含进去")
+            print("***********************")
+            continue
 
 
         lambda_judge_hash, lambda_judge = judge_mu_in_P(lambda_sp_plus_so,n,m,_sage_const_20 )
@@ -250,13 +281,18 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
         check_counts = _sage_const_0 
         immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
         P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
+
+        at_lambda_sp_plus_so_imm = vector(lambda_sp_plus_so, immutable=True)
+        k_step = P_mu_tensor_V_after_Pr_dic[at_lambda_sp_plus_so_imm]
+
         for v,k in P_mu_tensor_V_after_Pr_dic.items():
             v_hash = tuple(v)
             if v_hash not in lambda_judge_hash:
                 print(f"{v}不能判断是否在里面,数量: {k}")
             else:
                 check_counts = check_counts+_sage_const_1 
-                cant_judge.remove(v)
+                for i in range(k_step):
+                    cant_judge.remove(v)
 #                print(f"{v}在里面")
 #                show_steps(v,lambda_judge)
         if not check_counts == len(lambda_judge_hash):
@@ -462,21 +498,21 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
             back = groups[_sage_const_0 ][n:]
             front, back,front_ctr,back_ctr,removed_count = remove_matches(front.list(),back.list())
             #补充，这里可以选用递归计算，时间太久
-            """
-            if not removed_count == 0:
+            if not removed_count == _sage_const_0 :
+                continue
                 immutable_vecs = [vector(v, immutable=True) for v in groups]
                 groups_dic = Counter(immutable_vecs)
 
                 print(f"which_mod: {which_mod}")
-                if which_mod ==1:
+                if which_mod ==_sage_const_1 :
                     print("使用模:V")# 将输入转换为有理数列表并创建向量
-                elif which_mod==2:
+                elif which_mod==_sage_const_2 :
                     print("使用模:S2V")# 将输入转换为有理数列表并创建向量
-                elif which_mod==3:
+                elif which_mod==_sage_const_3 :
                     print("使用模:g")# 将输入转换为有理数列表并创建向量
-                elif which_mod==4:
+                elif which_mod==_sage_const_4 :
                     print("使用模:S3V")# 将输入转换为有理数列表并创建向量
-                elif which_mod==5:
+                elif which_mod==_sage_const_5 :
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
                 
                 results_ten = []
@@ -485,7 +521,6 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
                     if flag_2:
                         results_ten.append(vec)
 
-            """ 
 
             if removed_count == _sage_const_0 :
                 immutable_vecs = [vector(v, immutable=True) for v in groups]
@@ -861,10 +896,14 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
 
     if store.exists(at_lambda_sp_plus_so):
         print("已经存在")
+        zhengli(store.get_group(at_lambda_sp_plus_so))
         return _sage_const_1 
 
+    if not remove_matches_vec(at_lambda_sp_plus_so,n,m):
+        print(f"{at_lambda_sp_plus_so}是typical的向量,结束！")
+        return _sage_const_0 
     #补充，循环层数
-    if sheaf == _sage_const_5 :
+    if sheaf == _sage_const_3 :
         return _sage_const_0 
     sheaf = sheaf+_sage_const_1 
 
@@ -951,7 +990,7 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
                     """
                     补充，这里可以拓展验证时使用的模
                     """
-                    for i in range(_sage_const_1 ): 
+                    for i in range(_sage_const_3 ): 
                         which_mod_now = i+_sage_const_1 
                         flag_3 = circle_calc(P_mu_tensor_V_after_Pr,in_consider_weight,which_mod_now,n,m,sheaf)
                         if flag_3:
@@ -987,7 +1026,7 @@ if __name__ == "__main__":
     
     n=_sage_const_2  
     m=_sage_const_2 
-    store = SageVectorGroupStore('test_db.db')
+    store = SageVectorGroupStore('my_vectors.db')
     store_path = SageVectorGroupStore('path_test_db.db')
     while True:
         print("*******开始计算***********************************")
@@ -1001,7 +1040,7 @@ if __name__ == "__main__":
         print("6,直接计算typical权")
         print("7,计算P_tensor_W,但是不投射,找到极小权")
         print("8,整理权集")
-        print("9,批量直接计算atypical权集的特征标")
+        print("9,批量初步判断那些需要那些多余的atypical权集")
         print("10,慎用,一条龙计算,出发点是一个front文件, 一个behind文件, 一个lam文件")
         print("11,慎用,暴力寻解,计算速度极慢.计算可能能用来计算的权")
         print("12,文件中的向量转化成latex代码")
@@ -1054,7 +1093,10 @@ if __name__ == "__main__":
             print("注意计算开始:")
 
             for v in weight_set:
-                auto_calc_long_time(v,n,m)
+                if flag == auto_calc_long_time(v,n,m):
+                    print("计算成功!")
+                    zhengli(store.get_group(v))
+
 
         if select_case==_sage_const_13 :
 
@@ -1085,7 +1127,10 @@ if __name__ == "__main__":
 
                 rat_list = [QQ(x.strip()) for x in lines[_sage_const_0 ].split(',')]
                 key1 = vector(QQ,rat_list)          
+                print(f"即将删除: {rat_list}")
                 store.remove_group(key1)
+                print(f"删除成功: {rat_list}")
+
 
             elif sub_select_case == _sage_const_2  :
                 user_input = input("请输入权集合set所在文档的名字:")# 将输入转换为有理数列表并创建向量
@@ -1120,6 +1165,7 @@ if __name__ == "__main__":
                 retrieved = store.get_group(key1)
                 print(f"向量: {key1}")
                 print(retrieved)  # [ (1, 0), (0, 1, 1/2) ]
+                zhengli(retrieved)
 
 
         if select_case==_sage_const_12 :
@@ -1501,7 +1547,12 @@ if __name__ == "__main__":
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
 
             results_ten = []
-            for lam in lam_s:
+            lam_s_imm = [vector(v, immutable=True) for v in lam_s]
+            lam_s_imm_dict = Counter(lam_s_imm)
+            for lam, kk in lam_s_imm_dict.items():
+                if not remove_matches_vec(lam,n,m)==_sage_const_0 :
+                    continue
+
                 flag = deal_with_typi_ten(lam,P_weights,which_mod,n,m)
                 if flag:
                     results_ten.append(lam)
