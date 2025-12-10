@@ -31,11 +31,11 @@ def remove_matches_vec(typical_lambda_sp_plus_so,n,m):
     front_a, back_a, front_ctr, back_ctr, removed_count   =  remove_matches(front.list(),back.list())
     return removed_count
 
-def add_store(lowest_weight,weight_set):
+def add_store(store_gl,lowest_weight,weight_set):
 
     print(f"即将储存特征标:{lowest_weight}")
-    if store.exists(lowest_weight):
-        items = store.get_group(lowest_weight)
+    if store_gl.exists(lowest_weight):
+        items = store_gl.get_group(lowest_weight)
         if not ( contains_with_counts(items,weight_set) and contains_with_counts(weight_set,items) ):
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             with open('a.txt', 'a', encoding='utf-8') as f:
@@ -50,7 +50,7 @@ def add_store(lowest_weight,weight_set):
             print(f"警告,数据有问题")
 
     try:
-        store.add_group(lowest_weight, weight_set)
+        store_gl.add_group(lowest_weight, weight_set)
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with open('a.txt', 'a', encoding='utf-8') as f:
             f.write("\n")
@@ -64,7 +64,7 @@ def add_store(lowest_weight,weight_set):
 
 
 
-def pre_treatment_wheather_in_P(P_mu_tensor_V_after_Pr,n,m):
+def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m):
     print("")
     print(f"pre_treatment_wheather_in_P()")
     print("")
@@ -80,9 +80,9 @@ def pre_treatment_wheather_in_P(P_mu_tensor_V_after_Pr,n,m):
     P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
 #    for v,k in P_mu_tensor_V_after_Pr_dic.items():
     for lambda_sp_plus_so, k in P_mu_tensor_V_after_Pr_dic.items():
-        if store.exists(lambda_sp_plus_so):
+        if store_gl.exists(lambda_sp_plus_so):
             contains_lam_judge = []
-            contains_lam_judge = store.get_group(lambda_sp_plus_so)
+            contains_lam_judge = store_gl.get_group(lambda_sp_plus_so)
             print(" ")
             print(f"{count}: {lambda_sp_plus_so} 数量:{len(contains_lam_judge)}")
             print("--------------------")
@@ -174,10 +174,10 @@ def test_K_L(nn,mm,L_sp,L_so,flag=0):
     print(f"mu是: {vector(QQ,list(lambda_sp)+list(lambda_so))}")
     
     w_sp, lambda_sp_next= calc_w_mu(W_sp,lambda_sp)
-    w_so, lambda_so_next= calc_w_mu(W_so,lambda_so)
+    w_so, lambda_so_next= calc_w_mu(W_so,-lambda_so)
     print(f"前下标weyl元是w_sp = {w_sp}")
     print(f"后下标weyl元是w_so = {w_so}")
-    print(f"下标:{list(lambda_sp_next)+list(lambda_so_next)}")
+    print(f"下标:{list(lambda_sp_next)+list(-lambda_so_next)}")
     
     if flag == 0:
         sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose_no_kl(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
@@ -212,7 +212,7 @@ def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
         W_sp = Weyl_Group_Bn(n)
         W_so = Weyl_Group_Bn(m)
         w_sp, lambda_sp_next= calc_w_mu(W_sp,lambda_sp)
-        w_so, lambda_so_next= calc_w_mu(W_so,lambda_so)
+        w_so, lambda_so_next= calc_w_mu(W_so,-lambda_so)
         sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose_no_kl(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
 
         flag =1
@@ -241,23 +241,12 @@ def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
 
 
 
-def again_calc(L_sp_so_next,P_after,which_mod,n,m):
+def again_calc(store_gl,L_sp_so_next,P_after,which_mod,n,m):
     lambda_sp_plus_so = L_sp_so_next[:]
     sum_sp_plus_so = P_after[:]
     lowest_module = Lowest_Module(n,m)
 
-    if which_mod ==1:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
-    elif which_mod==2:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S2V,n,m)
-    elif which_mod==3:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
-    elif which_mod==4:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
-    elif which_mod==5:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.W3V,n,m)
-    else:
-        print("---------输入有误---------")
+    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
         
 
     flag = 0
@@ -315,11 +304,11 @@ def again_calc(L_sp_so_next,P_after,which_mod,n,m):
         if cant_judge:
             is_pre_treatment = input(f"是否需要处理本次结果")
             if is_pre_treatment == "yes":
-                pre_treatment_wheather_in_P(cant_judge,n,m)
+                pre_treatment_wheather_in_P(store_gl,cant_judge,n,m)
 
         is_store = input(f"是否储存本次特征标计算结果？")
         if is_store == "yes":
-            add_store(lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+            add_store(store_gl,lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
 
     return P_mu_tensor_V_after_Pr
 
@@ -332,18 +321,7 @@ def again_calc_for_ten(L_sp_so_next,P_after,which_mod,n,m):
     sum_sp_plus_so = P_after[:]
     lowest_module = Lowest_Module(n,m)
 
-    if which_mod ==1:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
-    elif which_mod==2:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S2V,n,m)
-    elif which_mod==3:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
-    elif which_mod==4:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
-    elif which_mod==5:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.W3V,n,m)
-    else:
-        print("---------输入有误---------")
+    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
         
 
     flag = 0
@@ -366,18 +344,8 @@ def P_tensor_V_and_judge_wheather_minest(n,m,at_lambda_sp_plus_so,sum_sp_plus_so
 
     lowest_module = Lowest_Module(n,m)
 
-    if which_mod ==1:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
-    elif which_mod==2:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S2V,n,m)
-    elif which_mod==3:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
-    elif which_mod==4:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
-    elif which_mod==5:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.W3V,n,m)
-    else:
-        print("--------输入错误----------")
+    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
+
     flag = 0
     print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
     print(f"P_mu_tensor_V_after_Pr: {len(P_mu_tensor_V_after_Pr)}")
@@ -445,18 +413,18 @@ def calc_direct_all(lambda_judge):
         calc_sum +=1
 
 
-def deal_with_cant_judge(cant_judge, n, m):
+def deal_with_cant_judge(store_gl,cant_judge, n, m):
     print("")
     print("deal_with_cant_judge")
     print("")
 
-    need_deal_with_vec = pre_treatment_wheather_in_P(cant_judge,n,m)
+    need_deal_with_vec = pre_treatment_wheather_in_P(store_gl,cant_judge,n,m)
     is_store = input(f"是否储存本次特征标计算结果？")
     if is_store == "yes":
-        add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+        add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
 
 
-def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
+def circle_calc(store_gl,all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
     print("")
     print(f"circle_calc(which_mod = {which_mod},sheaf = {sheaf})")
     print("")
@@ -468,15 +436,15 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
     select_blocks = P_tensor_V_show(front_vecs,which_mod,n,m)
 
     for deal_vec in need_deal_with_vec:
-        if not store.exists(deal_vec):
-            flag = auto_calc_long_time(store,deal_vec,n,m,sheaf) 
+        if not store_gl.exists(deal_vec):
+            flag = auto_calc_long_time(store_gl,deal_vec,n,m,sheaf) 
             if not flag:
                 return flag
 
     flag = 1
 #   print(f"xxxx--{front}")
     for deal_vec in need_deal_with_vec:
-        behind_vecs = store.get_group(deal_vec)
+        behind_vecs = store_gl.get_group(deal_vec)
 #        print(f"xxxx--{front}")
 #        print(f"yyyy--{behind}")
         P_weights = vectors_set_min(front_vecs,behind_vecs)
@@ -512,7 +480,7 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
                 
                 results_ten = []
                 for vec, sums in groups_dic.items():                  
-                    flag_2 = deal_with_atypi_ten(vec,P_weights,which_mod,n,m,sheaf)
+                    flag_2 = deal_with_atypi_ten(store_gl,vec,P_weights,which_mod,n,m,sheaf)
                     if flag_2:
                         results_ten.append(vec)
 
@@ -524,13 +492,23 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
                 if which_mod ==1:
                     print("使用模:V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==2:
-                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                    print("使用模:V_star")# 将输入转换为有理数列表并创建向量
                 elif which_mod==3:
-                    print("使用模:g")# 将输入转换为有理数列表并创建向量
+                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==4:
-                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                    print("使用模:S2V_star")# 将输入转换为有理数列表并创建向量
                 elif which_mod==5:
+                    print("使用模:W2V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==6:
+                    print("使用模:W2V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==7:
+                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==8:
+                    print("使用模:S3V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==9:
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==10:
+                    print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
                 
                 results_ten = []
                 for vec, sums in groups_dic.items():                  
@@ -556,7 +534,7 @@ def circle_calc(all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
 
 
 
-def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,which_mod):
+def test_a(store_gl,nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,which_mod):
 
     n = nn
     m = mm
@@ -570,10 +548,10 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
     print(f"typical的lambda是: {vector(QQ,list(t_lambda_sp)+list(t_lambda_so))}")
     
     w_sp, lambda_sp_next= calc_w_mu(W_sp,t_lambda_sp)
-    w_so, lambda_so_next= calc_w_mu(W_so,t_lambda_so)
+    w_so, lambda_so_next= calc_w_mu(W_so,-t_lambda_so)
     print(f"前下标weyl元是w_sp = {w_sp}")
     print(f"后下标weyl元是w_so = {w_so}")
-    print(f"下标:{list(lambda_sp_next)+list(lambda_so_next)}")
+    print(f"下标:{list(lambda_sp_next)+list(-lambda_so_next)}")
 
     #    Dic_P_mu_tensor_V_befor_Pr = Counter(P_mu_tensor_V_befor_Pr)
 #    Dic_P_mu_tensor_V_after_Pr = Counter(P_mu_tensor_V_after_Pr)
@@ -582,18 +560,8 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
 
     lowest_module = Lowest_Module(n,m)
     print(f"sum_sp_plus_so: {len(sum_sp_plus_so)}")
-    if which_mod ==1:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.V,n,m)
-    elif which_mod==2:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S2V,n,m)
-    elif which_mod==3:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
-    elif which_mod==4:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.S3V,n,m)
-    elif which_mod==5:
-        P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.W3V,n,m)
-    else:
-        print("--------输入错误----------")
+    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
+
     flag = 0
 
     print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
@@ -603,6 +571,7 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
         print(f"投射成立，lambda{at_lambda_sp_plus_so}是极小权")
         flag=1
     else:
+        zhengli(P_mu_tensor_V_befor_Pr)
         print(f"*********注意!*********")
         print(f"投射后不一定是最小权")
 
@@ -643,25 +612,25 @@ def test_a(nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp_plus_so,
         if cant_judge:
             is_pre_treatment = input(f"是否需要处理本次结果")
             if is_pre_treatment == "yes":
-                pre_treatment_wheather_in_P(cant_judge,n,m)
+                pre_treatment_wheather_in_P(store_gl,cant_judge,n,m)
         is_store = input(f"是否储存本次特征标计算结果？")
         if is_store == "yes":
-            add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+            add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
 
 
 
-def find_path_vector( lam, n, m , which_mod):
+def find_path_vector(store_path_gl, lam, n, m , which_mod,flag=0):
 
     lam_key = vector(QQ,[which_mod]+lam.list())
-    if store_path.exists(lam_key):
+    if store_path_gl.exists(lam_key) and flag==0:
 
         print("")
         print(f"正在进入find_path_vector({lam}),以前计算过,返回结果")
         print("")
-        return store_path.get_group(lam_key)
+        return store_path_gl.get_group(lam_key)
 
     print("")
-    print(f"正在进入find_path_vector({lam}),耗时比较长")
+    print(f"正在进入find_path_vector({lam},which_mod = {which_mod}),耗时比较长")
     print("")
 
     
@@ -676,16 +645,13 @@ def find_path_vector( lam, n, m , which_mod):
     results_S3V = []
     results_W3V = []
     results_g = []
-    if which_mod ==1:
-        lowest_module_V = lowest_module.V
-    if which_mod ==2:
-        lowest_module_V = lowest_module.S2V
-    if which_mod ==3:
-        lowest_module_V = lowest_module.g
-    if which_mod ==4:
-        lowest_module_V = lowest_module.S3V
-    if which_mod ==5:
-        lowest_module_V = lowest_module.W3V
+    lowest_module_V_tem = lowest_module.get_module(which_mod)
+    lowest_module_V = []
+
+    for v in lowest_module_V_tem:
+        lowest_module_V.append(v[:])
+        lowest_module_V.append(-v[:])
+
 
 
     anti_repeat_vectors_hash = []
@@ -699,18 +665,38 @@ def find_path_vector( lam, n, m , which_mod):
                 at_lambda_sp_plus_so_hash = tuple(at_lambda_sp_plus_so) 
                 if at_lambda_sp_plus_so_hash in anti_repeat_vectors_hash:
                     continue
+                #                print(f"--{at_lambda_sp_plus_so}")
                 anti_repeat_vectors_hash.append(at_lambda_sp_plus_so_hash)
 
     
-                lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
                 P_vectors = []
-                for result_ju in lambda_judge:
-                    P_vectors.append(result_ju.result)
+                if remove_matches_vec(at_lambda_sp_plus_so, n,m) == 0:
+                    #                    print(f"======{at_lambda_sp_plus_so}")
+                    typical_lambda_sp = at_lambda_sp_plus_so[:n]
+                    typical_lambda_so = at_lambda_sp_plus_so[-m:]
+                
+                    P_vectors  = test_K_L(n,m,typical_lambda_sp,typical_lambda_so,1)
+                else:
+                    lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
+                    for result_ju in lambda_judge:
+                        P_vectors.append(result_ju.result)
     
-                P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V_not_show(lam, P_vectors,lowest_module_V,n,m)
+                P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V_not_show(lam, P_vectors,lowest_module_V_tem,n,m)
+                #                zhengli(P_mu_tensor_V_after_Pr)
                 if is_tensor_V_true_not_show(lam,P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
                     results_V.append(at_lambda_sp_plus_so)
-    store_path.add_group(lam_key,results_V)
+
+    if store_path_gl.exists(lam_key) and flag == 1:
+        print("新结果是:")
+        zhengli(results_V)
+        print("旧结果是:")
+        zhengli(store_path_gl.get_group(lam_key))
+        if_se_new = input("是否更新?")
+        if if_se_new == "yes":
+            store_path_gl.remove_group(lam_key)
+            store_path_gl.add_group(lam_key,results_V)
+    else:
+        store_path_gl.add_group(lam_key,results_V)
     return results_V
     """
 
@@ -829,7 +815,7 @@ def deal_with_typi_ten(again_lam, P_weights, which_mod , n, m ):
         return flag
 
 
-def deal_with_atypi_ten(again_lam, P_weights, which_mod , n, m , sheaf ):
+def deal_with_atypi_ten(store_gl,again_lam, P_weights, which_mod , n, m , sheaf ):
     print("")
     print(f"deal_with_atypi_ten( {again_lam}, P_weights,which_mod = {which_mod})")
     print("")
@@ -854,11 +840,11 @@ def deal_with_atypi_ten(again_lam, P_weights, which_mod , n, m , sheaf ):
             print(f"处理的极小权为: {atypical_lambda_sp_plus_so} \n")
             print(f"剩下: {len(weight_set)}")
 
-            if store.exists(atypical_lambda_sp_plus_so):
-                results = store.get_group(atypical_lambda_sp_plus_so)
+            if store_gl.exists(atypical_lambda_sp_plus_so):
+                results = store_gl.get_group(atypical_lambda_sp_plus_so)
             else:
-                if auto_calc_long_time(store,atypical_lambda_sp_plus_so,n,m,sheaf):
-                    results = store.get_group(atypical_lambda_sp_plus_so)
+                if auto_calc_long_time(store_gl,atypical_lambda_sp_plus_so,n,m,sheaf):
+                    results = store_gl.get_group(atypical_lambda_sp_plus_so)
                 else:
                     return 0
 
@@ -884,14 +870,14 @@ def deal_with_atypi_ten(again_lam, P_weights, which_mod , n, m , sheaf ):
 
 
 
-def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
+def auto_calc_long_time(store_gl,store_path_gl, at_lambda_sp_plus_so,n,m, sheaf):
     print("")
     print(f"正在进入auto_calc_long_time({at_lambda_sp_plus_so},sheaf = {sheaf})")
     print("")
 
-    if store.exists(at_lambda_sp_plus_so):
+    if store_gl.exists(at_lambda_sp_plus_so):
         print("已经存在")
-        zhengli(store.get_group(at_lambda_sp_plus_so))
+        zhengli(store_gl.get_group(at_lambda_sp_plus_so))
         return 1
 
     if not remove_matches_vec(at_lambda_sp_plus_so,n,m):
@@ -914,7 +900,7 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
             break
 
  #       alternative_vectors = read_vectors_from_file("test//"+"test2"+".txt")
-        alternative_vectors = find_path_vector( at_lambda_sp_plus_so, n, m , which_mod)
+        alternative_vectors = find_path_vector( store_path_gl,at_lambda_sp_plus_so, n, m , which_mod)
 
         count = 1
         for v in alternative_vectors:
@@ -936,12 +922,12 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
             if removed_count == 0:
                 
                 sum_sp_weyl,sum_so_weyl,P_weights = calc_typi_vec(typical_lambda_sp_plus_so,n,m)
-            elif store.exists(typical_lambda_sp_plus_so):
-                P_weights = store.get_group(typical_lambda_sp_plus_so)
+            elif store_gl.exists(typical_lambda_sp_plus_so):
+                P_weights = store_gl.get_group(typical_lambda_sp_plus_so)
             else:
-                flag_4 = auto_calc_long_time(store,typical_lambda_sp_plus_so,n,m,sheaf)
+                flag_4 = auto_calc_long_time(store_gl,typical_lambda_sp_plus_so,n,m,sheaf)
                 if flag_4:
-                    P_weights = store.get_group(typical_lambda_sp_plus_so)
+                    P_weights = store_gl.get_group(typical_lambda_sp_plus_so)
                 else :
                     print(f"迭代次数过多:{typical_lambda_sp_plus_so}")
                     print("暂时不用这个向量计算了或者日后手动改写")
@@ -961,12 +947,12 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
                     print("\n")
                     print("-----计算kl折叠:------")
                     show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
-                    add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+                    add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
                     wheather_end =1
                     break
                     
                 if flag_2:
-                    in_consider_weight = pre_treatment_wheather_in_P(cant_judge,n,m)
+                    in_consider_weight = pre_treatment_wheather_in_P(store_gl,cant_judge,n,m)
                     if not in_consider_weight:
                         print("")
                         print("已经计算出来了")
@@ -976,7 +962,7 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
                         print("\n")
                         print("-----计算kl折叠:------")
                         show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
-                        add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+                        add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
                         wheather_end =1
                         break
 
@@ -987,7 +973,7 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
                     """
                     for i in range(3): 
                         which_mod_now = i+1
-                        flag_3 = circle_calc(P_mu_tensor_V_after_Pr,in_consider_weight,which_mod_now,n,m,sheaf)
+                        flag_3 = circle_calc(store_gl,P_mu_tensor_V_after_Pr,in_consider_weight,which_mod_now,n,m,sheaf)
                         if flag_3:
                             break
                     if flag_3:
@@ -999,7 +985,7 @@ def auto_calc_long_time(store, at_lambda_sp_plus_so,n,m, sheaf):
                         print("\n")
                         print("-----计算kl折叠:------")
                         show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
-                        add_store(at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+                        add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
                         wheather_end =1
                         break
                         
@@ -1019,10 +1005,10 @@ if __name__ == "__main__":
     lambda_sp_plus_so_next = vector(QQ,[-1/2,1/2,1/2])
 
     
-    n=2 
+    n=3 
     m=2
-    store = SageVectorGroupStore('my_vectors.db')
-    store_path = SageVectorGroupStore('path_test_db.db')
+    store_gl = SageVectorGroupStore('my_vectors_gl_32.db')
+    store_path_gl = SageVectorGroupStore('path_gl_32.db')
     while True:
         print("*******开始计算***********************************")
         print("你想要做什么？")
@@ -1050,6 +1036,14 @@ if __name__ == "__main__":
                 print("输入无效，请输入一个整数。")
         if select_case==0:
 
+            lowest_module = Lowest_Module(n,m)
+            basis_plus_tem = [-v for v in lowest_module.basis_plus]
+
+            for i in range(10):
+                lowest_weight = which_one_lowest(lowest_module.get_module(i+1),lowest_module.basis_plus)
+                print(f"{i+1}----->{lowest_weight}")
+            continue
+
             user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
             if user_input=='':
                 print("返回操作")
@@ -1061,7 +1055,7 @@ if __name__ == "__main__":
             rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
             key1 = vector(QQ,rat_list)          
 
-            flag = auto_calc_long_time(store,key1,n,m,0)
+            flag = auto_calc_long_time(store_gl,key1,n,m,0)
             if flag:
                 print("计算成功!")
 
@@ -1088,9 +1082,9 @@ if __name__ == "__main__":
             print("注意计算开始:")
 
             for v in weight_set:
-                if flag == auto_calc_long_time(v,n,m):
+                if flag == auto_calc_long_time(store_gl,v,n,m):
                     print("计算成功!")
-                    zhengli(store.get_group(v))
+                    zhengli(store_gl.get_group(v))
 
 
         if select_case==13:
@@ -1108,7 +1102,8 @@ if __name__ == "__main__":
                     print("输入无效，请输入一个整数。")
 
             if sub_select_case == 4:
-                store.list_keys()
+                store_gl.list_keys()
+                
 
             elif sub_select_case == 3:
 
@@ -1123,7 +1118,7 @@ if __name__ == "__main__":
                 rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
                 key1 = vector(QQ,rat_list)          
                 print(f"即将删除: {rat_list}")
-                store.remove_group(key1)
+                store_gl.remove_group(key1)
                 print(f"删除成功: {rat_list}")
 
 
@@ -1141,7 +1136,7 @@ if __name__ == "__main__":
                 else:
                     print(f"即将储存特征标:{lowest_weight[0]}")
                     try:
-                        store.add_group(lowest_weight[0], weight_set)
+                        store_gl.add_group(lowest_weight[0], weight_set)
                     except ValueError as e:
                         print(e)  # Key vector ... already exists
             elif sub_select_case == 1:
@@ -1153,11 +1148,11 @@ if __name__ == "__main__":
                 rat_list = [QQ(x.strip()) for x in lines[0].split(',')]
                 key1 = vector(QQ,rat_list)          
                 
-                if not store.exists(key1):
+                if not store_gl.exists(key1):
                     print(f"还未储存向量:{key1}")
                     continue
 
-                retrieved = store.get_group(key1)
+                retrieved = store_gl.get_group(key1)
                 print(f"向量: {key1}")
                 print(retrieved)  # [ (1, 0), (0, 1, 1/2) ]
                 zhengli(retrieved)
@@ -1274,16 +1269,26 @@ if __name__ == "__main__":
             if which_mod ==1:
                 print("使用模:V")# 将输入转换为有理数列表并创建向量
             elif which_mod==2:
-                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                print("使用模:V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==3:
-                print("使用模:g")# 将输入转换为有理数列表并创建向量
+                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
             elif which_mod==4:
-                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                print("使用模:S2V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==5:
+                print("使用模:W2V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==6:
+                print("使用模:W2V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==7:
+                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==8:
+                print("使用模:S3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==9:
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==10:
+                print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
             typical_lambda_sp = typical_lambda_sp_plus_so[:n]
             typical_lambda_so = typical_lambda_sp_plus_so[-m:]
-            test_a(n,m,typical_lambda_sp,typical_lambda_so, atypical_lambda_sp_plus_so,which_mod)
+            test_a(store_gl,n,m,typical_lambda_sp,typical_lambda_so, atypical_lambda_sp_plus_so,which_mod)
         elif select_case==2:
 
             user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
@@ -1321,25 +1326,36 @@ if __name__ == "__main__":
                 print(f"使用的数据库中有理数向量lambda(用逗号,分隔):{typical_lambda_sp_plus_so}")# 将输入转换为有理数列表并创建向量
                 
 
-                if not store.exists(typical_lambda_sp_plus_so) :
+                if not store_gl.exists(typical_lambda_sp_plus_so) :
                     print("数据库中不存在这个特征标")
                     continue
 
-                P_mu_tensor_V_after_Pr = store.get_group(typical_lambda_sp_plus_so)
+                P_mu_tensor_V_after_Pr = store_gl.get_group(typical_lambda_sp_plus_so)
 
                 which_mod = int(lines[2])
+
                 if which_mod ==1:
                     print("使用模:V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==2:
-                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                    print("使用模:V_star")# 将输入转换为有理数列表并创建向量
                 elif which_mod==3:
-                    print("使用模:g")# 将输入转换为有理数列表并创建向量
+                    print("使用模:S2V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==4:
-                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                    print("使用模:S2V_star")# 将输入转换为有理数列表并创建向量
                 elif which_mod==5:
+                    print("使用模:W2V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==6:
+                    print("使用模:W2V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==7:
+                    print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==8:
+                    print("使用模:S3V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==9:
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==10:
+                    print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
 
-                P_mu_tensor_V_after_Pr = again_calc(atypical_lambda_sp_plus_so,P_mu_tensor_V_after_Pr,which_mod,n,m)
+                P_mu_tensor_V_after_Pr = again_calc(store_gl,atypical_lambda_sp_plus_so,P_mu_tensor_V_after_Pr,which_mod,n,m)
             elif sub_select_case ==1:
 
                 user_input = input("请输入P所在文档的名字:")# 将输入转换为有理数列表并创建向量
@@ -1364,7 +1380,7 @@ if __name__ == "__main__":
                     print("使用模:S3V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==5:
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
-                P_mu_tensor_V_after_Pr = again_calc(again_lam,P_mu_tensor_V_after_Pr,which_mod,n,m)
+                P_mu_tensor_V_after_Pr = again_calc(store_gl,again_lam,P_mu_tensor_V_after_Pr,which_mod,n,m)
         elif select_case==4:
             user_input = input("请输入权集合set所在文档的名字:")# 将输入转换为有理数列表并创建向量
             weight_set = read_vectors_from_file("test//"+user_input+".txt")
@@ -1422,21 +1438,29 @@ if __name__ == "__main__":
             user_input_W = input("请输入模1，2，3，4，5:  ")# 将输入转换为有理数列表并创建向量
 
             which_mod = int(user_input_W)
+
             if which_mod ==1:
                 print("使用模:V")# 将输入转换为有理数列表并创建向量
-                P_tensor_V_show(P_mu_tensor_V_after_Pr,1,n,m)
             elif which_mod==2:
-                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
-                P_tensor_V_show(P_mu_tensor_V_after_Pr,2,n,m)
+                print("使用模:V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==3:
-                print("使用模:g")# 将输入转换为有理数列表并创建向量
-                P_tensor_V_show(P_mu_tensor_V_after_Pr,3,n,m)
+                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
             elif which_mod==4:
-                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
-                P_tensor_V_show(P_mu_tensor_V_after_Pr,4,n,m)
+                print("使用模:S2V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==5:
+                print("使用模:W2V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==6:
+                print("使用模:W2V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==7:
+                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==8:
+                print("使用模:S3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==9:
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
-                P_tensor_V_show(P_mu_tensor_V_after_Pr,5,n,m)
+            elif which_mod==10:
+                print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+
+            P_tensor_V_show(P_mu_tensor_V_after_Pr,which_mod,n,m)
 
         elif select_case==8:
             user_input = input("请输入权集所在文档的名字:")# 将输入转换为有理数列表并创建向量
@@ -1529,17 +1553,26 @@ if __name__ == "__main__":
                     print("输入无效，请输入一个整数。")
             print(f"which_mod: {which_mod}")
 
-#            which_mod = int(lines[1])
             if which_mod ==1:
                 print("使用模:V")# 将输入转换为有理数列表并创建向量
             elif which_mod==2:
-                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
+                print("使用模:V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==3:
-                print("使用模:g")# 将输入转换为有理数列表并创建向量
+                print("使用模:S2V")# 将输入转换为有理数列表并创建向量
             elif which_mod==4:
-                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+                print("使用模:S2V_star")# 将输入转换为有理数列表并创建向量
             elif which_mod==5:
+                print("使用模:W2V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==6:
+                print("使用模:W2V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==7:
+                print("使用模:S3V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==8:
+                print("使用模:S3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==9:
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==10:
+                print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
 
             results_ten = []
             lam_s_imm = [vector(v, immutable=True) for v in lam_s]
@@ -1611,7 +1644,11 @@ if __name__ == "__main__":
                 except ValueError:
                     print("输入无效，请输入一个整数。")
             print(f"which_mod: {which_mod}")
-            results_V = find_path_vector( atypical_lambda_sp_plus_so, n, m,which_mod )
+            abc = input("是否准备更新?")
+            if abc == "yes":
+                results_V = find_path_vector(store_path_gl ,atypical_lambda_sp_plus_so, n, m,which_mod,1 )
+            else:
+                results_V = find_path_vector(store_path_gl ,atypical_lambda_sp_plus_so, n, m,which_mod )
             #results_V, results_S2V, results_g,results_S3V ,results_W3V = find_path_vector( atypical_lambda_sp_plus_so, n, m,which_mod )
             print(f"结果如下 V:{which_mod}")
             results = results_V

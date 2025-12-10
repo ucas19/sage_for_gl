@@ -76,26 +76,8 @@ def check_arrays(A, B, n, m):
     return False
 
 
-def sym_2( n, m):
-    V_0 = []
-    V_1 = []
+def sym_2( n, m,V_0,V_1):
     result = []
-    v = zero_vector(QQ, n+m)
-    V_0.append(v[:])
-    for i in range(m):
-        v = zero_vector(QQ, n+m)
-        v[n+i] = 1
-        V_0.append(v[:])
-        v[n+i] = -1
-        V_0.append(v[:])
-
-    for i in range(n):
-        v = zero_vector(QQ, n+m)
-        v[i] = 1
-        V_1.append(v[:])
-        v[i] = -1
-        V_1.append(v[:])
-    
     for i in range(len(V_1)):
         for j in range(i+1,len(V_1)):
             tem = V_1[i]+V_1[j]
@@ -114,26 +96,8 @@ def sym_2( n, m):
     return result
 
 
-def wedge_2( n, m):
-    V_0 = []
-    V_1 = []
+def wedge_2( n, m,V_0,V_1):
     result = []
-    v = zero_vector(QQ, n+m)
-    V_0.append(v[:])
-    for i in range(m):
-        v = zero_vector(QQ, n+m)
-        v[n+i] = 1
-        V_0.append(v[:])
-        v[n+i] = -1
-        V_0.append(v[:])
-
-    for i in range(n):
-        v = zero_vector(QQ, n+m)
-        v[i] = 1
-        V_1.append(v[:])
-        v[i] = -1
-        V_1.append(v[:])
-    
     for i in range(len(V_0)):
         for j in range(i+1,len(V_0)):
             tem = V_0[i]+V_0[j]
@@ -151,27 +115,8 @@ def wedge_2( n, m):
 
     return result
 
-def sym_3( n, m):
-
-    V_0 = []
-    V_1 = []
+def sym_3( n, m,V_0,V_1):
     result = []
-    v = zero_vector(QQ, n+m)
-    V_0.append(v[:])
-    for i in range(m):
-        v = zero_vector(QQ, n+m)
-        v[n+i] = 1
-        V_0.append(v[:])
-        v[n+i] = -1
-        V_0.append(v[:])
-
-    for i in range(n):
-        v = zero_vector(QQ, n+m)
-        v[i] = 1
-        V_1.append(v[:])
-        v[i] = -1
-        V_1.append(v[:])
-    
     for i in range(len(V_1)):
         for j in range(i+1,len(V_1)):
             for k in range(j+1,len(V_1)):
@@ -197,27 +142,9 @@ def sym_3( n, m):
                 result.append(tem[:])
     return result
 
-def wedge_3( n, m):
-
-    V_0 = []
-    V_1 = []
-    result = []
-    v = zero_vector(QQ, n+m)
-    V_0.append(v[:])
-    for i in range(m):
-        v = zero_vector(QQ, n+m)
-        v[n+i] = 1
-        V_0.append(v[:])
-        v[n+i] = -1
-        V_0.append(v[:])
-
-    for i in range(n):
-        v = zero_vector(QQ, n+m)
-        v[i] = 1
-        V_1.append(v[:])
-        v[i] = -1
-        V_1.append(v[:])
+def wedge_3( n, m,V_0,V_1):
     
+    result = []
     for i in range(len(V_0)):
         for j in range(i+1,len(V_0)):
             for k in range(j+1,len(V_0)):
@@ -251,271 +178,81 @@ def wedge_3( n, m):
 class Lowest_Module:
     
     def __init__(self, n, m):
-        self.V = []
-        self.S2V = []
-        self.g = []
-        self.S2VV = sym_2(n,m)
-        self.gV = wedge_2(n,m)
-        self.S3V = []
-        self.W3V = wedge_3(n,m)
-        self.S3VV = sym_3(n,m)
         self.basis_plus = []
         
-        for i in range(n+m-1):
+        for i in range(n-1):
             v = zero_vector(QQ, n+m)
             v[i] = 1
             v[i+1] = -1
             self.basis_plus.append(v[:])
-        v = zero_vector(QQ, n+m)
-        v[n+m-1] = 1
+        v = zero_vector(QQ,n+m)
+        v[n-1] = 1
+        v[n] = 1
         self.basis_plus.append(v[:])
+        for i in range(m-1):
+            v = zero_vector(QQ, n+m)
+            v[n+i] = -1
+            v[n+i+1] = 1
+            self.basis_plus.append(v[:])
 
 
 
-        v = zero_vector(QQ, n+m)
-        self.V.append(v[:])
+
+        self.V_0 = []
+        self.V_1 = []
+        self.V_star_0 = []
+        self.V_star_1 = []
+        for i in range(m):
+            v = zero_vector(QQ, n+m)
+            v[n+i] = -1
+            self.V_1.append(v[:])
+            v[n+i] = 1
+            self.V_star_1.append(v[:])
 
         for i in range(n):
             v = zero_vector(QQ, n+m)
             v[i] = 1
-            self.V.append(v[:])
-
+            self.V_0.append(v[:])
             v[i] = -1
-            self.V.append(v[:])
+            self.V_star_0.append(v[:])
 
-        for i in range(m):
-            v = zero_vector(QQ, n+m)
-            v[n+i] = 1
-            self.V.append(v[:])
-            v[n+i] = -1
-            self.V.append(v[:])
 
-        v = zero_vector(QQ, n+m)
-        self.S2V.append(v[:])
-        for i in range(n+m):
-            self.g.append(v[:])
-            self.S2V.append(v[:])
-        for i in range(n):
-            v = zero_vector(QQ, n+m)
-            v[i] = 2
-            self.g.append(v[:])
-            v[i] = -2
-            self.g.append(v[:])
-            v[i] = 1
-            self.g.append(v[:])
-            self.S2V.append(v[:])
-            v[i] = -1
-            self.g.append(v[:])
-            self.S2V.append(v[:])
-        for i in range(n):
-            for j in range(i+1,n):
-                v = zero_vector(QQ, n+m) 
-                v[i] = 1
-                v[j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = -1
-                v[j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = 1
-                v[j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = -1
-                v[j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
+        self.V = self.V_0 + self.V_1
+        self.S2V = sym_2(n,m,self.V_0,self.V_1)
+        self.W2V = wedge_2(n,m,self.V_0,self.V_1)
+        self.S3V = sym_3(n,m,self.V_0,self.V_1)
+        self.W3V = wedge_3(n,m,self.V_0,self.V_1)
+
+        self.V_star = self.V_star_0 + self.V_star_1
+        self.S2V_star = sym_2(n,m,self.V_star_0,self.V_star_1)
+        self.W2V_star = wedge_2(n,m,self.V_star_0,self.V_star_1)
+        self.S3V_star = sym_3(n,m,self.V_star_0,self.V_star_1)
+        self.W3V_star = wedge_3(n,m,self.V_star_0,self.V_star_1)
+
+    def get_module(self,which_mod):
+        if which_mod == 1:
+            return self.V
+        elif which_mod ==2:
+            return self.V_star
+        elif which_mod ==3:
+            return self.S2V
+        elif which_mod ==4:
+            return self.S2V_star
+        elif which_mod ==5:
+            return self.W2V
+        elif which_mod ==6:
+            return self.W2V_star
+        elif which_mod ==7:
+            return self.S3V
+        elif which_mod ==8:
+            return self.S3V_star
+        elif which_mod ==9:
+            return self.W3V
+        elif which_mod ==10:
+            return self.W3V_star
+        else:
+            print("get_module错误,没有这个模")
+            return None
 
 
 
-        for i in range(m):
-            v = zero_vector(QQ, n+m)
-            v[n+i] = 1
-            self.g.append(v[:])
-            self.S2V.append(v[:])
-            v[n+i] = -1
-            self.g.append(v[:])
-            self.S2V.append(v[:])
-            v[n+i] = 2
-            self.S2V.append(v[:])
-            v[n+i] = -2
-            self.S2V.append(v[:])
-        for i in range(m):
-            for j in range(i+1,m):
-                v = zero_vector(QQ,n+m)
-                v[n+i] = 1
-                v[n+j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[n+i] = -1
-                v[n+j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[n+i] = 1
-                v[n+j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[n+i] = -1
-                v[n+j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-        for i in range(n):
-            for j in range(m):
-                v = zero_vector(QQ,n+m)
-                v[i] = 1
-                v[n+j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = -1
-                v[n+j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = 1
-                v[n+j] = 1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-                v[i] = -1
-                v[n+j] = -1
-                self.g.append(v[:])
-                self.S2V.append(v[:])
-        
-
-
-
-        for i in range(m+1+n):
-            v = zero_vector(QQ,n+m)
-            self.S3V.append(v[:])
-
-        for i in range(m):
-            for j in range(m+n+1):
-                v = zero_vector(QQ,n+m)
-                v[n+i] = 1
-                self.S3V.append(v[:])
-                v[n+i] = -1
-                self.S3V.append(v[:])
-
-        for i in range(m):
-            v = zero_vector(QQ,n+m)
-            v[n+i] = 2
-            self.S3V.append(v[:])
-            v[n+i] = -2
-            self.S3V.append(v[:])
-            v[n+i] = 3
-            self.S3V.append(v[:])
-            v[n+i] = -3
-            self.S3V.append(v[:])
-
-        for i in range(m):
-            for j in range(i+1,m):
-                v = zero_vector(QQ,n+m)
-                v[n+i] = 1
-                v[n+j] = -1
-                self.S3V.append(v[:])
-                v[n+i] = -1
-                v[n+j] = 1
-                self.S3V.append(v[:])
-                v[n+i] = 1
-                v[n+j] = 1
-                self.S3V.append(v[:])
-                v[n+i] = -1
-                v[n+j] = -1
-                self.S3V.append(v[:])
-                
-        for i in range(m):
-            for j in range(i+1,m):
-                for k in range(j+1,m):
-                    syms = [1,-1]
-                    for sym1 in syms:
-                        for sym2 in syms:
-                            for sym3 in syms:
-                                v = zero_vector(QQ,n+m)
-                                v[n+i] = sym1
-                                v[n+j] = sym2
-                                v[n+k] = sym3
-                                self.S3V.append(v[:])
-        for i in range(m):
-            for j in range(m):
-                if i==j:
-                    continue
-                syms = [1,-1]
-                for sym1 in syms:
-                    for sym2 in syms:
-                        v = zero_vector(QQ,n+m)
-                        v[n+i] = 2 *sym1
-                        v[n+j] = sym2
-                        self.S3V.append(v[:])
-
-        for i in range(n):
-            for j in range(m+n):
-                v = zero_vector(QQ,n+m)
-                v[i] = 1
-                self.S3V.append(v[:])
-                v[i] = -1
-                self.S3V.append(v[:])
-
-        for i in range(n):
-            for j in range(i+1,n):
-                syms = [1,-1]
-                for sym1 in syms:
-                    for sym2 in syms:
-                        v = zero_vector(QQ,n+m)
-                        v[i] = sym1
-                        v[j] = sym2
-                        self.S3V.append(v[:])
-
-        for i in range(n):
-            for j in range(i+1,n):
-                for k in range(j+1,n):
-                    syms = [1,-1]
-                    for sym1 in syms:
-                        for sym2 in syms:
-                            for sym3 in syms:
-                                v = zero_vector(QQ,n+m)
-                                v[i] = sym1
-                                v[j] = sym2
-                                v[k] = sym3
-                                self.S3V.append(v[:])
-
-        for i in range(n):
-            for j in range(m):
-                syms = [1,-1]
-                for sym1 in syms:
-                    for sym2 in syms:
-                        v = zero_vector(QQ,n+m)
-                        v[i] = sym1
-                        v[n+j] = sym2
-                        self.S3V.append(v[:])
-                        v[i] = sym1
-                        v[n+j] = 2*sym2
-                        self.S3V.append(v[:])
-
-        for i in range(n):
-            for j in range(i+1,n):
-                for k in range(m):
-                    syms = [1,-1]
-                    for sym1 in syms:
-                        for sym2 in syms:
-                            for sym3 in syms:
-                                v = zero_vector(QQ,n+m)
-                                v[i] = sym1
-                                v[j] = sym2
-                                v[n+k] = sym3
-                                self.S3V.append(v[:])
-        for i in range(m):
-            for j in range(i+1,m):
-                for k in range(n):
-                    syms = [1,-1]
-                    for sym1 in syms:
-                        for sym2 in syms:
-                            for sym3 in syms:
-                                v = zero_vector(QQ,n+m)
-                                v[n+i] = sym1
-                                v[n+j] = sym2
-                                v[k] = sym3
-                                self.S3V.append(v[:])
-
-
-
-
-        

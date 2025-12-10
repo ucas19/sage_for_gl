@@ -9,6 +9,7 @@ from sage_integer_com import is_nonnegative_integer_combination_sage
 from Mu_with_message import *
 from collections import defaultdict
 from sage.all import *
+    
 
 def get_coset_representatives(W_Group, J):
     simple_refls = W_Group.W.simple_reflections()
@@ -26,6 +27,7 @@ def get_coset_representatives(W_Group, J):
 
 def get_S(Weyl_W, lambda_sp_next):
     #找到抛物子群代表元
+    print(f"get_S({lambda_sp_next})")
 
     S_sp = [] # 这是W_sp的子抛物子群生成元集合（序号）
 #    for w in W_sp.W.gens():
@@ -54,27 +56,10 @@ def calc_w_mu( W_Group , lambda_before ):
         mu = w.to_matrix() * lambda_before
  #       print(f"{mu} = {lambda_before}*\n {w.to_matrix()}")
         for i in range(n):
-            double_delta = [0 for _ in range(n)]
-            double_delta[i-1] = 2
-            sum = 0
-            for k in range(n):
-                sum = sum + double_delta[k] * mu[k]
-            if sum > 0:
- #               print(f"a{double_delta} * {mu} = {sum}")
-                flag = 1
-                break
-        if flag == 1:
-            continue
-        for i in range(n):
-            if flag ==1:
-                break
             for j in range(i+1,n):
                 delta_add_delta = [0 for _ in range(n)]
-                delta_minus_delta = [0 for _ in range(n)]
                 delta_add_delta[i] = 1
-                delta_add_delta[j] = 1
-                delta_minus_delta[i] = 1
-                delta_minus_delta[j] = -1
+                delta_add_delta[j] = -1
                 sum = 0
                 for k in range(n):
                     sum = sum + delta_add_delta[k] * mu[k]
@@ -84,13 +69,6 @@ def calc_w_mu( W_Group , lambda_before ):
                     flag = 1
                     break
 
-                sum = 0
-                for k in range(n):
-                    sum = sum + delta_minus_delta[k] * mu[k]
-                if sum > 0:
- #                   print(f"c{delta_minus_delta} * {mu} = {sum}")
-                    flag = 1
-                    break
         if flag == 0:
             lambda_result = w.to_matrix() * lambda_before
             w_result.append(w)
@@ -142,11 +120,6 @@ def remove_matches(front, back):
             front.remove(x)
             back.remove(x)
             removed_count += 1
-        elif -x in back:
-            front.remove(x)
-            back.remove(-x)
-            removed_count += 1
-    
     front_ctr = Counter(front) 
     back_ctr = Counter(back)
     return front[:],back[:], front_ctr, back_ctr, removed_count
@@ -204,10 +177,10 @@ def check_arrays(A, B, n, m):
     
     # 比较剩余部分（绝对值多重集合）
     
-    abs_front_A = abs_multiset(front_A_ctr_rem)
-    abs_back_A = abs_multiset(back_A_ctr_rem)
-    abs_front_B = abs_multiset(front_B_ctr_rem)
-    abs_back_B = abs_multiset(back_B_ctr_rem)
+    abs_front_A = front_A_ctr_rem
+    abs_back_A = back_A_ctr_rem
+    abs_front_B = front_B_ctr_rem
+    abs_back_B = back_B_ctr_rem
     
     if abs_front_A == abs_front_B and abs_back_A == abs_back_B:
         return True
@@ -285,10 +258,8 @@ def equiva_vec(v, n, m):
     front_A = A[:n]
     back_A = A[n:]
     front,back,front_A_ctr_rem, back_A_ctr_rem, removed_A = remove_matches(front_A, back_A)
-    abs_front = [abs(x) for x in front]
-    abs_back = [abs(x) for x in back]
-    part1=tuple(sorted(abs_front))
-    part2=tuple(sorted(abs_back))
+    part1=tuple(sorted(front))
+    part2=tuple(sorted(back))
     return (part1,part2)
 
 def selete_block(P_mu_tensor_V_befor_Pr,n,m):
@@ -304,19 +275,7 @@ def selete_block(P_mu_tensor_V_befor_Pr,n,m):
 def P_tensor_V_show(sum_sp_plus_so,which_mod,n,m):
     
     lowest_module = Lowest_Module(n,m)
-    V = []
-    if which_mod ==1:
-        V = lowest_module.V
-    elif which_mod ==2:
-        V = lowest_module.S2V
-    elif which_mod ==3:
-        V = lowest_module.g
-    elif which_mod ==4:
-        V = lowest_module.S3V
-    elif which_mod ==5:
-        V = lowest_module.W3V
-    else:
-        print("输入有误")
+    V = lowest_module.get_module(which_mod)
 
     print("P_mu_tensor_V如下:")
     P_mu_tensor_V_befor_Pr = []
@@ -516,7 +475,7 @@ def K_L_decompose_no_kl(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     calc_sum = 1
     for v in sum_sp_weyl:
         for w in sum_so_weyl:
-            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*lambda_so_next))
+            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*(-lambda_so_next)))
             sum_sp_plus_so.append(v_plus_w)
             #            print(f"{calc_sum}: {v_plus_w}")
             calc_sum += 1
@@ -639,43 +598,11 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     calc_sum = 1
     for v in sum_sp_weyl:
         for w in sum_so_weyl:
-            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*lambda_so_next))
+            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*(-lambda_so_next)))
             sum_sp_plus_so.append(v_plus_w)
             #        print(f"{calc_sum}: {v_plus_w}")
             calc_sum += 1
     return sum_sp_weyl, sum_so_weyl, sum_sp_plus_so
-
-
-
-
-def test(n,m,lambda_sp, lambda_so, lambda_sp_plus_so):
-    n = 2
-    m = 1
-    W_sp = Weyl_Group_Bn(n)
-    W_so = Weyl_Group_Bn(m)
-    
-    lambda_sp = vector(QQ,[3/2, 101/2])
-    lambda_so = vector(QQ,[1/2])
-    lambda_sp_plus_so = vector(QQ, [1/2,101/2,1/2])
-    print(f"lambda是: {lambda_sp_plus_so}")
-    print(f"mu是: {vector(QQ,list(lambda_sp)+list(lambda_so))}")
-    
-    w_sp, lambda_sp_next= calc_w_mu(W_sp,lambda_sp)
-    w_so, lambda_so_next= calc_w_mu(W_so,lambda_so)
-    print(f"前下标weyl元是w_sp = {w_sp}")
-    print(f"后下标weyl元是w_so = {w_so}")
-    print(f"下标:{list(lambda_sp_next)+list(lambda_so_next)}")
-    
-
-    sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
-
-    #    print(sum_sp_plus_so)
-
-    lowest_module = Lowest_Module(n,m)
-    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(lambda_sp_plus_so,sum_sp_plus_so,lowest_module.g,n,m)
-    if is_tensor_V_true(lambda_sp_plus_so, P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
-        print(f"投射成立，lambda是极小权")
-
 
 
 
@@ -686,31 +613,17 @@ def judge_mu_in_P(lambda_init,n,m,depth):
     #这里是所有偶正根
     Phi_0_plus = []
     for i in range(n):
-        v = zero_vector(QQ,n+m)
-        v[i]=2
-        Phi_0_plus.append(v[:])
-    for i in range(n):
         for j in range(i+1,n):
             v = zero_vector(QQ,n+m)
-            v[i] = 1
-            v[j] = 1
-            Phi_0_plus.append(v[:])
             v[i] = 1
             v[j] = -1
             Phi_0_plus.append(v[:])
 
     for i in range(m):
-        v = zero_vector(QQ,n+m)
-        v[n+i]=1
-        Phi_0_plus.append(v[:])
-    for i in range(m):
         for j in range(i+1,m):
             v = zero_vector(QQ,n+m)
-            v[n+i] = 1
+            v[n+i] = -1
             v[n+j] = 1
-            Phi_0_plus.append(v[:])
-            v[n+i] = 1
-            v[n+j] = -1
             Phi_0_plus.append(v[:])
 
  #   print(f"----{Phi_0_plus}")
@@ -718,17 +631,10 @@ def judge_mu_in_P(lambda_init,n,m,depth):
     Phi_1_plus = []
 
     for i in range(n):
-        v = zero_vector(QQ,n+m)
-        v[i]=1
-        Phi_1_plus.append(v[:])
-    for i in range(n):
         for j in range(m):
             v = zero_vector(QQ,n+m)
             v[i] = 1
             v[n+j] = 1
-            Phi_1_plus.append(v[:])
-            v[i] = 1
-            v[n+j] = -1
             Phi_1_plus.append(v[:])
 
     Coeff = zero_vector(QQ,n+m)
@@ -861,7 +767,7 @@ def calc_typi_vec(typical_lambda_sp_plus_so,n,m):
     W_so = Weyl_Group_Bn(m)
     
     w_sp, lambda_sp_next= calc_w_mu(W_sp,t_lambda_sp)
-    w_so, lambda_so_next= calc_w_mu(W_so,t_lambda_so)
+    w_so, lambda_so_next= calc_w_mu(W_so,-t_lambda_so)
 
     sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
     return sum_sp_weyl,sum_so_weyl,sum_sp_plus_so
