@@ -1,0 +1,333 @@
+%! TEX root = main.tex
+
+\subsection{degree of atypicality = 1}
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|c,a)$ with $b \neq c$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $ b \neq a,\; c \neq a $
+    \begin{enumerate}
+      \item $ b \neq a+1 $ \par 
+        Let $\mu:=\lambda + (0,0|0,1) = (a,b|c,a+1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b|c,a}
++ \sum M_{a+1,b|c,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ b = a+1,\; c \neq a+1 $ \par 
+        Let $\mu:=\lambda + (1,0|0,0) = (a+1,a+1|c,a) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,a+1|c,a}
++ \sum M_{a+1,a+1|c,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \end{enumerate}
+
+  \item $ b \neq a,\; c = a $ \par
+      Let $\mu:=\lambda + (1,0|0,0) = (a+1,b|a,a) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b|a,a}
++ \sum M_{a+1,b|a,a+1}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+
+  \item $ b = a,\; c \neq a $ \par
+      Let $\mu:=\lambda + (0,0|0,1) = (a,a|c,a+1) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,a|c,a}
++ \sum M_{a,a+1|c,a+1}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \item $ b = a,\; c = a $ \par
+    Let $\mu:=\lambda + (0,0|1,1) = (a,a|a+1,a+1)$.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{a,a|a,a}
++ M_{a+1,a|a,a+1}
++ M_{a,a+1|a,a+1}
++ M_{a+1,a|a+1,a}
++ M_{a,a+1|a+1,a}
++ M_{a+1,a+1|a+1,a+1} \\
+                                               &=
+ M_{a,a|a,a}
++ \sum M_{a,a+1|a+1,a}
++  M_{a+1,a+1|a+1,a+1}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+\end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|a,c)$ with $b \neq c$ and $a \neq c$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $ b \neq a $ 
+    \begin{enumerate}
+      \item $ c \neq a+1 $\par
+      Let $\mu:=\lambda + (1,0|0,0) = (a+1,b|a,c) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ c = a+1 $\par
+      Let $\mu:=\lambda + (2,0|0,0) = (a+2,b|a,a+1) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{4}) &=
+\sum M_{a,b|a,a+1}
++\sum M_{a+1,b|a+1,a+1}
++\sum M_{a+2,b|a+1,a+2}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    \end{enumerate}
+
+  \item $ b = a $ 
+    \begin{enumerate}
+      \item $ c \neq a+1 $\par
+      Let $\mu:=\lambda + (1,1|0,0) = (a+1,a+1|a,c) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,a|a,c}
++\sum M_{a,a+1|a+1,c}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ c = a+1 $\par
+        Let $\mu:=\lambda + (0,0|1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a,a|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{a,a|a,a+1}
++ M_{a+1,a|a+1,a+1}
++ M_{a,a+1|a+1,a+1}
++ M_{a+2,a|a+1,a+2}
++ M_{a,a+2|a+1,a+2} \\
+                                               &=
+ M_{a,a|a,a+1}
++ \sum M_{a,a+1|a+1,a+1}
++ \sum M_{a,a+2|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+    \end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|c,b)$ with $a \neq c$, $ a \neq b$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+  \begin{enumerate}
+    \item $b \neq c$
+      \begin{enumerate}
+        \item $ a\neq b+1 $ \par
+      Let $\mu:=\lambda + (0,0|0,1) = (a,b|c,b+1) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+        \item $ a = b+1 $ \par
+      Let $\mu:=\lambda + (0,0|0,2) = (b+1,b|c,b+2) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{b+1,b|c,b}
++\sum M_{b+1,b+1|c,b+1}
++\sum M_{b+2,b+1|c,b+2}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+    \item $b = c$
+      \begin{enumerate}
+        \item $a\neq b+1$ \par
+      Let $\mu:=\lambda + (0,0|1,1) = (a,b|b+1,b+1) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b|b,b}
++\sum M_{a,b+1|b+1,b}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+        \item $a = b+1$ \par
+        Let $\mu:=\lambda + (1,1|0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{b+1,b|b,b}
++ M_{b+1,b+1|b+1,b}
++ M_{b+1,b+1|b,b+1}
++ M_{b+2,b+1|b+2,b}
++ M_{b+2,b+1|b,b+2} \\
+                                               &=
+ M_{b+1,b|b,b}
++ \sum M_{b+1,b+1|b+1,b}
++ \sum M_{b+2,b+1|b+2,b}
+          \end{aligned}
+        \end{equation}
+  \end{enumerate}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+\end{proof}
+
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|b,c)$ with $a \neq c$ and $ a \neq b$ and $b\neq c$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $a \neq b+1,\; c\neq b+1$ \par
+      Let $\mu:=\lambda + (0,0|1,0) = (a,b|b+1,c) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b|b,c}
++\sum M_{a,b+1|b+1,c}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \item $a \neq b+1,\; c = b+1$ 
+    \begin{enumerate}
+      \item $ a \neq c+2 $ \par
+      Let $\mu:=\lambda + (0,0|1,1) = (a,b|b+1,b+2) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b|b,b+1}
++\sum M_{a,b+1|b+1,b+1}
++\sum M_{a,b+2|b+1,b+2}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ a = c+2 $ \par
+        Let $\mu:=\lambda + (1,0|0,0) = (b+2,b|b,b+1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{b+2,b|b,b+1}
++ M_{b+2,b+1|b+1,b+1}
++ M_{b+2,b+2|b+1,b+2}
++ M_{b+3,b+2|b+1,b+3}  
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{b+3,b+2|b+1,b+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_22_1}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_22_1}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+2|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+  \item $a = b+1,\; c \neq b+1$ 
+    \begin{enumerate}
+      \item $c\neq b+2$\par
+      Let $\mu:=\lambda + (1,1|0,0) = (b+2,b+1|b,c) $.
+      \begin{equation}\notag
+        \begin{aligned}
+          Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{b+1,b|b,c}
++\sum M_{b+1,b+1|b+1,c}
++\sum M_{b+2,b+1|b+1,c}
+        \end{aligned}
+      \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \item $c = b+2$\par
+        Let $\mu:=\lambda + (0,0|0,1) = (b+1,b|b,b+2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{b+1,b|b,b+2}
++ M_{b+1,b+1|b+1,b+2}
++ M_{b+3,b+1|b+2,b+3}
++ M_{b+2,b+1|b+2,b+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{b+3,b+1|b+2,b+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_22_2}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_22_2}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+1|b+2,b+3}$ & \makecell{
+ $M_{b+4,b+1|b+2,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{proof}
+
+

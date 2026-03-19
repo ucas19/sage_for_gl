@@ -1,0 +1,3636 @@
+%! TEX root = main.tex
+
+\subsection{degree of atypicality = 1}
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b,c|d,a)$ with $d \neq \{b,c\}$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b,c|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+  \begin{enumerate}
+    \item $a\notin \{b,c,d\}$ \par
+      \begin{enumerate}
+        \item $d \neq a+1$ \par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,c|d,a}
++ \sum M_{a+1,b,c|d,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $d = a+1 \quad \text{hence } b,c \neq a+1 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,c|a+1,a}
++ \sum M_{a+1,b,c|a+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+    \item $a=d, \quad \text{hance } a\notin \{b,c\}$ \par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,c|a,a}
++ \sum M_{a+1,b,c|a+1,a}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $a=b,\; a \neq c  \quad \text{hance } a\neq d  \quad \lambda = (a,a,c|d,a)$ 
+      \begin{enumerate}
+        \item $c \neq a+1 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,a,c|d,a}
++ \sum M_{a,a+1,c|d,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+        \item $c = a+1 \quad \text{hence }d \neq a+1 $\par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,a,a+1|d,a}
++ \sum M_{a,a+1,a+1|d,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+    \item $a=c  \quad \text{hance } a\neq d  \quad \lambda = (a,b,a|d,a)$ 
+      \begin{enumerate}
+        \item $ b \neq a+1 $\par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,b,a|d,a}
++ \sum M_{a,b,a+1|d,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $ b = a+1 \quad \text{hence } d\neq a+1 $\par
+          \begin{enumerate}
+            \item $d>a+1  $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,a,a|d,a+2}
++ M_{a+1,a,a|a+2,d}
++ M_{a,a+1,a|d,a+2}
++ M_{a,a+1,a|a+2,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{a+2,a+1,a|d,a+2}
++ M_{a+2,a,a+1|d,a+2}
++ 2M_{a+1,a+1,a|d,a+1}
++ M_{a+1,a,a+1|d,a+1} \\
+                                              &+ M_{a+1,a,a|d,a}
++ M_{a+2,a+1,a|a+2,d}
++ M_{a+2,a,a+1|a+2,d}
++ 2M_{a+1,a+1,a|a+1,d}\\
+                                               &
++ M_{a+1,a,a+1|a+1,d}
++ M_{a+1,a,a|a,d}
++ M_{a+1,a+2,a|d,a+2}
++ M_{a,a+2,a+1|d,a+2}\\
+                                               &
++ M_{a,a+1,a+1|d,a+1}
++ M_{a,a+1,a|d,a}
++ M_{a+1,a+2,a|a+2,d}\\
+                                               &
++ M_{a,a+2,a+1|a+2,d}
++ M_{a,a+1,a+1|a+1,d}
++ M_{a,a+1,a|a,d} \\
+                                               &=
+\sum M_{a,a+1,a|d,a}
++ \sum M_{a,a+1,a+1|d,a+1}\\
+                                               &
++ \sum M_{a,a+2,a+1|d,a+2}
++ \sum M_{a+1,a+1,a|d,a+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{a+1,a+1,a|d,a+1},
+M_{a+1,a+1,a|a+1,d}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_1}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_1}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,a+1,a|d,a+1}$ & \makecell{
+ $M_{a+2,a+1,a|d,a+2}$,
+ $M_{a+1,a+2,a|d,a+2}$,
+ $M_{a+2,a+1,a|a+2,d}$,
+ $M_{a+1,a+2,a|a+2,d}$
+}\\
+ & \\
+ $P_{a+1,a+1,a|a+1,d}$ & \makecell{
+ $M_{a+2,a+1,a|a+2,d}$,
+ $M_{a+1,a+2,a|a+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+            \item $d<a  $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,a,a|d,a+2}
++ M_{a,a+1,a|d,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{a+2,a+1,a|d,a+2}
++ M_{a+2,a,a+1|d,a+2}
++ 2M_{a+1,a+1,a|d,a+1}\\
+                                               &
++ M_{a+1,a,a+1|d,a+1}
++ M_{a+1,a,a|d,a}
++ M_{a+1,a+2,a|d,a+2}\\
+                                               &
++ M_{a,a+2,a+1|d,a+2}
++ M_{a,a+1,a+1|d,a+1}
++ M_{a,a+1,a|d,a} \\
+                                               &=
+\sum M_{a,a+1,a|d,a}
++ \sum M_{a,a+1,a+1|d,a+1}
++ \sum M_{a,a+2,a+1|d,a+2}
+ M_{a+1,a+1,a|d,a+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{a+1,a+1,a|d,a+1}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_2}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_2}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,a+1,a|d,a+1}$ & \makecell{
+ $M_{a+2,a+1,a|d,a+2}$,
+ $M_{a+1,a+2,a|d,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+          \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b,c|a,d)$ with $d \neq \{a,b,c\}$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b,c|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+  \begin{enumerate}
+  \item $ a \notin \{b,c\}$
+      \begin{enumerate}
+        \item $d \neq a+1$ \par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,c|a,d}
++ \sum M_{a+1,b,c|a+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $d = a+1\quad \text{hence } b,c \neq a+1$
+        Let $\mu:=\lambda + (2,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{4}) &=
+\sum M_{a,b,c|a,a+1}
++ \sum M_{a+1,b,c|a+1,a+1}
++ \sum M_{a+2,b,c|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+    \item $ a \neq c,\; a=b $
+      \begin{enumerate}
+        \item $d \neq a+1$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,a,c|a+1,d}
++ \sum M_{a,a+1,c|a+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $d = a+1,\quad \text{hence } c\neq a+1$ 
+          \begin{enumerate}
+            \item $c \neq a+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,a,c|a+1,a+1}
++ \sum M_{a,a+1,c|a+1,a+1}
++ \sum M_{a,a+2,c|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+            \item $c = a+2 \quad \lambda = (a,a,a+2|a,a+1)$  \par
+        In the present case, we first utilize the result of $P_{a+1,a+1,a+2|a,a+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (1,1,0,0,0) =(a+1,a+1,a+2|a,a+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= 
+M_{a+1,a+1,a+2|a,a+1}
++M_{a+1,a+2,a+1|a,a+1}
++M_{a+2,a+1,a+1|a,a+1}\\
+                                               &
++M_{a+1,a+2,a+2|a,a+2}
++M_{a+2,a+1,a+2|a,a+2}
++M_{a+2,a+2,a+1|a,a+2} \\
+                  &=
+\sum M_{a+1,a+1,a+2|a,a+1}
++\sum M_{a+1,a+2,a+2|a,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{a,a,a+2|a,a+1}
++ M_{a,a+1,a+2|a+1,a+1}
++ M_{a+1,a,a+2|a+1,a+1}
++ M_{a,a+2,a|a,a+1}\\
+                                               &
++ M_{a,a+2,a+1|a+1,a+1}
++ M_{a+1,a+2,a|a+1,a+1}
++ M_{a+2,a,a|a,a+1}
++ M_{a+2,a,a+1|a+1,a+1}\\
+                                               &
++ M_{a+2,a+1,a|a+1,a+1}
++ M_{a,a+2,a+2|a+1,a+2}
++ M_{a+2,a,a+2|a+1,a+2}\\
+                                               &
++ M_{a+2,a+2,a|a+1,a+2} \\
+                                               &=
+\sum M_{a,a,a+2|a,a+1}
++ \sum M_{a,a+1,a+2|a+1,a+1}
++ \sum M_{a,a+2,a+2|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+          \end{enumerate}
+      \end{enumerate}
+
+    \item $ a \neq b,\; a=c $
+      \begin{enumerate}
+        \item $ b \neq a+1, \; d \neq a+1 $ \par
+        Let $\mu:=\lambda + (0,0,0,1,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,a|a,d}
++\sum M_{a,b,a+1|a+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $ d=a+1, \; b \neq a+2 \quad \text{hence }b\neq a+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b,a|a,a+1}
++\sum M_{a,b,a+1|a+1,a+1}
++\sum M_{a,b,a+2|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $ d=a+1, \; b = a+2 $ \par
+        In the present case, we first utilize the result of $P_{a,a+2,a|a+1,a+2}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (0,0,0,1,1) =(a,a+2,a|a+1,a+2) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= 
+M_{a+3,a,a|a+1,a+3}
++M_{a+2,a,a|a+1,a+2}
++M_{a,a+3,a|a+1,a+3}
++M_{a,a+2,a|a+1,a+2} \\
+                  &=
+\sum M_{a,a+2,a|a+1,a+2}
++\sum M_{a,a+3,a|a+1,a+3}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{a+3,a+2,a|a+1,a+3}
++ M_{a+3,a,a+2|a+1,a+3}
++ M_{a+2,a,a|a,a+1}
++ M_{a+2,a+1,a|a+1,a+1}\\
+                                               &
++ M_{a+2,a,a+1|a+1,a+1}
++ 2M_{a+2,a+2,a|a+1,a+2}
++ M_{a+2,a,a+2|a+1,a+2}
++ M_{a+2,a+3,a|a+1,a+3}\\
+                                               &
++ M_{a,a+3,a+2|a+1,a+3}
++ M_{a,a+2,a|a,a+1}
++ M_{a+1,a+2,a|a+1,a+1}\\
+                                               &
++ M_{a,a+2,a+1|a+1,a+1}
++ M_{a,a+2,a+2|a+1,a+2} \\
+                                               &=
+\sum M_{a,a+2,a|a,a+1}
++ \sum M_{a,a+2,a+1|a+1,a+1}
++ \sum M_{a,a+2,a+2|a+1,a+2}\\
+                                               &
++ \sum M_{a,a+3,a+2|a+1,a+3}
++  M_{a+2,a+2,a|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is
+\begin{equation}\notag
+  \begin{aligned}
+      U = \{
+&M_{a+3,a+2,a|a+1,a+3},
+M_{a+3,a,a+2|a+1,a+3},
+M_{a+2,a+3,a|a+1,a+3}, \\
+&M_{a,a+3,a+2|a+1,a+3},
+M_{a+2,a+2,a|a+1,a+2}
+\}.
+  \end{aligned}
+\end{equation}
+We obtain the computational data displayed in the \cref{tab:verma-analysis_1_a_3} directly from \cref{prop:1}. Unfortunately, these results alone do not allow us to determine whether $\prl(P_\mu \otimes V_3)$ contains $P_{a+2,a+2,a|a+1,a+2}$ as a direct summand. To address this ambiguity, we directly apply the structural description of $P_{a+2,a+2,a|a+1,a+2}$ provided in \colorbox{orange}{Placeholder} as follows.
+\begin{equation}\label{eq:4}
+  \begin{aligned}
+    P_{a+2,a+2,a|a+1,a+2} &=
+M_{a+3,a+2,a|a+1,a+3}
++M_{a+2,a+3,a|a+1,a+3}
++M_{a+2,a+2,a|a+1,a+2}\\
+                          &=
+M_{a+2,a+2,a|a+1,a+2}
++\sum M_{a+2,a+3,a|a+1,a+3}
+  \end{aligned}
+\end{equation}
+We emphasize that this usage does not constitute circular reasoning, as \colorbox{orange}{Placeholder} is established independently of the current context.
+
+The \cref{eq:4} reveals that the set $U$ contains all composition factors appearing in the standard filtration of $P_{a+2,a+2,a|a+1,a+2}$, and thus the possibility that $P_{a+2,a+2,a|a+1,a+2}$ occurs as a direct summand of $\prl(P_\mu \otimes V_3)$ cannot be ruled out by filtration comparison alone.
+
+To resolve this indeterminacy, we employ a proof by contradiction. Suppose, for the sake of contradiction, that $P_{a+2,a+2,a|a+1,a+2}$ is indeed a direct summand of $\prl(P_\mu \otimes V_3)$. Then we may write
+\begin{equation}\notag
+  \begin{aligned}
+\prl(P_\mu \otimes V_5) = Q \oplus P_{a+2,a+2,a|a+1,a+2}
+  \end{aligned}
+\end{equation}
+for some module $Q$. It suffices to show that $Q$ cannot be projective, which would contradict the fact that $\prl(P_\mu \otimes V_3)$ is a direct sum of projective modules. This contradiction will establish that $P_{a+2,a+2,a|a+1,a+2}$ is not a direct summand. Consequently, since all alternative projective summands have been systematically excluded, we conclude definitively that: $\prl(P_\mu \otimes V_3) = P_\lambda$.
+
+Now, we shall show that $Q$ cannot be projective by contradiction.
+Suppose, to the contrary, that $Q$ is projective. Then $pr_\nu(Q \otimes V_3)$ is also projective, and its standard filtration admits a decomposition into indecomposable projective summands.
+Let $\nu = (a,a+3,a+3|a+1,a+2)$. We project $Q \otimes V_3$ on to the $\nu$ linkage block as follows.
+\begin{equation}\notag
+  \begin{aligned}
+    pr_\nu(Q \otimes V_3) = 2M_{a+3,a,a+3|a+1,a+2} + 2M_{a,a+3,a+3|a+1,a+2} + M_{a+3,a+3,a|a+1,a+2}
+  \end{aligned}
+\end{equation}
+Observe that the minimal weight among all composition factors in the standard filtration of $pr_\nu(Q \otimes V_3)$ is $\nu$. By \cref{lemma:2}, this implies that $pr_\nu(Q \otimes V_3)$ must contain at least two copies of $P_\nu$ as direct summands. However, a direct computation shows that
+  \begin{equation}\notag
+    \begin{aligned}
+  P_\nu = M_{a+3,a,a+3|a+1,a+2} + M_{a,a+3,a+3|a+1,a+2} + M_{a+3,a+3,a|a+1,a+2}
+    \end{aligned}
+  \end{equation}
+Consequently, $P_\nu$ cannot appear with multiplicity $\geq 2$, yielding a contradiction. Therefore, $Q$ cannot be projective.
+
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{3})) $ } \label{tab:verma-analysis_1_a_3}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{3})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+3,a+2,a|a+1,a+3}$ & \makecell{
+ $M_{a+4,a+2,a|a+1,a+4}$
+}\\
+ & \\
+ $P_{a+3,a,a+2|a+1,a+3}$ & \makecell{
+ $M_{a+4,a,a+2|a+1,a+4}$,
+ $M_{a+4,a+2,a|a+1,a+4}$
+}\\
+ & \\
+ $P_{a+2,a+3,a|a+1,a+3}$ & \makecell{
+ $M_{a+2,a+4,a|a+1,a+4}$,
+ $M_{a+4,a+2,a|a+1,a+4}$
+}\\
+ & \\
+ $P_{a,a+3,a+2|a+1,a+3}$ & \makecell{
+ $M_{a,a+4,a+2|a+1,a+4}$,
+ $M_{a+4,a,a+2|a+1,a+4}$,
+ $M_{a+2,a+4,a|a+1,a+4}$,
+ $M_{a+4,a+2,a|a+1,a+4}$
+}\\
+ & \\
+ $P_{a+2,a+2,a|a+1,a+2}$ & \makecell{
+ $\emptyset$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        
+\item $b=a+1 \quad \text{hence } d \neq a+1 $
+          \begin{enumerate}
+            \item $ d > a+2 $\par
+        Let $\mu:=\lambda + (0,0,0,2,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,a,a|a+2,d}
++ M_{a,a+1,a|a+2,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{a+2,a+1,a|a+2,d}
++ M_{a+2,a,a+1|a+2,d}
++ 2M_{a+1,a+1,a|a+1,d}\\
+                                               &
++ M_{a+1,a,a+1|a+1,d}
++ M_{a+1,a,a|a,d}
++ M_{a+1,a+2,a|a+2,d}\\
+                                               &
++ M_{a,a+2,a+1|a+2,d}
++ M_{a,a+1,a+1|a+1,d}
++ M_{a,a+1,a|a,d} \\
+                                               &=
+\sum M_{a,a+1,a|a,d}
++ \sum M_{a,a+1,a+1|a+1,d}\\
+                                               &
++ \sum M_{a,a+2,a+1|a+2,d}
++  M_{a+1,a+1,a|a+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{a+1,a+1,a|a+1,d}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_4}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_4}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,a+1,a|a+1,d}$ & \makecell{
+ $M_{a+2,a+1,a|a+2,d}$,
+ $M_{a+1,a+2,a|a+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+            \item $ d < a $\par
+        Let $\mu:=\lambda + (0,0,0,2,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,a,a|a+2,d}
++ M_{a+1,a,a|d,a+2}
++ M_{a,a+1,a|a+2,d}
++ M_{a,a+1,a|d,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{a+2,a+1,a|a+2,d}
++ M_{a+2,a,a+1|a+2,d}
++ 2M_{a+1,a+1,a|a+1,d}
++ M_{a+1,a,a+1|a+1,d}\\
+                                               &
++ M_{a+1,a,a|a,d}
++ M_{a+2,a+1,a|d,a+2}
++ M_{a+2,a,a+1|d,a+2}
++ 2M_{a+1,a+1,a|d,a+1}\\
+                                               &
++ M_{a+1,a,a+1|d,a+1}
++ M_{a+1,a,a|d,a}
++ M_{a+1,a+2,a|a+2,d}
++ M_{a,a+2,a+1|a+2,d}\\
+                                               &
++ M_{a,a+1,a+1|a+1,d}
++ M_{a,a+1,a|a,d}
++ M_{a+1,a+2,a|d,a+2}\\
+                                               &
++ M_{a,a+2,a+1|d,a+2}
++ M_{a,a+1,a+1|d,a+1}
++ M_{a,a+1,a|d,a} \\
+                                               &=
+\sum M_{a,a+1,a|a,d}
++ \sum M_{a,a+1,a+1|a+1,d}\\
+                                               &
++ \sum M_{a,a+2,a+1|a+2,d}
++ \sum M_{a+1,a+1,a|a+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{a+1,a+1,a|a+1,d},
+M_{a+1,a+1,a|d,a+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_5}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_5}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,a+1,a|a+1,d}$ & \makecell{
+ $M_{a+2,a+1,a|a+2,d}$,
+ $M_{a+1,a+2,a|a+2,d}$,
+ $M_{a+2,a+1,a|d,a+2}$,
+ $M_{a+1,a+2,a|d,a+2}$
+}\\
+ & \\
+ $P_{a+1,a+1,a|d,a+1}$ & \makecell{
+ $M_{a+2,a+1,a|d,a+2}$,
+ $M_{a+1,a+2,a|d,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+            \item $ d = a+2 $\par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{a+3,a+1,a|a+2,a+3}
++ M_{a+2,a+1,a|a+2,a+2}
++ M_{a+3,a,a+1|a+2,a+3}\\
+                                               &
++ M_{a+2,a,a+1|a+2,a+2}
++ 2M_{a+1,a+1,a|a+1,a+2}
++ M_{a+1,a,a+1|a+1,a+2}\\
+                                               &
++ M_{a+1,a,a|a,a+2}
++ M_{a+1,a+3,a|a+2,a+3}\\
+                                               &
++ M_{a+1,a+2,a|a+2,a+2}
++ M_{a,a+3,a+1|a+2,a+3}
++ M_{a,a+2,a+1|a+2,a+2}\\
+                                               &
++ M_{a,a+1,a+1|a+1,a+2}
++ M_{a,a+1,a|a,a+2} \\
+                                               &=
+\sum M_{a,a+1,a|a,a+2}
++ \sum M_{a,a+1,a+1|a+1,a+2}
++ \sum M_{a,a+2,a+1|a+2,a+2}\\
+                                               &
++ \sum M_{a,a+3,a+1|a+2,a+3}
++  M_{a+1,a+1,a|a+1,a+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+     U = \{
+&M_{a+3,a+1,a|a+2,a+3},
+M_{a+3,a,a+1|a+2,a+3},
+M_{a+1,a+3,a|a+2,a+3}, \\
+&M_{a,a+3,a+1|a+2,a+3},
+M_{a+1,a+1,a|a+1,a+2}
+\}.
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_6}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_6}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+3,a+1,a|a+2,a+3}$ & \makecell{
+ $M_{a+4,a+1,a|a+2,a+4}$
+}\\
+ & \\
+ $P_{a+3,a,a+1|a+2,a+3}$ & \makecell{
+ $M_{a+4,a,a+1|a+2,a+4}$,
+ $M_{a+4,a+1,a|a+2,a+4}$
+}\\
+ & \\
+ $P_{a+1,a+3,a|a+2,a+3}$ & \makecell{
+ $M_{a+1,a+4,a|a+2,a+4}$,
+ $M_{a+4,a+1,a|a+2,a+4}$
+}\\
+ & \\
+ $P_{a,a+3,a+1|a+2,a+3}$ & \makecell{
+ $M_{a,a+4,a+1|a+2,a+4}$,
+ $M_{a+4,a,a+1|a+2,a+4}$,
+ $M_{a+1,a+4,a|a+2,a+4}$,
+ $M_{a+4,a+1,a|a+2,a+4}$
+}\\
+ & \\
+ $P_{a+1,a+1,a|a+1,a+2}$ & \makecell{
+ $M_{a+2,a+1,a|a+2,a+2}$,
+ $M_{a+1,a+2,a|a+2,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+          \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b,c|d,b)$ with $d \notin \{a,c\}, a\neq b $. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a,c|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+  \begin{enumerate}
+    \item $b \notin \{  c,d  \}$
+      \begin{enumerate}
+        \item $a \neq b+1, \; c \neq b+1$ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,c|d,b}
++\sum M_{a,b+1,c|d,b+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+
+\item $a \neq b+1, \; c = b+1\quad \text{hence } d \neq b+1 $ \par
+        Let $\mu:=\lambda + (0,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,b+1|d,b}
++\sum M_{a,b+1,b+1|d,b+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $a = b+1, \; c < b \quad \text{hence } d \neq b+1 $ \par
+  $\text{or }a = b+1, \; c = b+1 \quad \text{hence } d \neq b+1$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{b+1,b,c|d,b}
++\sum M_{b+1,b+1,c|d,b+1}
++\sum M_{b+2,b+1,c|d,b+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $a = b+1, \; c > b+1 \quad \text{hence } d \neq b+1  $
+  \begin{enumerate}
+    \item $ d < b $ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c,b+1,b+2|d,b}
++ M_{b+2,c,b+1|d,b}
++ M_{b+2,b+1,c|d,b}
++ M_{c,b+2,b+1|d,b}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b,b+1|d,b}
++ 2M_{c,b+1,b+1|d,b+1}
++ M_{c,b+1,b+2|d,b+2}
++ M_{b+1,c,b|d,b}\\
+                                               &
++ M_{b+1,c,b+1|d,b+1}
++ M_{b+2,c,b+1|d,b+2}
++ M_{b+1,b,c|d,b}
++ M_{b+1,b+1,c|d,b+1}\\
+                                               &
++ M_{b+2,b+1,c|d,b+2}
++ M_{c,b+1,b|d,b}
++ M_{c,b+2,b+1|d,b+2} \\
+                                               &=
+\sum M_{b+1,b,c|d,b}
++ \sum M_{b+1,b+1,c|d,b+1}\\
+                                               &
++ \sum M_{b+2,b+1,c|d,b+2}
++  M_{c,b+1,b+1|d,b+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c,b+1,b+1|d,b+1}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_7}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_7}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|d,b+1}$ & \makecell{
+ $M_{c,b+2,b+1|d,b+2}$,
+ $M_{c,b+1,b+2|d,b+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+    \item $ d > b+2  $ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{c,b+1,b+2|d,b}
++ M_{c,b+1,b+2|b,d}
++ M_{b+2,c,b+1|d,b}
++ M_{b+2,c,b+1|b,d}\\
+                                               &
++ M_{b+2,b+1,c|d,b}
++ M_{b+2,b+1,c|b,d}
++ M_{c,b+2,b+1|d,b}
++ M_{c,b+2,b+1|b,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b,b+1|d,b}
++ 2M_{c,b+1,b+1|d,b+1}
++ M_{c,b+1,b+2|d,b+2}
++ M_{c,b,b+1|b,d}\\
+                                               &
++ 2M_{c,b+1,b+1|b+1,d}
++ M_{c,b+1,b+2|b+2,d}
++ M_{b+1,c,b|d,b}
++ M_{b+1,c,b+1|d,b+1}\\
+                                               &
++ M_{b+2,c,b+1|d,b+2}
++ M_{b+1,c,b|b,d}
++ M_{b+1,c,b+1|b+1,d}
++ M_{b+2,c,b+1|b+2,d}\\
+                                               &
++ M_{b+1,b,c|d,b}
++ M_{b+1,b+1,c|d,b+1}
++ M_{b+2,b+1,c|d,b+2}
++ M_{b+1,b,c|b,d}\\
+                                               &
++ M_{b+1,b+1,c|b+1,d}
++ M_{b+2,b+1,c|b+2,d}
++ M_{c,b+1,b|d,b}\\
+                                               &
++ M_{c,b+2,b+1|d,b+2}
++ M_{c,b+1,b|b,d}
++ M_{c,b+2,b+1|b+2,d} \\
+                                               &=
+\sum M_{b+1,b,c|d,b}
++ \sum M_{b+1,b+1,c|d,b+1}
++ \sum M_{b+2,b+1,c|d,b+2}\\
+                                               &
++ \sum M_{c,b+1,b+1|d,b+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+     U = \{
+M_{c,b+1,b+1|d,b+1},
+M_{c,b+1,b+1|b+1,d}
+\}.
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_8}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_8}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|d,b+1}$ & \makecell{
+ $M_{c,b+2,b+1|d,b+2}$,
+ $M_{c,b+1,b+2|d,b+2}$,
+ $M_{c,b+2,b+1|b+2,d}$,
+ $M_{c,b+1,b+2|b+2,d}$
+}\\
+ & \\
+ $P_{c,b+1,b+1|b+1,d}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,d}$,
+ $M_{c,b+1,b+2|b+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+\item $ d = b+2, \quad \text{hence } c\neq b+2 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c,b,b+1|b+2,b+2}
++ M_{b+1,c,b|b+2,b+2}
++ M_{b+1,b,c|b+2,b+2}
++ M_{c,b+1,b|b+2,b+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c,b+1,b+2|b+2,b+2}
++ 2M_{c,b+1,b+1|b+1,b+2}
++ 2M_{c,b+1,b+1|b+2,b+1}
++ M_{c,b,b+1|b,b+2}\\
+                                               &
++ M_{c,b,b+1|b+2,b}
++ M_{b+2,c,b+1|b+2,b+2}
++ M_{b+1,c,b+1|b+1,b+2}
++ M_{b+1,c,b+1|b+2,b+1}\\
+                                               &
++ M_{b+1,c,b|b,b+2}
++ M_{b+1,c,b|b+2,b}
++ M_{b+2,b+1,c|b+2,b+2}
++ M_{b+1,b+1,c|b+1,b+2}\\
+                                               &
++ M_{b+1,b+1,c|b+2,b+1}
++ M_{b+1,b,c|b,b+2}
++ M_{b+1,b,c|b+2,b}\\
+                                               &
++ M_{c,b+2,b+1|b+2,b+2}
++ M_{c,b+1,b|b,b+2}
++ M_{c,b+1,b|b+2,b} \\
+                                               &=
+\sum M_{b+1,b,c|b+2,b}
++ \sum M_{b+1,b+1,c|b+2,b+1}\\
+                                               &
++ \sum M_{b+2,b+1,c|b+2,b+2}
++ \sum M_{c,b+1,b+1|b+2,b+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c,b+1,b+1|b+1,b+2},
+M_{c,b+1,b+1|b+2,b+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_9}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_9}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|b+1,b+2}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,b+2}$,
+ $M_{c,b+1,b+2|b+2,b+2}$,
+ $M_{c,b+3,b+1|b+2,b+3}$,
+ $M_{c,b+1,b+3|b+2,b+3}$
+}\\
+ & \\
+ $P_{c,b+1,b+1|b+2,b+1}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,b+2}$,
+ $M_{c,b+1,b+2|b+2,b+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+  \end{enumerate}
+      \end{enumerate}
+    \item $b=c\quad \text{hence } d \neq b$
+      \begin{enumerate}
+        \item $a \neq b+1$ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,b|d,b}
++\sum M_{a,b,b+1|d,b+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+        \item $ a=b+1\quad \text{hence } d \neq b+1 $\par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{b+1,b,b|d,b}
++\sum M_{b+2,b,b+1|d,b+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+      \end{enumerate}
+
+    \item $b = d\quad \text{hence } a,c \neq b$
+      \begin{enumerate}
+        \item $ a \neq b+1 $ \par
+        Let $\mu:=\lambda + (0,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,c|b,b}
++\sum M_{a,b+1,c|b+1,b}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+        \item $a = b+1 $ 
+          \begin{enumerate}
+            \item $ c < b $ \par
+              $\text{or } c = b+1 $ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{b+2,b+1,c|b,b}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{b+1,b,c|b,b}
++ M_{b+1,b+1,c|b+1,b}
++ M_{b+1,b+1,c|b,b+1}\\
+                                               &
++ M_{b+2,b+1,c|b+2,b}
++ M_{b+2,b+1,c|b,b+2} \\
+                                               &=
+ \sum M_{b+1,b,c|b,b}
++ \sum M_{b+1,b+1,c|b+1,b}
++ \sum M_{b+2,b+1,c|b+2,b}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+            \item $ c > b+1 $ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c,b+1,b+2|b,b}
++ M_{b+2,c,b+1|b,b}
++ M_{b+2,b+1,c|b,b}
++ M_{c,b+2,b+1|b,b}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b,b+1|b,b}
++ 2M_{c,b+1,b+1|b+1,b}
++ 2M_{c,b+1,b+1|b,b+1}
++ M_{c,b+1,b+2|b+2,b}\\
+                                               &
++ M_{c,b+1,b+2|b,b+2}
++ M_{b+1,c,b|b,b}
++ M_{b+1,c,b+1|b+1,b}
++ M_{b+1,c,b+1|b,b+1}\\
+                                               &
++ M_{b+2,c,b+1|b+2,b}
++ M_{b+2,c,b+1|b,b+2}
++ M_{b+1,b,c|b,b}
++ M_{b+1,b+1,c|b+1,b}\\
+                                               &
++ M_{b+1,b+1,c|b,b+1}
++ M_{b+2,b+1,c|b+2,b}
++ M_{b+2,b+1,c|b,b+2}\\
+                                               &
++ M_{c,b+1,b|b,b}
++ M_{c,b+2,b+1|b+2,b}
++ M_{c,b+2,b+1|b,b+2} \\
+                                               &=
+\sum M_{b+1,b,c|b,b}
++ \sum M_{b+1,b+1,c|b+1,b}\\
+                                               &
++ \sum M_{b+2,b+1,c|b+2,b}
++ \sum M_{c,b+1,b+1|b+1,b}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c,b+1,b+1|b+1,b},
+M_{c,b+1,b+1|b,b+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_10}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_10}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|b+1,b}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,b}$,
+ $M_{c,b+1,b+2|b+2,b}$,
+ $M_{c,b+2,b+1|b,b+2}$,
+ $M_{c,b+1,b+2|b,b+2}$
+}\\
+ & \\
+ $P_{c,b+1,b+1|b,b+1}$ & \makecell{
+ $M_{c,b+2,b+1|b,b+2}$,
+ $M_{c,b+1,b+2|b,b+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+          \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+  Let $a,b,c,d \in \mathbb{Z}$ and $\lambda = (a,b,c|b,d)$ with $d \neq \{a,b,c\}, a \neq b$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a,c|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $c \neq b$ 
+    \begin{enumerate}
+      \item $ a\neq b+1\; d\neq b+1 $ \par
+        Let $\mu:=\lambda + (0,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+\sum M_{a,b,c|b,d}
++\sum M_{a,b+1,c|b+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+      \item $a\neq b+1 \; d=b+1 $
+        \begin{enumerate}
+          \item $ a\neq b+2 $\par
+        Let $\mu:=\lambda + (0,2,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{4}) &=
+\sum M_{a,b,c|b,b+1}
++\sum M_{a,b+1,c|b+1,b+1}
++\sum M_{a,b+2,c|b+1,b+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+          \item $ a = b+2 \; c<b $\par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{b+3,b+2,c|b+1,b+3}
++ M_{b+2,b+2,c|b+1,b+2}
++ M_{b+2,b+1,c|b+1,b+1}
++ M_{b+2,b,c|b,b+1} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{b+3,b+2,c|b+1,b+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_11}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_11}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+2,c|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2,c|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = b+2 \; c=b+2 $\par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = Placeholder
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{b+2,b+2,b+2|b+1,b+2}
++ M_{b+3,b+2,b+2|b+1,b+3}
++ M_{b+2,b+1,b+2|b+1,b+1}\\
+                                               &
++ M_{b+2,b+2,b+1|b+1,b+1}
++ M_{b+2,b,b+2|b,b+1}
++ M_{b+2,b+2,b|b,b+1} \\
+                                               &=
+\sum M_{b+2,b,b+2|b,b+1}
++ \sum M_{b+2,b+1,b+2|b+1,b+1}\\
+                                               &
++  M_{b+2,b+2,b+2|b+1,b+2}
++  M_{b+3,b+2,b+2|b+1,b+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{b+3,b+2,b+2|b+1,b+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_12}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_12}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+2,b+2|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2,b+2|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = b+2 \; c=b+3 $\par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = Placeholder
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{b+2,b+3,b+2|b+1,b+2}
++ 2M_{b+3,b+2,b+2|b+1,b+2}
++ M_{b+3,b+3,b+2|b+1,b+3}\\
+                                               &
++ M_{b+2,b+3,b+1|b+1,b+1}
++ M_{b+3,b+2,b+1|b+1,b+1}
++ M_{b+2,b+3,b|b,b+1}\\
+                                               &
++ M_{b+3,b+2,b|b,b+1}
++ M_{b+2,b+2,b+3|b+1,b+2}\\
+                                               &
++ M_{b+3,b+2,b+3|b+1,b+3}
++ M_{b+2,b+1,b+3|b+1,b+1}
++ M_{b+3,b+1,b+2|b+1,b+1}\\
+                                               &
++ M_{b+2,b,b+3|b,b+1}
++ M_{b+3,b,b+2|b,b+1} \\
+                                               &=
+\sum M_{b+2,b,b+3|b,b+1}
++ \sum M_{b+2,b+1,b+3|b+1,b+1}
++ \sum M_{b+2,b+2,b+3|b+1,b+2}\\
+                                               &
++  M_{b+3,b+2,b+2|b+1,b+2}
++ \sum M_{b+3,b+2,b+3|b+1,b+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{b+3,b+3,b+2|b+1,b+3},
+M_{b+3,b+2,b+2|b+1,b+2},
+M_{b+3,b+2,b+3|b+1,b+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_13}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_13}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+3,b+2|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+3,b+2|b+1,b+4}$,
+ $M_{b+3,b+4,b+2|b+1,b+4}$
+}\\
+ & \\
+ $P_{b+3,b+2,b+2|b+1,b+2}$ & \makecell{
+ $M_{b+4,b+3,b+2|b+1,b+4}$,
+ $M_{b+4,b+2,b+3|b+1,b+4}$
+}\\
+ & \\
+ $P_{b+3,b+2,b+3|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2,b+3|b+1,b+4}$,
+ $M_{b+3,b+2,b+4|b+1,b+4}$,
+ $M_{b+4,b+3,b+2|b+1,b+4}$,
+ $M_{b+3,b+4,b+2|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = b+2 \; c>b+3 $\par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+2M_{c,b+2,b+2|b+1,b+2}
++ M_{c,b+2,b+3|b+1,b+3}
++ M_{c,b+1,b+2|b+1,b+1}
++ M_{c,b,b+2|b,b+1}\\
+                                               &
++ M_{b+2,c,b+2|b+1,b+2}
++ M_{b+3,c,b+2|b+1,b+3}
++ M_{b+2,c,b+1|b+1,b+1}
++ M_{b+2,c,b|b,b+1}\\
+                                               &
++ M_{b+2,b+2,c|b+1,b+2}
++ M_{b+3,b+2,c|b+1,b+3}
++ M_{b+2,b+1,c|b+1,b+1}
++ M_{b+2,b,c|b,b+1}\\
+                                               &
++ M_{c,b+3,b+2|b+1,b+3}
++ M_{c,b+2,b+1|b+1,b+1}
++ M_{c,b+2,b|b,b+1} \\
+                                               &=
+\sum M_{b+2,b,c|b,b+1}
++ \sum M_{b+2,b+1,c|b+1,b+1}
++ \sum M_{b+2,b+2,c|b+1,b+2}\\
+                                               &
++ \sum M_{b+3,b+2,c|b+1,b+3}
++  M_{c,b+2,b+2|b+1,b+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+      U = \{
+&M_{c,b+2,b+3|b+1,b+3},
+M_{b+3,c,b+2|b+1,b+3},
+M_{b+3,b+2,c|b+1,b+3},\\
+&M_{c,b+2,b+2|b+1,b+2},
+M_{c,b+3,b+2|b+1,b+3}
+\}. 
+  \end{aligned}
+\end{equation}
+
+We obtain the computational data displayed in the \cref{tab:verma-analysis_1_a_13} directly from \cref{prop:1}. Unfortunately, these results alone do not allow us to determine whether $\prl(P_\mu \otimes V_2)$ contains $P_{c,b+2,b+2|b+1,b+2}$ as a direct summand. To address this ambiguity, we directly apply the structural description of $P_{c,b+2,b+2|b+1,b+2}$ provided in \colorbox{orange}{Placeholder} as follows.
+\begin{equation}\label{eq:5}
+  \begin{aligned}
+    P_{c,b+2,b+2|b+1,b+2} &=M_{c,b+3,b+2|b+1,b+3}
++M_{c,b+2,b+3|b+1,b+3}
++M_{c,b+2,b+2|b+1,b+2}\\
+                          &=
+ M_{c,b+2,b+2|b+1,b+2}
++\sum M_{c,b+2,b+3|b+1,b+3}
+  \end{aligned}
+\end{equation}
+We emphasize that this usage does not constitute circular reasoning, as \colorbox{orange}{Placeholder} is established independently of the current context.
+
+The \cref{eq:5} reveals that the set $U$ contains all composition factors appearing in the standard filtration of $P_{c,b+2,b+2|b+1,b+2}$, and thus the possibility that $P_{c,b+2,b+2|b+1,b+2}$ occurs as a direct summand of $\prl(P_\mu \otimes V_2)$ cannot be ruled out by filtration comparison alone.
+
+To resolve this indeterminacy, we employ a proof by contradiction. Suppose, for the sake of contradiction, that $P_{c,b+2,b+2|b+1,b+2}$ is indeed a direct summand of $\prl(P_\mu \otimes V_2)$. Then we may write
+\begin{equation}\notag
+  \begin{aligned}
+\prl(P_\mu \otimes V_3) = Q \oplus P_{c,b+2,b+2|b+1,b+2}
+  \end{aligned}
+\end{equation}
+for some module $Q$. It suffices to show that $Q$ cannot be projective, which would contradict the fact that $\prl(P_\mu \otimes V_2)$ is a direct sum of projective modules. This contradiction will establish that $P_{c,b+2,b+2|b+1,b+2}$ is not a direct summand. Consequently, since all alternative projective summands have been systematically excluded, we conclude definitively that: $\prl(P_\mu \otimes V_2) = P_\lambda$.
+
+Now, we shall show that $Q$ cannot be projective by contradiction.
+Suppose, to the contrary, that $Q$ is projective. Then $pr_\nu(Q \otimes V_3)$ is also projective, and its standard filtration admits a decomposition into indecomposable projective summands.
+Let $\nu = (b+3,b+3,c|b+1,b+2)$. We project $Q \otimes V_3$ on to the $\nu$ linkage block as follows.
+\begin{equation}\notag
+  \begin{aligned}
+    pr_\nu(Q \otimes V_3) = 2M_{b+3,c,b+3|b+1,b+2} + 2M_{b+3,b+3,c|b+1,b+2} + M_{c,b+3,b+3|b+1,b+2}
+  \end{aligned}
+\end{equation}
+Observe that the minimal weight among all composition factors in the standard filtration of $pr_\nu(Q \otimes V_3)$ is $\nu$. By \cref{lemma:2}, this implies that $pr_\nu(Q \otimes V_3)$ must contain at least two copies of $P_\nu$ as direct summands. However, a direct computation shows that
+  \begin{equation}\notag
+    \begin{aligned}
+  P_\nu = M_{b+3,c,b+3|b+1,b+2} + M_{b+3,b+3,c|b+1,b+2} + M_{c,b+3,b+3|b+1,b+2}
+    \end{aligned}
+  \end{equation}
+Consequently, $P_\nu$ cannot appear with multiplicity $\geq 2$, yielding a contradiction. Therefore, $Q$ cannot be projective.
+
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_14}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+2,b+3|b+1,b+3}$ & \makecell{
+ $M_{c,b+2,b+4|b+1,b+4}$,
+ $M_{c,b+4,b+2|b+1,b+4}$
+}\\
+ & \\
+ $P_{b+3,c,b+2|b+1,b+3}$ & \makecell{
+ $M_{b+4,c,b+2|b+1,b+4}$,
+ $M_{c,b+4,b+2|b+1,b+4}$
+}\\
+ & \\
+ $P_{b+3,b+2,c|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2,c|b+1,b+4}$,
+ $M_{c,b+2,b+4|b+1,b+4}$,
+ $M_{b+4,c,b+2|b+1,b+4}$,
+ $M_{c,b+4,b+2|b+1,b+4}$
+}\\
+ & \\
+ $P_{c,b+2,b+2|b+1,b+2}$ & \makecell{
+ $\emptyset$
+}\\
+ & \\
+ $P_{c,b+3,b+2|b+1,b+3}$ & \makecell{
+ $M_{c,b+4,b+2|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+      \item $a=b+1, \; d\neq b+1$
+        \begin{enumerate}
+          \item $d>b+2,\;c=b+1$ \par
+            $\text{or } d>b+2,\;c<b$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{b+1,b,c|b,d}
++ \sum M_{b+1,b+1,c|b+1,d}
++ \sum M_{b+2,b+1,c|b+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+          \item $d>b+2,\; c>b+1$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c,b+1,b+2|b,d}
++ M_{b+2,c,b+1|b,d}
++ M_{b+2,b+1,c|b,d}
++ M_{c,b+2,b+1|b,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b,b+1|b,d}
++ 2M_{c,b+1,b+1|b+1,d}
++ M_{c,b+1,b+2|b+2,d}
++ M_{b+1,c,b|b,d}\\
+                                               &
++ M_{b+1,c,b+1|b+1,d}
++ M_{b+2,c,b+1|b+2,d}
++ M_{b+1,b,c|b,d}
++ M_{b+1,b+1,c|b+1,d}\\
+                                               &
++ M_{b+2,b+1,c|b+2,d}
++ M_{c,b+1,b|b,d}
++ M_{c,b+2,b+1|b+2,d} \\
+                                               &=
+\sum M_{b+1,b,c|b,d}
++ \sum M_{b+1,b+1,c|b+1,d}
++ \sum M_{b+2,b+1,c|b+2,d}
++  M_{c,b+1,b+1|b+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c,b+1,b+1|b+1,d}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_15}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_15}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|b+1,d}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,d}$,
+ $M_{c,b+1,b+2|b+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $d=b+2,\;c<b$\par
+            $\text{or } d=b+2,\;c=b+1$\par
+        Let $\mu:=\lambda + (1,1,0,0,0) = (b+2,b+1,c,b,b+2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{b+3,b+1,c|b+2,b+3}
++ M_{b+1,b,c|b,b+2}
++ M_{b+1,b+1,c|b+1,b+2}
++ M_{b+2,b+1,c|b+2,b+2} \\
+                                              &=
+M_{b+3,b+1,c|b+2,b+3}
++ \sum M_{b+1,b,c|b,b+2}
++ M_{b+1,b+1,c|b+1,b+2}
++ M_{b+2,b+1,c|b+2,b+2} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{b+3,b+1,c|b+2,b+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_16}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_16}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+1,c|b+2,b+3}$ & \makecell{
+ $M_{b+4,b+1,c|b+2,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $d=b+2,\;c>b+2$\par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b+1,b+3|b+2,b+3}
++ M_{c,b,b+1|b,b+2}
++ 2M_{c,b+1,b+1|b+1,b+2}
++ M_{c,b+1,b+2|b+2,b+2}\\
+                                               &
++ M_{b+3,c,b+1|b+2,b+3}
++ M_{b+1,c,b|b,b+2}
++ M_{b+1,c,b+1|b+1,b+2}
++ M_{b+2,c,b+1|b+2,b+2}\\
+                                               &
++ M_{b+3,b+1,c|b+2,b+3}
++ M_{b+1,b,c|b,b+2}
++ M_{b+1,b+1,c|b+1,b+2}
++ M_{b+2,b+1,c|b+2,b+2}\\
+                                               &
++ M_{c,b+3,b+1|b+2,b+3}
++ M_{c,b+1,b|b,b+2}
++ M_{c,b+2,b+1|b+2,b+2} \\
+                                               &=
+\sum M_{b+1,b,c|b,b+2}
++ \sum M_{b+1,b+1,c|b+1,b+2}
++ \sum M_{b+2,b+1,c|b+2,b+2}\\
+                                               &
++ \sum M_{b+3,b+1,c|b+2,b+3}
++  M_{c,b+1,b+1|b+1,b+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c,b+1,b+3|b+2,b+3},
+M_{b+3,c,b+1|b+2,b+3},
+M_{b+3,b+1,c|b+2,b+3},\\
+M_{c,b+3,b+1|b+2,b+3},
+M_{c,b+1,b+1|b+1,b+2}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_17}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_17}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+3|b+2,b+3}$ & \makecell{
+ $M_{c,b+1,b+4|b+2,b+4}$,
+ $M_{c,b+4,b+1|b+2,b+4}$
+}\\
+ & \\
+ $P_{b+3,c,b+1|b+2,b+3}$ & \makecell{
+ $M_{b+4,c,b+1|b+2,b+4}$,
+ $M_{c,b+4,b+1|b+2,b+4}$
+}\\
+ & \\
+ $P_{b+3,b+1,c|b+2,b+3}$ & \makecell{
+ $M_{b+4,b+1,c|b+2,b+4}$,
+ $M_{c,b+1,b+4|b+2,b+4}$,
+ $M_{b+4,c,b+1|b+2,b+4}$,
+ $M_{c,b+4,b+1|b+2,b+4}$
+}\\
+ & \\
+ $P_{c,b+3,b+1|b+2,b+3}$ & \makecell{
+ $M_{c,b+4,b+1|b+2,b+4}$
+}\\
+ & \\
+ $P_{c,b+1,b+1|b+1,b+2}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,b+2}$,
+ $M_{c,b+1,b+2|b+2,b+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+          \item $d<b,\;c>b+1$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{c,b+1,b+2|b,d}
++ M_{c,b+1,b+2|d,b}
++ M_{b+2,c,b+1|b,d}
++ M_{b+2,c,b+1|d,b}
++ M_{b+2,b+1,c|b,d}\\
+                                               &
++ M_{b+2,b+1,c|d,b}
++ M_{c,b+2,b+1|b,d}
++ M_{c,b+2,b+1|d,b}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c,b,b+1|b,d}
++ 2M_{c,b+1,b+1|b+1,d}
++ M_{c,b+1,b+2|b+2,d}
++ M_{c,b,b+1|d,b}\\
+                                               &
++ 2M_{c,b+1,b+1|d,b+1}
++ M_{c,b+1,b+2|d,b+2}
++ M_{b+1,c,b|b,d}
++ M_{b+1,c,b+1|b+1,d}\\
+                                               &
++ M_{b+2,c,b+1|b+2,d}
++ M_{b+1,c,b|d,b}
++ M_{b+1,c,b+1|d,b+1}
++ M_{b+2,c,b+1|d,b+2}\\
+                                               &
++ M_{b+1,b,c|b,d}
++ M_{b+1,b+1,c|b+1,d}
++ M_{b+2,b+1,c|b+2,d}
++ M_{b+1,b,c|d,b}\\
+                                               &
++ M_{b+1,b+1,c|d,b+1}
++ M_{b+2,b+1,c|d,b+2}
++ M_{c,b+1,b|b,d}
++ M_{c,b+2,b+1|b+2,d}\\
+                                               &
++ M_{c,b+1,b|d,b}
++ M_{c,b+2,b+1|d,b+2} \\
+                                               &=
+\sum M_{b+1,b,c|b,d}
++ \sum M_{b+1,b+1,c|b+1,d}\\
+                                               &
++ \sum M_{b+2,b+1,c|b+2,d}
++ \sum M_{c,b+1,b+1|b+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c,b+1,b+1|b+1,d},
+M_{c,b+1,b+1|d,b+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_18}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_18}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c,b+1,b+1|b+1,d}$ & \makecell{
+ $M_{c,b+2,b+1|b+2,d}$,
+ $M_{c,b+1,b+2|b+2,d}$,
+ $M_{c,b+2,b+1|d,b+2}$,
+ $M_{c,b+1,b+2|d,b+2}$
+}\\
+ & \\
+ $P_{c,b+1,b+1|d,b+1}$ & \makecell{
+ $M_{c,b+2,b+1|d,b+2}$,
+ $M_{c,b+1,b+2|d,b+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $d<b,\;c=b+1$ \par
+            $ \text{or } d<b,\;c<b$ \par
+        Let $\mu:=\lambda + (1,1,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{b+1,b,c|b,d}
++ \sum M_{b+1,b+1,c|b+1,d}
++ \sum M_{b+2,b+1,c|b+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+        \end{enumerate}
+    \end{enumerate}
+
+  \item $b=c$
+    \begin{enumerate}
+      \item $a \neq b+1 ,\; d\neq b+1$\par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,b,b|b,d}
++ \sum M_{a,b,b+1|b+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a = b+1, \;d\neq b+2 $\par
+        Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+\sum M_{b+1,b,b|b,d}
++ \sum M_{b+1,b,b+1|b+1,d}
++ \sum M_{b+2,b,b+1|b+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a = b+1, \;d = b+2 $\par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{b+3,b+1,b|b+2,b+3}
++ M_{b+2,b+1,b|b+2,b+2}
++ M_{b+3,b,b+1|b+2,b+3}
++ M_{b+2,b,b+1|b+2,b+2}\\
+                                               &
++ M_{b+1,b+1,b|b+1,b+2}
++ M_{b+1,b,b+1|b+1,b+2}
++ M_{b+1,b,b|b,b+2} \\
+                                               &=
+ M_{b+1,b,b|b,b+2}
++ \sum M_{b+1,b,b+1|b+1,b+2}\\
+                                               &
++ \sum M_{b+2,b,b+1|b+2,b+2}
++ \sum M_{b+3,b,b+1|b+2,b+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{b+3,b+1,b|b+2,b+3},
+M_{b+3,b,b+1|b+2,b+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_19}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_19}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+1,b|b+2,b+3}$ & \makecell{
+ $M_{b+4,b+1,b|b+2,b+4}$
+}\\
+ & \\
+ $P_{b+3,b,b+1|b+2,b+3}$ & \makecell{
+ $M_{b+4,b,b+1|b+2,b+4}$,
+ $M_{b+4,b+1,b|b+2,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+
+      \item $a \neq b+1 ,\; d = b+1$
+        \begin{enumerate}
+          \item $ a \neq b+2 $ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b,b|b,b+1}
++ \sum M_{a,b,b+1|b+1,b+1}
++ \sum M_{a,b,b+2|b+1,b+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+          \item $ a = b+2 $ \par
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{b+2,b,b|b,b+1}
++ M_{b+2,b+1,b|b+1,b+1}
++ M_{b+2,b,b+1|b+1,b+1}
++ M_{b+2,b+2,b|b+1,b+2}\\
+                                               &
++ M_{b+3,b+2,b|b+1,b+3}
++ M_{b+2,b,b+2|b+1,b+2}
++ M_{b+3,b,b+2|b+1,b+3} \\
+                                               &=
+ M_{b+2,b,b|b,b+1}
++ \sum M_{b+2,b,b+1|b+1,b+1}\\
+                                               &
++ \sum M_{b+2,b,b+2|b+1,b+2}
++ \sum M_{b+3,b,b+2|b+1,b+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{b+3,b+2,b|b+1,b+3},
+M_{b+3,b,b+2|b+1,b+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_20}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_20}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{b+3,b+2,b|b+1,b+3}$ & \makecell{
+ $M_{b+4,b+2,b|b+1,b+4}$
+}\\
+ & \\
+ $P_{b+3,b,b+2|b+1,b+3}$ & \makecell{
+ $M_{b+4,b,b+2|b+1,b+4}$,
+ $M_{b+4,b+2,b|b+1,b+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+\begin{theorem}
+  Let $a,b,c,d \in \mathbb{Z}$ and $\lambda = (a,b,c|d,c)$ with $d \neq \{a,b\}, c \neq a,c\neq b $. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a,b|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $d \neq c$
+    \begin{enumerate}
+      \item $a\neq c+1, \; b \neq c+1$ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,c|d,c}
+\sum M_{a,b,c+1|d,c+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a\neq c+1, \; b=c+1 \text{hence } d \neq c+1 $
+        \begin{enumerate}
+          \item $a>c+2$ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{a,c+1,c|d,c}
+\sum M_{a,c+1,c+1|d,c+1}
+\sum M_{a,c+2,c+1|d,c+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+          \item $ a<c,\; d>c+1 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{c+1,a,c|d,c+2}
++ M_{c+1,a,c|c+2,d}
++ M_{c,c+1,a|d,c+2}
++ M_{c,c+1,a|c+2,d}\\
+                                               &
++ M_{a,c+1,c|d,c+2}
++ M_{a,c+1,c|c+2,d}
++ M_{c+1,c,a|d,c+2}
++ M_{c+1,c,a|c+2,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c+2,a,c+1|d,c+2}
++ M_{c+1,a,c+1|d,c+1}
++ M_{c+1,a,c|d,c}
++ M_{c+2,a,c+1|c+2,d}\\
+                                               &
++ M_{c+1,a,c+1|c+1,d}
++ M_{c+1,a,c|c,d}
++ M_{c+1,c+2,a|d,c+2}
++ 2M_{c+1,c+1,a|d,c+1}\\
+                                               &
++ M_{c,c+1,a|d,c}
++ M_{c+1,c+2,a|c+2,d}
++ 2M_{c+1,c+1,a|c+1,d}
++ M_{c,c+1,a|c,d}\\
+                                               &
++ M_{a,c+2,c+1|d,c+2}
++ M_{a,c+1,c+1|d,c+1}
++ M_{a,c+1,c|d,c}
++ M_{a,c+2,c+1|c+2,d}\\
+                                               &
++ M_{a,c+1,c+1|c+1,d}
++ M_{a,c+1,c|c,d}
++ M_{c+2,c+1,a|d,c+2}\\
+                                               &
++ M_{c+1,c,a|d,c}
++ M_{c+2,c+1,a|c+2,d}
++ M_{c+1,c,a|c,d} \\
+                                               &=
+\sum M_{a,c+1,c|d,c}
++ \sum M_{a,c+1,c+1|d,c+1}\\
+                                               &
++ \sum M_{a,c+2,c+1|d,c+2}
++ \sum M_{c+1,c+1,a|d,c+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+1,c+1,a|d,c+1},
+M_{c+1,c+1,a|c+1,d}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_21}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_21}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+1,c+1,a|d,c+1}$ & \makecell{
+ $M_{c+2,c+1,a|d,c+2}$,
+ $M_{c+1,c+2,a|d,c+2}$,
+ $M_{c+2,c+1,a|c+2,d}$,
+ $M_{c+1,c+2,a|c+2,d}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|c+1,d}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,d}$,
+ $M_{c+1,c+2,a|c+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a<c,\; d<c $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+1,a,c|d,c+2}
++ M_{c,c+1,a|d,c+2}
++ M_{a,c+1,c|d,c+2}
++ M_{c+1,c,a|d,c+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c+2,a,c+1|d,c+2}
++ M_{c+1,a,c+1|d,c+1}
++ M_{c+1,a,c|d,c}
++ M_{c+1,c+2,a|d,c+2}\\
+                                               &
++ 2M_{c+1,c+1,a|d,c+1}
++ M_{c,c+1,a|d,c}
++ M_{a,c+2,c+1|d,c+2}
++ M_{a,c+1,c+1|d,c+1}\\
+                                               &
++ M_{a,c+1,c|d,c}
++ M_{c+2,c+1,a|d,c+2}
++ M_{c+1,c,a|d,c} \\
+                                               &=
+\sum M_{a,c+1,c|d,c}
++ \sum M_{a,c+1,c+1|d,c+1}\\
+                                               &
++ \sum M_{a,c+2,c+1|d,c+2}
++ \sum M_{c+1,c+1,a|d,c+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+1,c+1,a|d,c+1}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_22}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_22}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+1,c+1,a|d,c+1}$ & \makecell{
+ $M_{c+2,c+1,a|d,c+2}$,
+ $M_{c+1,c+2,a|d,c+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a=c+2,\; d<c $ \par
+            $\text{or } a=c+2,\; d=c+3 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c+3,c+2,c+1|d,c+3}
++ M_{c+2,c+2,c+1|d,c+2}
++ M_{c+2,c+1,c+1|d,c+1}
++ M_{c+2,c+1,c|d,c} \\
+                                               &=
+\sum M_{c+2,c+1,c|d,c}
++ \sum M_{c+2,c+1,c+1|d,c+1}
++ \sum M_{c+2,c+2,c+1|d,c+2}\\
+                                               &
++  M_{c+3,c+2,c+1|d,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+3,c+2,c+1|d,c+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_23}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_23}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+2,c+1|d,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|d,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a=c+2,\; d>c+3 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c+3,c+2,c+1|d,c+3}
++ M_{c+2,c+2,c+1|d,c+2}
++ M_{c+2,c+1,c+1|d,c+1}
++ M_{c+2,c+1,c|d,c}\\
+                                               &
++ M_{c+3,c+2,c+1|c+3,d}
++ M_{c+2,c+2,c+1|c+2,d}
++ M_{c+2,c+1,c+1|c+1,d}
++ M_{c+2,c+1,c|c,d} \\
+                                               &=
+\sum M_{c+2,c+1,c|d,c}
++ \sum M_{c+2,c+1,c+1|d,c+1}
++ \sum M_{c+2,c+2,c+1|d,c+2}\\
+                                               &
++ \sum M_{c+3,c+2,c+1|d,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+2,c+1|d,c+3},
+M_{c+3,c+2,c+1|c+3,d}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_24}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_1_a_24}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+2,c+1|d,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|d,c+4}$,
+ $M_{c+4,c+2,c+1|c+4,d}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+3,d}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+
+      \item $a = c+1, \; b\neq c+1 \text{hence } d \neq c+1 $
+        \begin{enumerate}
+          \item $b\neq c+2$ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{c+1,b,c|d,c}
++ \sum M_{c+1,b,c+1|d,c+1}
++ \sum M_{c+2,b,c+1|d,c+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+        
+          \item $b=c+2$ \par
+        Let $\mu:=\lambda + (1,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{c+1,c+2,c|d,c}
++ \sum M_{c+1,c+2,c+1|d,c+1}
++ \sum M_{c+2,c+2,c+1|d,c+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+        \end{enumerate}
+
+      \item $a=c+1,\; b=c+1$ \par
+        Let $\mu:=\lambda + (0,0,0,0,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{c+1,c+1,c|d,c}
++ \sum M_{c+1,c+1,c+1|d,c+1}
++ \sum M_{c+1,c+2,c+1|d,c+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    \end{enumerate}
+
+  \item $a\neq c+1,\; b\neq c+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b,c|c,c}
++ \sum M_{a,b,c+1|c+1,c}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a\neq c+1, \; b=c+1 \text{hence } d \neq c+1 $
+        \begin{enumerate}
+          \item $ a>c+2 $\par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{a,c+1,c|c,c}
++ \sum M_{a,c+1,c+1|c+1,c}
++ \sum M_{a,c+2,c+1|c+2,c}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+          \item $a=c+2$ \par
+        Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+3,c+2,c+1|c,c}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+M_{c+2,c+1,c|c,c}
++ M_{c+2,c+1,c+1|c+1,c}
++ M_{c+2,c+1,c+1|c,c+1}
++ M_{c+2,c+2,c+1|c+2,c}\\
+                                               &
++ M_{c+2,c+2,c+1|c,c+2}
++ M_{c+3,c+2,c+1|c+3,c}
++ M_{c+3,c+2,c+1|c,c+3} \\
+                                               &=
+ M_{c+2,c+1,c|c,c}
++ \sum M_{c+2,c+1,c+1|c+1,c}\\
+                                               &
++ \sum M_{c+2,c+2,c+1|c+2,c}
++ \sum M_{c+3,c+2,c+1|c+3,c}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+2,c+1|c+3,c},
+M_{c+3,c+2,c+1|c,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{10}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_25}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{10})) $ } \label{tab:verma-analysis_1_a_25}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{10})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+2,c+1|c+3,c}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,c}$,
+ $M_{c+4,c+2,c+1|c,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|c,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $a < c$ \par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+2,a,c+1|c,c}
++ M_{c+1,c+2,a|c,c}
++ M_{a,c+2,c+1|c,c}
++ M_{c+2,c+1,a|c,c}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c+1,a,c|c,c}
++ M_{c+1,a,c+1|c+1,c}
++ M_{c+1,a,c+1|c,c+1}
++ M_{c+2,a,c+1|c+2,c}\\
+                                               &
++ M_{c+2,a,c+1|c,c+2}
++ M_{c,c+1,a|c,c}
++ 2M_{c+1,c+1,a|c+1,c}
++ 2M_{c+1,c+1,a|c,c+1}\\
+                                               &
++ M_{c+1,c+2,a|c+2,c}
++ M_{c+1,c+2,a|c,c+2}
++ M_{a,c+1,c|c,c}
++ M_{a,c+1,c+1|c+1,c}\\
+                                               &
++ M_{a,c+1,c+1|c,c+1}
++ M_{a,c+2,c+1|c+2,c}
++ M_{a,c+2,c+1|c,c+2}\\
+                                               &
++ M_{c+1,c,a|c,c}
++ M_{c+2,c+1,a|c+2,c}
++ M_{c+2,c+1,a|c,c+2} \\
+                                               &=
+\sum M_{a,c+1,c|c,c}
++ \sum M_{a,c+1,c+1|c+1,c}
++ \sum M_{a,c+2,c+1|c+2,c}
++ \sum M_{c+1,c+1,a|c+1,c}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+1,c+1,a|c+1,c},
+M_{c+1,c+1,a|c,c+1}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_26}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_26}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+1,c+1,a|c+1,c}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,c}$,
+ $M_{c+1,c+2,a|c+2,c}$,
+ $M_{c+2,c+1,a|c,c+2}$,
+ $M_{c+1,c+2,a|c,c+2}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|c,c+1}$ & \makecell{
+ $M_{c+2,c+1,a|c,c+2}$,
+ $M_{c+1,c+2,a|c,c+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+
+      \item $a = c+1, \; b=c+1 \text{hence } d \neq c+1 $ \par
+       Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+2,c+2,c+1|c,c}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+M_{c+1,c+1,c|c,c}
++ M_{c+1,c+1,c+1|c+1,c}
++ M_{c+1,c+1,c+1|c,c+1}
++ M_{c+1,c+2,c+1|c+2,c}\\
+                                               &
++ M_{c+2,c+1,c+1|c+2,c}
++ M_{c+1,c+2,c+1|c,c+2}
++ M_{c+2,c+1,c+1|c,c+2} \\
+                                               &=
+ M_{c+1,c+1,c|c,c}
++ \sum M_{c+1,c+1,c+1|c+1,c}
++ \sum M_{c+1,c+2,c+1|c+2,c}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+\end{enumerate}
+
+\end{proof}
+
+
+
+
+
+
+\begin{theorem}
+  Let $a,b,c,d \in \mathbb{Z}$ and $\lambda = (a,b,c|c,d)$ with $d \neq \{a,b,c\}, c \neq a, c\neq b $. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a,b|d}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $ a \neq c+1,\; b \neq c+1 $ 
+    \begin{enumerate}
+      \item $ d \neq c+1 $ \par
+        Let $\mu:=\lambda + (0,0,0,1,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+\sum M_{a,b,c|c,d}
++\sum M_{a,b,c+1|c+1,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ d = c+1 $
+        \begin{enumerate}
+          \item $ a\neq c+2,\; b\neq c+2 $\par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,b,c|c,c+1}
+\sum M_{a,b,c+1|c+1,c+1}
+\sum M_{a,b,c+2|c+1,c+2}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+          \item $ a > c+3,\; b = c+2 $\par
+        Let $\mu:=\lambda + (0,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{a,c+3,c+2|c+1,c+3}
++ M_{a,c+2,c+2|c+1,c+2}
++ M_{a,c+2,c|c,c+1}
++ M_{a,c+2,c+1|c+1,c+1} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{a,c+3,c+2|c+1,c+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_27}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_27}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{a,c+4,c+2|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = c+3,\; b = c+2 $\par
+        Let $\mu:=\lambda + (0,0,1,0,0) $.
+        \begin{equation}
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+3,c+2,c|c,c+1}
++ M_{c+3,c+2,c+1|c+1,c+1}
++ M_{c+3,c+2,c+2|c+1,c+2}\\
+                                               &
++ M_{c+3,c+3,c+2|c+1,c+3}
++ M_{c+4,c+3,c+2|c+1,c+4}  
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+3,c+2|c+1,c+3},
+M_{c+4,c+3,c+2|c+1,c+4}
+\}. 
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_28}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_28}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+3,c+4,c+2|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+4,c+3,c+2|c+1,c+4}$ & \makecell{
+ $M_{c+5,c+3,c+2|c+1,c+5}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a < c,\; b = c+2 $\par
+        Let $\mu:=\lambda + (0,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = Placeholder
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+2,a,c|c,c+1}
++ M_{c+2,a,c+1|c+1,c+1}
++ M_{c+2,a,c+2|c+1,c+2}
++ M_{c+3,a,c+2|c+1,c+3}\\
+                                               &
++ M_{c,c+2,a|c,c+1}
++ M_{c+1,c+2,a|c+1,c+1}
++ 2M_{c+2,c+2,a|c+1,c+2}
++ M_{c+2,c+3,a|c+1,c+3}\\
+                                               &
++ M_{a,c+2,c|c,c+1}
++ M_{a,c+2,c+1|c+1,c+1}
++ M_{a,c+2,c+2|c+1,c+2}
++ M_{a,c+3,c+2|c+1,c+3}\\
+                                               &
++ M_{c+2,c,a|c,c+1}
++ M_{c+2,c+1,a|c+1,c+1}
++ M_{c+3,c+2,a|c+1,c+3} \\
+                                               &=
+\sum M_{a,c+2,c|c,c+1}
++ \sum M_{a,c+2,c+1|c+1,c+1}
++ \sum M_{a,c+2,c+2|c+1,c+2}\\
+                                               &
++ \sum M_{a,c+3,c+2|c+1,c+3}
++  M_{c+2,c+2,a|c+1,c+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,a,c+2|c+1,c+3},
+M_{c+2,c+3,a|c+1,c+3},
+M_{a,c+3,c+2|c+1,c+3},\\
+M_{c+2,c+2,a|c+1,c+2},
+M_{c+3,c+2,a|c+1,c+3}
+\}. 
+  \end{aligned}
+\end{equation}
+We obtain the computational data displayed in the \cref{tab:verma-analysis_1_a_29} directly from \newline \cref{prop:1}. Unfortunately, these results alone do not allow us to determine whether $\prl(P_\mu \otimes V_2)$ contains $P_{c+2,c+2,a|c+1,c+2}$ as a direct summand. To address this ambiguity, we directly apply the structural description of $P_{c+2,c+2,a|c+1,c+2}$ provided in \colorbox{orange}{Placeholder} as follows.
+\begin{equation}\label{eq:6}
+  \begin{aligned}
+    P_{c+2,c+2,a|c+1,c+2} &=
+M_{c+3,c+2,a|c+1,c+3}
++M_{c+2,c+3,a|c+1,c+3}
++M_{c+2,c+2,a|c+1,c+2}\\
+                          &=
+ M_{c+2,c+2,a|c+1,c+2}
++\sum M_{c+2,c+3,a|c+1,c+3}
+  \end{aligned}
+\end{equation}
+We emphasize that this usage does not constitute circular reasoning, as \colorbox{orange}{Placeholder} is established independently of the current context.
+
+The \cref{eq:6} reveals that the set $U$ contains all composition factors appearing in the standard filtration of $P_{c+2,c+2,a|c+1,c+2}$, and thus the possibility that $P_{c+2,c+2,a|c+1,c+2}$ occurs as a direct summand of $\prl(P_\mu \otimes V_2)$ cannot be ruled out by filtration comparison alone.
+
+To resolve this indeterminacy, we employ a proof by contradiction. Suppose, for the sake of contradiction, that $P_{c+2,c+2,a|c+1,c+2}$ is indeed a direct summand of $\prl(P_\mu \otimes V_2)$. Then we may write
+\begin{equation}\notag
+  \begin{aligned}
+\prl(P_\mu \otimes V_2) = Q \oplus P_{c+2,c+2,a|c+1,c+2}
+  \end{aligned}
+\end{equation}
+for some module $Q$. It suffices to show that $Q$ cannot be projective, which would contradict the fact that $\prl(P_\mu \otimes V_3)$ is a direct sum of projective modules. This contradiction will establish that $P_{c+2,c+2,a|c+1,c+2}$ is not a direct summand. Consequently, since all alternative projective summands have been systematically excluded, we conclude definitively that: $\prl(P_\mu \otimes V_2) = P_\lambda$.
+
+Now, we shall show that $Q$ cannot be projective by contradiction.
+Suppose, to the contrary, that $Q$ is projective. Then $pr_\nu(Q \otimes V_3)$ is also projective, and its standard filtration admits a decomposition into indecomposable projective summands.
+Let $\nu = (a,c+3,c+3|c+1,c+2)$. We project $Q \otimes V_3$ on to the $\nu$ linkage block as follows.
+\begin{equation}\notag
+  \begin{aligned}
+    pr_\nu(Q \otimes V_3) = 2M_{a,c+3,c+3|c+1,c+2} + 2M_{c+3,a,c+3|c+1,c+2} + M_{c+3,c+3,a|c+1,c+2}
+  \end{aligned}
+\end{equation}
+Observe that the minimal weight among all composition factors in the standard filtration of $pr_\nu(Q \otimes V_3)$ is $\nu$. By \cref{lemma:2}, this implies that $pr_\nu(Q \otimes V_3)$ must contain at least two copies of $P_\nu$ as direct summands. However, a direct computation shows that
+  \begin{equation}\notag
+    \begin{aligned}
+  P_\nu = M_{a,c+3,c+3|c+1,c+2} + M_{c+3,a,c+3|c+1,c+2} + M_{c+3,c+3,a|c+1,c+2}
+    \end{aligned}
+  \end{equation}
+Consequently, $P_\nu$ cannot appear with multiplicity $\geq 2$, yielding a contradiction. Therefore, $Q$ cannot be projective.
+
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_29}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,a,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,a,c+2|c+1,c+4}$,
+ $M_{c+4,c+2,a|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+3,a|c+1,c+3}$ & \makecell{
+ $M_{c+2,c+4,a|c+1,c+4}$,
+ $M_{c+4,c+2,a|c+1,c+4}$
+}\\
+ & \\
+ $P_{a,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{a,c+4,c+2|c+1,c+4}$,
+ $M_{c+4,a,c+2|c+1,c+4}$,
+ $M_{c+2,c+4,a|c+1,c+4}$,
+ $M_{c+4,c+2,a|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+2,a|c+1,c+2}$ & \makecell{
+ $\emptyset$
+}\\
+ & \\
+ $P_{c+3,c+2,a|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+2,a|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = c+2,\; b = c+2 $\par
+        Let $\mu:=\lambda + (0,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+2,c+2,c|c,c+1}
++ M_{c+2,c+2,c+1|c+1,c+1}
++ M_{c+2,c+2,c+2|c+1,c+2}\\
+                                               &
++ M_{c+2,c+3,c+2|c+1,c+3}
++ M_{c+3,c+2,c+2|c+1,c+3} \\
+                                               &=
+ M_{c+2,c+2,c|c,c+1}
++  M_{c+2,c+2,c+1|c+1,c+1}
++  M_{c+2,c+2,c+2|c+1,c+2}\\
+                                               &
++ \sum M_{c+2,c+3,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+2,c+3,c+2|c+1,c+3},
+M_{c+3,c+2,c+2|c+1,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_30}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_30}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+2,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+2,c+4,c+2|c+1,c+4}$,
+ $M_{c+4,c+2,c+2|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+2|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = c+2,\; b > c+3 $\par
+        Let $\mu:=\lambda + (0,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+3,b,c+2|c+1,c+3}
++ M_{c+2,b,c+2|c+1,c+2}
++ M_{c+2,b,c|c,c+1}
++ M_{c+2,b,c+1|c+1,c+1}\\
+                                               &
++ M_{b,c+3,c+2|c+1,c+3}
++ M_{b,c+2,c+2|c+1,c+2}
++ M_{b,c+2,c|c,c+1}
++ M_{b,c+2,c+1|c+1,c+1} \\
+                                               &=
+\sum M_{c+2,b,c|c,c+1}
++ \sum M_{c+2,b,c+1|c+1,c+1}\\
+                                               &
++ \sum M_{c+2,b,c+2|c+1,c+2}
++ \sum M_{c+3,b,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,b,c+2|c+1,c+3},
+M_{b,c+3,c+2|c+1,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_31}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_31}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,b,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,b,c+2|c+1,c+4}$,
+ $M_{b,c+4,c+2|c+1,c+4}$
+}\\
+ & \\
+ $P_{b,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{b,c+4,c+2|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ a = c+2,\; b = c+3 $\par
+        Let $\mu:=\lambda + (0,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+2,c+3,c|c,c+1}
++ M_{c+2,c+3,c+1|c+1,c+1}
++ M_{c+3,c+2,c|c,c+1}
++ M_{c+3,c+2,c+1|c+1,c+1}\\
+                                               &
++ M_{c+2,c+3,c+2|c+1,c+2}
++ M_{c+3,c+2,c+2|c+1,c+2}
++ M_{c+3,c+3,c+2|c+1,c+3} \\
+                                               &=
+\sum M_{c+2,c+3,c|c,c+1}
++ \sum M_{c+2,c+3,c+1|c+1,c+1}\\
+                                               &
++ \sum M_{c+2,c+3,c+2|c+1,c+2}
++  M_{c+3,c+3,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+3,c+3,c+2|c+1,c+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_32}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_32}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+3,c+2|c+1,c+4}$,
+ $M_{c+3,c+4,c+2|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+
+          \item $ a = c+2,\; b < c $\par
+        Let $\mu:=\lambda + (0,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+2,b,c|c,c+1}
++ M_{c+2,b,c+1|c+1,c+1}
++ M_{c+2,b,c+2|c+1,c+2}
++ M_{c+3,b,c+2|c+1,c+3}\\
+                                               &
++ M_{c+2,c,b|c,c+1}
++ M_{c+2,c+1,b|c+1,c+1}
++ M_{c+2,c+2,b|c+1,c+2}
++ M_{c+3,c+2,b|c+1,c+3} \\
+                                               &=
+\sum M_{c+2,b,c|c,c+1}
++ \sum M_{c+2,b,c+1|c+1,c+1}\\
+                                               &
++ \sum M_{c+2,b,c+2|c+1,c+2}
++ \sum M_{c+3,b,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,b,c+2|c+1,c+3},
+M_{c+3,c+2,b|c+1,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_33}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_33}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,b,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,b,c+2|c+1,c+4}$,
+ $M_{c+4,c+2,b|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,b|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+2,b|c+1,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+    \end{enumerate}
+
+  \item $a\neq c+1,\; b=c+1 \quad \text{hence } d\neq c+1$
+    \begin{enumerate}
+      \item $ d\neq c+2,\; a>c+2  $ \par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+\sum M_{a,c+1,c|c,d}
++\sum M_{a,c+1,c+1|c+1,d}
++\sum M_{a,c+2,c+2|c+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ d\neq c+2,\; a<c  $ 
+        \begin{enumerate}
+          \item $d<c$ \par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{c+2,a,c+1|c,d}
++ M_{c+2,a,c+1|d,c}
++ M_{c+1,c+2,a|c,d}
++ M_{c+1,c+2,a|d,c}\\
+                                               &
++ M_{a,c+2,c+1|c,d}
++ M_{a,c+2,c+1|d,c}
++ M_{c+2,c+1,a|c,d}
++ M_{c+2,c+1,a|d,c}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c+1,a,c|c,d}
++ M_{c+1,a,c+1|c+1,d}
++ M_{c+2,a,c+1|c+2,d}
++ M_{c+1,a,c|d,c}\\
+                                               &
++ M_{c+1,a,c+1|d,c+1}
++ M_{c+2,a,c+1|d,c+2}
++ M_{c,c+1,a|c,d}
++ 2M_{c+1,c+1,a|c+1,d}\\
+                                               &
++ M_{c+1,c+2,a|c+2,d}
++ M_{c,c+1,a|d,c}
++ 2M_{c+1,c+1,a|d,c+1}
++ M_{c+1,c+2,a|d,c+2}\\
+                                               &
++ M_{a,c+1,c|c,d}
++ M_{a,c+1,c+1|c+1,d}
++ M_{a,c+2,c+1|c+2,d}
++ M_{a,c+1,c|d,c}\\
+                                               &
++ M_{a,c+1,c+1|d,c+1}
++ M_{a,c+2,c+1|d,c+2}
++ M_{c+1,c,a|c,d}
++ M_{c+2,c+1,a|c+2,d}\\
+                                               &
++ M_{c+1,c,a|d,c}
++ M_{c+2,c+1,a|d,c+2} \\
+                                               &=
+\sum M_{a,c+1,c|c,d}
++ \sum M_{a,c+1,c+1|c+1,d}\\
+                                               &
++ \sum M_{a,c+2,c+1|c+2,d}
++ \sum M_{c+1,c+1,a|c+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+1,c+1,a|c+1,d},
+M_{c+1,c+1,a|d,c+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_34}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_34}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+1,c+1,a|c+1,d}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,d}$,
+ $M_{c+1,c+2,a|c+2,d}$,
+ $M_{c+2,c+1,a|d,c+2}$,
+ $M_{c+1,c+2,a|d,c+2}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|d,c+1}$ & \makecell{
+ $M_{c+2,c+1,a|d,c+2}$,
+ $M_{c+1,c+2,a|d,c+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $d>c+2$ \par
+        Let $\mu:=\lambda + (0,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+2,a,c+1|c,d}
++ M_{c+1,c+2,a|c,d}
++ M_{a,c+2,c+1|c,d}
++ M_{c+2,c+1,a|c,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{c+1,a,c|c,d}
++ M_{c+1,a,c+1|c+1,d}
++ M_{c+2,a,c+1|c+2,d}
++ M_{c,c+1,a|c,d}\\
+                                               &
++ 2M_{c+1,c+1,a|c+1,d}
++ M_{c+1,c+2,a|c+2,d}
++ M_{a,c+1,c|c,d}
++ M_{a,c+1,c+1|c+1,d}\\
+                                               &
++ M_{a,c+2,c+1|c+2,d}
++ M_{c+1,c,a|c,d}
++ M_{c+2,c+1,a|c+2,d} \\
+                                               &=
+\sum M_{a,c+1,c|c,d}
++ \sum M_{a,c+1,c+1|c+1,d}
++ \sum M_{a,c+2,c+1|c+2,d}
++  M_{c+1,c+1,a|c+1,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+1,c+1,a|c+1,d}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{6}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_35}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{6})) $ } \label{tab:verma-analysis_1_a_35}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{6})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+1,c+1,a|c+1,d}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,d}$,
+ $M_{c+1,c+2,a|c+2,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+
+      \item $ d\neq c+2,\; a=c+2  $ 
+        \begin{enumerate}
+          \item $ d > c+3 $ \par
+        Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+3,c+2,c+1|c,d}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+M_{c+2,c+1,c|c,d}
++ M_{c+2,c+1,c+1|c+1,d}
++ M_{c+2,c+2,c+1|c+2,d}
++ M_{c+3,c+2,c+1|c+3,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+3,c+2,c+1|c+3,d}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{10}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_36}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{10})) $ } \label{tab:verma-analysis_1_a_36}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{10})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+2,c+1|c+3,d}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,d}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ d = c+3 $ \par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+4,c+2,c+1|c+3,c+4}
++ M_{c+3,c+2,c+1|c+3,c+3}
++ M_{c+2,c+2,c+1|c+2,c+3}\\
+                                               &
++ M_{c+2,c+1,c+1|c+1,c+3}
++ M_{c+2,c+1,c|c,c+3} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+      \begin{equation}\notag
+        \begin{aligned}
+       U = \{
+M_{c+4,c+2,c+1|c+3,c+4},
+M_{c+3,c+2,c+1|c+3,c+3}
+\}.   
+        \end{aligned}
+      \end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_37}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_37}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+4,c+2,c+1|c+3,c+4}$ & \makecell{
+ $M_{c+5,c+2,c+1|c+3,c+5}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+3,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,c+3}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $ d = c+3 $ \par
+        Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{c+3,c+2,c+1|c,d}
++ M_{c+3,c+2,c+1|d,c}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+M_{c+2,c+1,c|c,d}
++ M_{c+2,c+1,c+1|c+1,d}
++ M_{c+2,c+2,c+1|c+2,d}
++ M_{c+3,c+2,c+1|c+3,d}\\
+                                               &
++ M_{c+2,c+1,c|d,c}
++ M_{c+2,c+1,c+1|d,c+1}
++ M_{c+2,c+2,c+1|d,c+2}
++ M_{c+3,c+2,c+1|d,c+3} \\
+                                               &=
+\sum M_{c+2,c+1,c|c,d}
++ \sum M_{c+2,c+1,c+1|c+1,d}\\
+                                               &
++ \sum M_{c+2,c+2,c+1|c+2,d}
++ \sum M_{c+3,c+2,c+1|c+3,d}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+2,c+1|c+3,d},
+M_{c+3,c+2,c+1|d,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{10}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_38}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{10})) $ } \label{tab:verma-analysis_1_a_38}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{10})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+2,c+1|c+3,d}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,d}$,
+ $M_{c+4,c+2,c+1|d,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|d,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|d,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+
+      \item $ d = c+2,\; a>c+3  $ 
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{a,c+3,c+1|c+2,c+3}
++ M_{a,c+2,c+1|c+2,c+2}
++ M_{a,c+1,c+1|c+1,c+2}
++ M_{a,c+1,c|c,c+2} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{a,c+3,c+1|c+2,c+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_39}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_39}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{a,c+4,c+1|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        
+      \item $ d = c+2,\; a=c+3  $ 
+        Let $\mu:=\lambda + (1,0,0,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+3,c+1,c|c,c+2}
++ M_{c+3,c+1,c+1|c+1,c+2}
++ M_{c+3,c+3,c+1|c+2,c+3}\\
+                                               &
++ M_{c+4,c+3,c+1|c+2,c+4}
++ M_{c+3,c+2,c+1|c+2,c+2} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+3,c+1|c+2,c+3},
+M_{c+4,c+3,c+1|c+2,c+4}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_40}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_1_a_40}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+3,c+4,c+1|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+4,c+3,c+1|c+2,c+4}$ & \makecell{
+ $M_{c+5,c+3,c+1|c+2,c+5}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+
+      \item $ d = c+2,\; a < c  $ 
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+3,a,c+1|c+2,c+3}
++ M_{c+2,a,c+1|c+2,c+2}
++ M_{c+1,a,c+1|c+1,c+2}
++ M_{c+1,a,c|c,c+2}\\
+                                               &
++ M_{c+1,c+3,a|c+2,c+3}
++ M_{c+1,c+2,a|c+2,c+2}
++ 2M_{c+1,c+1,a|c+1,c+2}
++ M_{c,c+1,a|c,c+2}\\
+                                               &
++ M_{a,c+3,c+1|c+2,c+3}
++ M_{a,c+2,c+1|c+2,c+2}
++ M_{a,c+1,c+1|c+1,c+2}
++ M_{a,c+1,c|c,c+2}\\
+                                               &
++ M_{c+3,c+1,a|c+2,c+3}
++ M_{c+2,c+1,a|c+2,c+2}
++ M_{c+1,c,a|c,c+2} \\
+                                               &=
+\sum M_{a,c+1,c|c,c+2}
++ \sum M_{a,c+1,c+1|c+1,c+2}
++ \sum M_{a,c+2,c+1|c+2,c+2}\\
+                                               &
++ \sum M_{a,c+3,c+1|c+2,c+3}
++  M_{c+1,c+1,a|c+1,c+2}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,a,c+1|c+2,c+3},
+M_{c+1,c+3,a|c+2,c+3},
+M_{a,c+3,c+1|c+2,c+3},
+M_{c+3,c+1,a|c+2,c+3},
+M_{c+1,c+1,a|c+1,c+2}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_41}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_41}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,a,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,a,c+1|c+2,c+4}$,
+ $M_{c+4,c+1,a|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+1,c+3,a|c+2,c+3}$ & \makecell{
+ $M_{c+1,c+4,a|c+2,c+4}$,
+ $M_{c+4,c+1,a|c+2,c+4}$
+}\\
+ & \\
+ $P_{a,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{a,c+4,c+1|c+2,c+4}$,
+ $M_{c+4,a,c+1|c+2,c+4}$,
+ $M_{c+1,c+4,a|c+2,c+4}$,
+ $M_{c+4,c+1,a|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+1,a|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+1,a|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|c+1,c+2}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,c+2}$,
+ $M_{c+1,c+2,a|c+2,c+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+    \end{enumerate}
+
+  \item $a=c+1,\;b\neq c+1$
+    \begin{enumerate}
+      \item $ d \neq c+2 $ \par
+        Let $\mu:=\lambda + (1,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+\sum M_{c+1,b,c|c,d}
++\sum M_{c+1,b,c+1|c+1,d}
++\sum M_{c+2,b,c+1|c+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ d = c+2 $ 
+        \begin{enumerate}
+          \item $b > c+3 $ \par
+        Let $\mu:=\lambda + (0,0,0,1,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+3,b,c+1|c+2,c+3}
++ M_{c+2,b,c+1|c+2,c+2}
++ M_{c+1,b,c+1|c+1,c+2}
++ M_{c+1,b,c|c,c+2}\\
+                                               &
++ M_{b,c+3,c+1|c+2,c+3}
++ M_{b,c+2,c+1|c+2,c+2}
++ M_{b,c+1,c+1|c+1,c+2}
++ M_{b,c+1,c|c,c+2} \\
+                                               &=
+\sum M_{c+1,b,c|c,c+2}
++ \sum M_{c+1,b,c+1|c+1,c+2}\\
+                                               &
++ \sum M_{c+2,b,c+1|c+2,c+2}
++ \sum M_{c+3,b,c+1|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,b,c+1|c+2,c+3},
+M_{b,c+3,c+1|c+2,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_42}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_42}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,b,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,b,c+1|c+2,c+4}$,
+ $M_{b,c+4,c+1|c+2,c+4}$
+}\\
+ & \\
+ $P_{b,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{b,c+4,c+1|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $b = c+3 $ \par
+        Let $\mu:=\lambda + (0,0,0,1,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+3,c+3,c+1|c+2,c+3}
++ M_{c+2,c+3,c+1|c+2,c+2}
++ M_{c+3,c+2,c+1|c+2,c+2}\\
+                                               &
++ M_{c+1,c+3,c+1|c+1,c+2}
++ M_{c+1,c+3,c|c,c+2}\\
+                                               &
++ M_{c+3,c+1,c+1|c+1,c+2}
++ M_{c+3,c+1,c|c,c+2} \\
+                                               &=
+\sum M_{c+1,c+3,c|c,c+2}
++ \sum M_{c+1,c+3,c+1|c+1,c+2}\\
+                                               &
++ \sum M_{c+2,c+3,c+1|c+2,c+2}
++  M_{c+3,c+3,c+1|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{c+3,c+3,c+1|c+2,c+3}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_43}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_43}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+3,c+1|c+2,c+4}$,
+ $M_{c+3,c+4,c+1|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+          \item $b < c $ \par
+        Let $\mu:=\lambda + (0,0,0,1,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+3,b,c+1|c+2,c+3}
++ M_{c+2,b,c+1|c+2,c+2}
++ M_{c+1,b,c+1|c+1,c+2}
++ M_{c+1,b,c|c,c+2}\\
+                                               &
++ M_{c+3,c+1,b|c+2,c+3}
++ M_{c+2,c+1,b|c+2,c+2}
++ M_{c+1,c+1,b|c+1,c+2}
++ M_{c+1,c,b|c,c+2} \\
+                                               &=
+\sum M_{c+1,b,c|c,c+2}
++ \sum M_{c+1,b,c+1|c+1,c+2}
++ \sum M_{c+2,b,c+1|c+2,c+2}\\
+                                               &
++ \sum M_{c+3,b,c+1|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,b,c+1|c+2,c+3},
+M_{c+3,c+1,b|c+2,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_44}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_44}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,b,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,b,c+1|c+2,c+4}$,
+ $M_{c+4,c+1,b|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+1,b|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+1,b|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+        \end{enumerate}
+    \end{enumerate}
+
+  \item $a=c+1,\;b = c+1$
+    \begin{enumerate}
+      \item $ d\neq c+2 $\par
+        Let $\mu:=\lambda + (0,0,0,2,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+\sum M_{c+1,c+1,c|c,d}
++ \sum M_{c+1,c+1,c+1|c+1,d}
++ \sum M_{c+1,c+2,c+1|c+2,d}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ d = c+2 $\par
+        Let $\mu:=\lambda + (0,0,0,0,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{1}) &=
+M_{c+3,c+1,c+1|c+2,c+3}
++ M_{c+2,c+1,c+1|c+2,c+2}
++ M_{c+1,c+3,c+1|c+2,c+3}\\
+                                               &
++ M_{c+1,c+2,c+1|c+2,c+2}
++ M_{c+1,c+1,c+1|c+1,c+2}
++ M_{c+1,c+1,c|c,c+2} \\
+                                               &=
+ M_{c+1,c+1,c|c,c+2}
++  M_{c+1,c+1,c+1|c+1,c+2}\\
+                                               &
++ \sum M_{c+1,c+2,c+1|c+2,c+2}
++ \sum M_{c+1,c+3,c+1|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+1,c+1|c+2,c+3},
+M_{c+1,c+3,c+1|c+2,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{1}) = P_\lambda  $ by \cref{tab:verma-analysis_1_a_45}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{1})) $ } \label{tab:verma-analysis_1_a_45}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{1})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+1,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+1,c+1|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+1,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+1,c+1|c+2,c+4}$,
+ $M_{c+1,c+4,c+1|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{proof}

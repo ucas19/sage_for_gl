@@ -22,11 +22,14 @@ class Weyl_Group_Bn:
         初始化：n为李代数的秩为n
         """
         self.n = n
-        self.W = WeylGroup(['A', n-1], prefix="w")  # Weyl群，生成元命名为 s1, s2, ...
+        if n == 1:
+            self.W = SymmetricGroup(1)
+        else:
+            self.W = WeylGroup(['A', n-1], prefix="w")  # Weyl群，生成元命名为 s1, s2, ...
  #       self.Z2_n = AbelianGroup([2]*n, names = "e")
-        self.S_n = SymmetricGroup(n)
+            self.S_n = SymmetricGroup(n)
  #       self.G = SemidirectProductGroup(self.Z2_n, self.S_n) 
-        self.W_cox = CoxeterGroup(self.W.cartan_type(), base_ring = AA) 
+            self.W_cox = CoxeterGroup(self.W.cartan_type(), base_ring = AA) 
 
 #    def bn_to_semidirect(self, w):
 #    # 获取 w 的矩阵表示

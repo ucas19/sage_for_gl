@@ -1,0 +1,146 @@
+%! TEX root = main.tex
+
+
+\section{Modules}
+\begin{center}
+\textbf{$V_* \leftrightarrow$ Correspondence of finite-dimensional modules}
+\end{center}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$V_1$ & $V_2$ & $V_3$ & $V_4$ & $V_5$ & $V_6$ & $V_7$ & $V_8$ & $V_9$ & $V_{10}$ & $V_{11}$ & $V_{12}$ & $V_{13}$ & $V_{14}$ \\
+\hline
+$V$ & $V^*$ & $S^2 V$ & $S^2 V^*$ & $W^2 V$ & $W^2 V^*$ & $S^3 V$ & $S^3 V^*$ & $W^3 V$ & $W^3 V^*$ & $S^4 V$ & $S^4 V^*$ & $W^4 V$ & $W^4 V^*$ \\
+\hline
+\end{tabular}
+
+
+
+\section{Preliminaries}
+
+\begin{proposition} \label{prop:1}
+Suppose that $\lambda \in X$, $\alpha_i \in \Phi_0^+$, $1 \leq i \leq k$, and $\beta, \gamma \in \Phi_1^+$. Let $w = s_{\alpha_k} s_{\alpha_{k-1}} \cdots s_{\alpha_1} \in \mathcal{W}$.
+
+\begin{enumerate}
+    \item Suppose that $\langle \lambda, \alpha_1^\vee \rangle < 0$. Then $(P_\lambda : M_{s_{\alpha_1}\lambda}) > 0$.
+    
+    \item Suppose that $\langle s_{\alpha_{i-1}} \cdots s_{\alpha_1} \lambda, \alpha_i^\vee \rangle < 0$ for all $i \in \{1,2,\ldots,k\}$. Then $(P_\lambda : M_{w\lambda}) > 0$.
+    
+    \item Suppose that $(\lambda, \beta) = 0$. Then $(P_\lambda : M_{\lambda + \beta}) > 0$.
+    
+    \item Suppose that $(\lambda, \beta) = 0$ and $\langle s_{\alpha_{i-1}} \cdots s_{\alpha_1} (\lambda + \beta), \alpha_i^\vee \rangle < 0$ for all $i \in \{1,2,\ldots,k\}$. Then $(P_\lambda : M_{w(\lambda + \beta)}) > 0$.
+    
+    \item Suppose that $(\lambda, \beta) = (\lambda + \beta, \gamma) = 0$ and $\mathrm{ht}(\beta) < \mathrm{ht}(\gamma)$. Then $(P_\lambda : M_{\lambda + \beta + \gamma}) > 0$.
+    
+    \item Suppose that $(\lambda, \beta) = (\lambda + \beta, \gamma) = 0$, $\mathrm{ht}(\beta) < \mathrm{ht}(\gamma)$, and $\langle s_{\alpha_{i-1}} \cdots s_{\alpha_1} (\lambda + \beta + \gamma), \alpha_i^\vee \rangle < 0$ for all $i \in \{1,2,\ldots,k\}$. Then $(P_\lambda : M_{w(\lambda + \beta + \gamma)}) > 0$.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proposition}[Gorelik] \label{prop3}
+Any typical block in $\mathcal{O}$ is equivalent to a block in the BGG category $\mathcal{O}$ of $\mathfrak{g}_0$-modules of integral weights.
+\end{proposition}
+
+
+
+
+
+\begin{lemma}\label{lemma:2}
+  If $\lambda - \rho$ is the lowest weight in a standard filtration of a projective object $P$, then $P_\lambda$ is a direct summand of $P$.
+\end{lemma}
+
+
+
+\begin{proposition} \label{prop:4}
+If a projective $P$ has a standard filtration given by $P_\lambda = \sum_\nu M_\nu$, the $\nu$ not necessarily distinct, then for any finite-dimensional representation $N$ with weights $\mu$, the standard filtration for $P \otimes N$ is given by $\sum_\nu \sum_\mu M_{\nu + \mu}$, where $\mu$ appears in the sum with multiplicity given by $\dim N^\mu$.
+\end{proposition}
+
+
+
+
+\begin{theorem} \label{thm:4}
+  \cite{gorelik2002annihilation} Let $\lambda \in X + \rho$ be such that $\lambda - \rho$ is a typical anti-dominant dot-singular weight. Let $\mathcal{W}^\lambda$ be a minimal set of left-coset representatives of $\mathcal{W}/\mathcal{W}_\lambda$, where $\mathcal{W}_\lambda = \{w \in \mathcal{W} \mid w\lambda = \lambda\}$. Then, if $\sigma \in \mathcal{W}^\lambda$,
+\[
+P_{\sigma\lambda} = \sum_{\tau \geq \sigma,\, \tau \in \mathcal{W}^\lambda} M_{\tau\lambda}. \tag{2.2}
+\]
+\end{theorem}
+
+\begin{theorem}
+ We let $P_\lambda$ denote the (unique) projective cover for $L_\lambda$ for all $\lambda \in \mathfrak{h}^*$, that is the indecomposable projective such that $P_\lambda \to L_\lambda \to 0$. We recall the following facts about projectives.
+
+\begin{enumerate} \label{cor:1}
+    \item All projectives have a standard filtration.
+    \item The category $\mathcal{O}$ has enough projectives.
+    \item The Verma modules $M_\mu$ which appear in a standard filtration of $P_\lambda$ satisfy $\mu \geq \lambda$ in the Bruhat ordering, and $M_\lambda$ appears with multiplicity $1$.
+\end{enumerate}
+\end{theorem}
+
+
+\subsection{Strategy}
+%In this projection, we apply Proposition～\ref{prop:2.8} to see which Verma modules appear in the standard filtration of  $ P_\lambda $ . These necessarily appear in the projection because  $ P_\lambda $  is a direct summand. Then, we generally try to argue that there is no other direct summand (i.e.\  $ P_\lambda $  is the projection). This is often done by showing that no other indecomposable projective can appear in the projection, since there are not enough terms. In certain special cases, this method fails, and we get two possible standard filtrations of  $ P_\lambda $ . To determine which one is correct, we generally show that one of them is not a projective.
+Let $\lambda \in \mathfrak{h}^* $ be such that $\lambda - \rho$ is an atypical weight. Our goal is to determine the standard filtration of the projective cover $P_\lambda$.
+
+To this end, we choose a weight $ \mu \in \mathfrak{h}^* $ and a finite-dimensional module  $W$  satisfying the following:
+\begin{itemize}
+    \item The structure of $P_\mu$ is already known;
+    \item There exists a weight $\nu$ of $W$ (typically its highest weight) such that $\mu = \lambda + \nu$.
+\end{itemize}
+
+We may select $\mu$ so that $\mu - \rho$ is typical; in this case, the structure of $ P_\mu $ follows from \cref{thm:4}. Alternatively, one may take $\mu$ with $\mu - \rho$ atypical, provided that $\operatorname{Filt}(P_\mu)$ has been previously computed.
+
+\cref{prop:1} can be used to deduce the Verma modules which appear in a standard filtration of the projective  $ P_\mu \otimes W $ , which must include  $ M_\lambda $ .
+
+We now project $P_\mu \otimes W$ onto the block corresponding to the linkage class of $\lambda - \rho$, denoted by $pr_\lambda(P_\mu \otimes W)$. The projection $pr_\lambda(P_\mu \otimes W)$ is defined precisely so that all highest weights of Verma modules appearing in its standard filtration belong to the linkage class of $\lambda - \rho$.
+
+In all cases considered in this paper, unless stated otherwise, the weight $\lambda$ is a minimal weight in the standard filtration of the projection $pr_\lambda(P_\mu \otimes W)$. Under these premises, \cref{lemma:2} guarantees that the indecomposable projective module $P_\lambda$ must appear in the projection, constituting a direct summand.
+
+Since  $P_\lambda$  is a summand, every composition factor in its standard filtration must also appear in that of $pr_\lambda(P_\mu \otimes W)$. Conversely, applying \cref{prop:1} allows us to identify which Verma modules in $\operatorname{Filt}(pr_\lambda(P_\mu \otimes W))$ belong to  $\operatorname{Filt}(P_\lambda)$.
+
+If each Verma module appears with multiplicity one in $\operatorname{Filt}(pr_\lambda(P_\mu \otimes W))$ , and \cref{prop:1} confirms that all of them lie in $\operatorname{Filt}(P_\lambda)$, then it follows immediately that
+\begin{equation}\notag
+  \begin{aligned}
+pr_\lambda(P_\mu \otimes W) = P_\lambda.
+  \end{aligned}
+\end{equation}
+
+However, this ideal situation does not always occur.
+In general, one aims to show that $P_\lambda$ is the \emph{only} indecomposable projective summand of $pr_\lambda(P_\mu \otimes W)$; equivalently, that $pr_\lambda(P_\mu \otimes W) = P_\lambda$. This is typically achieved by proving that no other indecomposable projective module $P_\beta$ (with $ \beta \neq \lambda$) can occur as a direct summand in the projection.
+
+Consider a Verma module $M_\beta$ in $\Filt(\prl(P_\mu \otimes W))$. Its presence in $\Filt(P_\lambda)$ cannot be determined solely by applying \cref{prop:1}.
+Such modules require individual analysis. Furthermore, if \cref{prop:1} establishes that $(P_\lambda:M_\beta)>0$, but $M_\beta$ occurs with multiplicity $n>1$ in $\prl(P_\mu \otimes W)$, then precisely $n-1$ copies of $M_\beta$ require separate determination beyond what \cref{prop:1} provides.
+
+We collect all such indeterminate Verma modules into a multiset denoted by $U$. Since $P_\lambda$ is guaranteed to be a direct summand of $\prl(P_\mu \otimes W)$, our objective is to verify that all elements of $U$ belong to $\Filt(P_\lambda)$. To accomplish this, we employ the following methodology:
+
+Suppose $\prl(P_\mu \otimes W)$ contains, besides $P_\lambda$, another indecomposable projective module $P_\beta$ as a direct summand. Then the following conditions must hold:
+
+\begin{itemize}
+    \item $M_\beta$ must appear in multiset $U$; 
+    \item Every Verma module in $\Filt(P_\beta)$  must appear in $U$, and the multiplicity of each such Verma module in $\Filt(P_\beta) $ must not exceed its multiplicity in $U$.
+\end{itemize}
+
+Consequently, the only possible indecomposable projective summands of $\prl(P_\mu \otimes W)$ other than $P_\lambda$ are those $P_\beta$ for which $M_\beta \in \operatorname{Supp}(U)$. If we can definitively exclude all possible indecomposable projective as direct summands of $\prl(P_\mu \otimes W)$, then it follows that
+\begin{equation}\notag
+  \begin{aligned}
+    \prl(P_\mu \otimes W) = P_\lambda
+  \end{aligned}
+\end{equation}
+
+For such a candidate $P_\beta$, if there exists a Verma module $M$ that either does not belong to $U$ but appears in $\Filt(P_\beta)$, or appears in $\Filt(P_\beta)$ with multiplicity strictly greater than its multiplicity in $U$, then $P_\beta$ cannot occur as a direct summand of $\prl(P_\mu \otimes W)$.
+
+In most cases, it suffices to apply \cref{prop:1} to identify certain necessary Verma modules in $\Filt(P_\beta)$; the presence of even one such factor outside $U$ already implies $\Filt(P_\beta) \not\subseteq U$.
+When \cref{prop:1} does not yield sufficient information, We instead use the known (or independently provable) complete structure of $P_\beta$, ensuring that no circularity is introduced.
+
+However, in certain exceptional cases one indeed has $\Filt(P_\beta) \subseteq U$ as multisets, so that filtration comparison alone cannot rule out $P_\beta$ as a direct summand of $\pr_\lambda(P_\mu \otimes W)$.
+To exclude this possibility, suppose for contradiction that $P_\beta$ is a direct summand of $\prl(P_\mu \otimes W)$. Then there exists a module $Q$ such that
+\begin{equation}\notag
+  \begin{aligned}
+    \prl(P_\mu \otimes W) = Q \oplus P_\beta.
+  \end{aligned}
+\end{equation}
+Since $\prl(P_\mu \otimes W)$ is a direct summand of the projective module $P_\mu \otimes V$, it is itself projective; hence both $Q$ and $P_\beta$ must be projective.
+
+We will show that $Q$ is \emph{not} projective, thereby obtaining a contradiction. Specifically, it suffices to exhibit a weight $\nu$ and a finite-dimensional module $V$ such that $\pr_\nu(Q \otimes V)$ is \emph{not} a direct sum of indecomposable projective modules—equivalently, $\pr_\nu(Q \otimes V)$ fails to be projective.
+
+This approach provides a rigorous framework for determining the complete structure of $P_\lambda$ through elimination of alternative direct summands.
+%Crucially, for each undetermined Verma module $M_*$, the calculation forces the existence of specific Verma modules in the standard filtration of its projective cover $P_*$ that are \textbf{not} contained in $\operatorname{Filt}(\prl(P_\lambda \otimes V_6))$ (see the third column of \cref{tab:verma-analysis_1}). This contradiction eliminates all potential additional direct summands, forcing the conclusion that $P_\lambda  =\prl(P_\mu \otimes V_6)$.
+

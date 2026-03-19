@@ -1,5 +1,5 @@
 # 构造Coxeter群 of type C3 (对应 sp(6))
-W = WeylGroup(['C', 3], prefix="w")
+W = WeylGroup(['A', 3], prefix="w")
 w = W.simple_reflections()  # w[1], w[2], w[3]
 
 # 构造x = w3 * w1 * w2
@@ -34,3 +34,8 @@ else:
     P = P_poly.subs(q=1)
 
 print("P_{yw0, xw0}(1) =", P)
+
+
+for w in W:
+    if not w.to_matrix() == w.matrix():
+        print(f"==={w}")

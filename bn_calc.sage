@@ -4,6 +4,7 @@ from typing import Counter
 #from functions import show_steps
 #from functions import is_tensor_V_true
 #from functions import is_tensor_V_true_not_show
+#from functions import K_L_decompose_no_kl
 from weyl_group_Bn import Weyl_Group_Bn
 from sage_vector_store import SageVectorGroupStore
 from sage.groups.perm_gps.permgroup_named import SymmetricGroup
@@ -15,6 +16,9 @@ from sage_integer_com import is_nonnegative_integer_combination_sage
 from Mu_with_message import *
 from functions_file import read_rational_vectors, read_vectors_from_file
 from datetime import datetime
+from for_tex import for_tex_entry
+from for_tex_2 import for_tex_contained
+from toulantest import parse_simple_config,evaluate_condition,construct_vector,construct_assume_vectors
 load("functions.sage")
 def contains_with_counts(A, B):
 
@@ -24,6 +28,18 @@ def contains_with_counts(A, B):
     count_B = Counter(immutable_vecs_B)
     return all(count_A[x] >= count_B[x] for x in count_B)
 
+def list_diff_multiset(A, B):
+    """从 A 中移除 B 中的元素（按出现次数）"""
+    immutable_vecs_B = [vector(v, immutable=True) for v in B]
+    count_b = Counter(immutable_vecs_B)
+    result = []
+    for x in A:
+        x_immutable_vecs = vector(x, immutable=True)
+        if count_b[x_immutable_vecs] > 0:
+            count_b[x_immutable_vecs] -= 1
+        else:
+            result.append(x)
+    return result
 
 def remove_matches_vec(typical_lambda_sp_plus_so,n,m):
     front = typical_lambda_sp_plus_so[:n] 
@@ -52,7 +68,7 @@ def add_store(store_gl,lowest_weight,weight_set):
     try:
         store_gl.add_group(lowest_weight, weight_set)
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open('a.txt', 'a', encoding='utf-8') as f:
+        with open('gl41.txt', 'a', encoding='utf-8') as f:
             f.write("\n")
             f.write(f"-- {current_time} --写入特征标:{lowest_weight}")
             f.write(f"\n")
@@ -64,7 +80,7 @@ def add_store(store_gl,lowest_weight,weight_set):
 
 
 
-def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m):
+def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m,num_tem_dict = None, output_file = None, append_mode = True):
     print("")
     print(f"pre_treatment_wheather_in_P()")
     print("")
@@ -75,6 +91,20 @@ def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m):
     in_consider_weight = []
     print(f"处理总数={user_sum}")
     zhengli(P_mu_tensor_V_after_Pr)
+    # 如果有输出文件，记录文件模式
+    if output_file:
+        file_mode = 'a' if append_mode else 'w'
+#        try:
+#            with open(output_file, 'a' if append_mode else 'w', encoding='utf-8') as f:
+#                f.write("% 空权重集合\n")
+#        except Exception as e:
+#            print(f"✗ 写入文件失败: {e}")
+
+    if not num_tem_dict == None:
+        if output_file:
+            num_tem_dict = to_tex_next(P_mu_tensor_V_after_Pr,n,m,num_tem_dict,output_file,append_mode,False)
+        else:
+            num_tem_dict = to_tex_next(P_mu_tensor_V_after_Pr,n,m,num_tem_dict)
 
     immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
     P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
@@ -93,8 +123,41 @@ def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m):
                 in_consider_weight.append(lambda_sp_plus_so)
                 print("在数据库找到了, 上面这个权可以要单独考虑")
                 print("***********************")
+
+                if not output_file ==None and not num_tem_dict ==None:
+                    with open(output_file, 'a', encoding='utf-8') as f:
+                        f.write(f"\\emptyset\n\n")
             else:
-                print("这个权不用考虑了。因为剩下的不能把这些直接计算的权包含进去")
+                print("---[数据库]---比对判断出这个权不用考虑了。因为剩下的不能把这些直接计算的权包含进去,结果是:")
+                zhengli(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr))
+                if not num_tem_dict==None:
+                    num_tem_dict = to_tex_next(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr),n,m,num_tem_dict)
+
+                print("")
+                print("")
+                lambda_judge_hash_two, lambda_judge_two = judge_mu_in_P(lambda_sp_plus_so,n,m,20)
+                contains_lam_judge_two = []
+                for item in lambda_judge_two:
+                    contains_lam_judge_two.append(item.result)
+                if vectors_set_min(contains_lam_judge,contains_lam_judge_two)==[]:
+                    print("---[数据库]--->==<---[直接计算]---")
+                    if not num_tem_dict==None:
+                        num_tem_dict = to_tex_next(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr),n,m,num_tem_dict,output_file,append_mode,False)
+                else:
+                    if contains_with_counts(P_mu_tensor_V_after_Pr,contains_lam_judge_two):
+                        print("---[直接计算]---结果是不能判断")
+                        if not output_file ==None and not num_tem_dict ==None:
+                            with open(output_file, 'a', encoding='utf-8') as f:
+                                f.write(f"\\emptyset\n\n")
+                    else:
+                        print("---[直接计算]---也可计算出来,结果是:")
+                        zhengli(list_diff_multiset(contains_lam_judge_two,P_mu_tensor_V_after_Pr))
+                        if not num_tem_dict==None:
+                            num_tem_dict = to_tex_next(list_diff_multiset(contains_lam_judge_two,P_mu_tensor_V_after_Pr),n,m,num_tem_dict,output_file,append_mode,False)
+                        print("")
+                        print("")
+                        
+
             print("***********************")
             continue
 
@@ -121,16 +184,38 @@ def pre_treatment_wheather_in_P(store_gl,P_mu_tensor_V_after_Pr,n,m):
                     count_count+=1
                 in_consider_weight.append(lambda_sp_plus_so)
                 print("上面这个权可以要单独考虑")
+
+                if not output_file == None and not num_tem_dict ==None:
+                    with open(output_file, 'a', encoding='utf-8') as f:
+                        f.write(f"\\emptyset\n\n")
             else:
                 print("这个权不用考虑了。因为剩下的不能把这些直接计算的权包含进去")
+
+                print("---[直接计算]---可计算出来,结果是:")
+                zhengli(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr))
+                if not num_tem_dict==None:
+                    num_tem_dict = to_tex_next(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr),n,m,num_tem_dict,output_file,append_mode,False)
+                print("")
+                print("")
             print("***********************")
         else:
+            contains_lam_judge = []
+
+            for item in lambda_judge:
+                contains_lam_judge.append(item.result)
+
             print(" ")
             print(f"{count}: {lambda_sp_plus_so} 数量:{len(lambda_judge_hash)}")
             print("--------------------")
             print(" ")
             count+=1
             print("这个权不用考虑了。因为数量问题")
+            print("---[直接计算]---可计算出来,结果是:")
+            zhengli(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr))
+            if not num_tem_dict==None:
+                num_tem_dict = to_tex_next(list_diff_multiset(contains_lam_judge,P_mu_tensor_V_after_Pr),n,m,num_tem_dict,output_file,append_mode,False)
+            print("")
+            print("")
             not_consider_weight.append(lambda_sp_plus_so)
 
     print("以下因数量不需要考虑的向量是:")
@@ -159,6 +244,7 @@ def zhengli(sum_sp_plus_so):
         print(f"{count}: {v} 数量{n}")
         count +=1
     print("----------整理结束----------")
+
 
 
 def test_K_L(nn,mm,L_sp,L_so,flag=0):
@@ -198,11 +284,14 @@ def test_K_L(nn,mm,L_sp,L_so,flag=0):
         print("展开:")
         print(sum_sp_plus_so)
     return sum_sp_plus_so
-def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
+def show_kl_comps(P_mu_tensor_V_after_Pr,n,m,kl=0):
     lowest_module = Lowest_Module(n,m)
     weight_set = P_mu_tensor_V_after_Pr[:]
     result = weight_set[:]
-    result_low = []
+
+    return_sums = []
+    return_no_sums = []
+
     i=1
     while weight_set:
         lowest_weight = which_one_lowest(weight_set,lowest_module.basis_plus)
@@ -213,7 +302,10 @@ def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
         W_so = Weyl_Group_Bn(m)
         w_sp, lambda_sp_next= calc_w_mu(W_sp,lambda_sp)
         w_so, lambda_so_next= calc_w_mu(W_so,-lambda_so)
-        sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose_no_kl(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
+        if kl == 0:
+            sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose_no_kl(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
+        else:
+            sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
 
         flag =1
         for v in sum_sp_plus_so:
@@ -221,7 +313,7 @@ def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
                 flag = 0
 
         if flag:
-            result_low.append(lowest_weight_now)
+            return_sums.append(lowest_weight_now)
             print(f"第{i}个缩写: {lowest_weight_now}")
             i += 1
             for j in range(len(sum_sp_plus_so)):
@@ -229,11 +321,23 @@ def show_kl_comps(P_mu_tensor_V_after_Pr,n,m):
                 weight_set.remove(sum_sp_plus_so[j])
                 result.remove(sum_sp_plus_so[j])
         else:
+            return_no_sums.append(lowest_weight_now)
             weight_set.remove(lowest_weight_now)
 
 
-    print("还剩下:")
-    zhengli(result)
+    if not (contains_with_counts(result,return_no_sums) and contains_with_counts(return_no_sums,result) ):
+        print("****************************")
+        print("**********有错误************")
+        print("****************************")
+        input("此处暂停,show_kl_comps函数有问题")
+        return None,None
+
+    if result:
+        print("还剩下:")
+        zhengli(result)
+    else:
+        print("没有剩下")
+    return return_sums, return_no_sums
 
 
 
@@ -309,6 +413,28 @@ def again_calc(store_gl,L_sp_so_next,P_after,which_mod,n,m):
         is_store = input(f"是否储存本次特征标计算结果？")
         if is_store == "yes":
             add_store(store_gl,lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+
+        is_to_tex = input(f"是否需要转化本次结果为tex? ")
+        if is_to_tex == "yes":
+            output_file = input("输入文件是:")
+            output_file = "test//"+output_file+".txt"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(f"{which_mod}\n\n")
+                f.write(f"Placeholder\n\n")
+            num_tem_dict = to_tex_next(P_mu_tensor_V_after_Pr,n,m,None,output_file,True,False,True)
+            if cant_judge:
+                is_pre_treatment = input(f"是否需要处理并转化本次结果?: ")
+                if is_pre_treatment == "yes":
+                    pre_treatment_wheather_in_P(store_gl,cant_judge,n,m,num_tem_dict,output_file,True)
+                else:
+                    with open(output_file, 'a', encoding='utf-8') as f:
+                        f.write(f"Placeholder\n\n")
+                        f.write(f"Placeholder")
+            else:
+
+                with open(output_file, 'a', encoding='utf-8') as f:
+                    f.write(f"Placeholder\n\n")
+                    f.write(f"Placeholder")
 
     return P_mu_tensor_V_after_Pr
 
@@ -509,6 +635,14 @@ def circle_calc(store_gl,all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==10:
                     print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==11:
+                    print("使用模:S4V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==12:
+                    print("使用模:S4V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==13:
+                    print("使用模:W4V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==14:
+                    print("使用模:W4V_star")# 将输入转换为有理数列表并创建向量
                 
                 results_ten = []
                 for vec, sums in groups_dic.items():                  
@@ -529,6 +663,158 @@ def circle_calc(store_gl,all_vecs, need_deal_with_vec,which_mod,n,m,sheaf):
     return flag
 
 
+def toulan(nn,mm):
+
+    n=nn
+    m=mm
+
+    file_config = input("输入配置文件名: ")
+    file_config = "test//"+file_config+".txt"
+    config = parse_simple_config(file_config)
+
+    which_mod = config['which_mod']
+    setA = config['setA']
+    setB = config['setB']
+    setC = config['setC']
+    setD = config['setD']
+
+
+    problems = []
+    who_not_same = []
+    for a in setA:
+        for b in setB:
+            for c in setC:
+                for d in setD:
+
+                    variables = {'a':a,'b':b,'c':c,'d':d}
+                    condition_result = evaluate_condition(config['condition'], variables)
+                    if condition_result:
+                        #                        atypical_lambda_sp_plus_so = vector(QQ,[a,b,c,d,a])
+                        atypical_lambda_sp_plus_so = vector(QQ,construct_vector(config['atypical_order'],variables))
+                        front = atypical_lambda_sp_plus_so[:n]
+                        back = atypical_lambda_sp_plus_so[n:]
+                        front, back,front_ctr,back_ctr,removed_count = remove_matches(front.list(),back.list())
+                        if removed_count == 1:
+                            #                            typical_lambda_sp_plus_so = vector(QQ,[a+1,b,c,d,a])
+                            typical_lambda_sp_plus_so = vector(QQ,construct_vector(config['typical_order'],variables))
+                            front_t = typical_lambda_sp_plus_so[:n]
+                            back_t = typical_lambda_sp_plus_so[n:]
+                            front_t, back_t,front_ctr_t,back_ctr_t,removed_count_t = remove_matches(front_t.list(),back_t.list())
+                            if not removed_count_t == 0:
+                                print("理论不会发生")
+                                print(f"有问题at:{atypical_lambda_sp_plus_so}")
+                                print(f"有问题t:{typical_lambda_sp_plus_so}")
+                                problems.append(atypical_lambda_sp_plus_so)
+                                print("---------------------------")
+                                continue
+                            result, return_sums = toulanbody(n,m,atypical_lambda_sp_plus_so,typical_lambda_sp_plus_so,which_mod)
+                            result_assume_sums = []
+                            if result:
+                                for v in config['result_assume']:
+                                    result_assume_1 = vector(QQ,construct_vector(v,variables))
+                                    result_assume_sums.append(result_assume_1)
+
+                                if not(contains_with_counts(return_sums,result_assume_sums) and contains_with_counts(result_assume_sums,return_sums)):
+                                    print("result==True but result_assume_sums != results_sums")
+                                    who_not_same.append(atypical_lambda_sp_plus_so)
+                            else:
+                                print("result==False ")
+                                who_not_same.append(atypical_lambda_sp_plus_so)
+
+
+    if not problems:
+        print("恭喜! 问题向量集为空!")
+    else:
+        print("有问题的向量:")
+        for i in range(len(problems)):
+            print(f"{i+1}:{problems[i]}")
+    if not who_not_same:
+        print("恭喜! who_not_same为空!")
+    else:
+        print("不符合规律的向量:")
+        for i in range(len(who_not_same)):
+            print(f"{i+1}:{who_not_same[i]}")
+
+
+
+
+def toulanbody(nn,mm,atypical_lambda_sp_plus_so,typical_lambda_sp_plus_so,which_mod):
+
+    n = nn
+    m = mm
+    W_sp = Weyl_Group_Bn(n)
+    W_so = Weyl_Group_Bn(m)
+    
+    t_lambda_sp = vector(QQ,typical_lambda_sp_plus_so[:n])
+    t_lambda_so = vector(QQ,typical_lambda_sp_plus_so[n:])
+    at_lambda_sp_plus_so = vector(QQ, atypical_lambda_sp_plus_so[:])
+    print(f"atypical的lambda是: {at_lambda_sp_plus_so}")
+    print(f"typical的lambda是: {vector(QQ,list(t_lambda_sp)+list(t_lambda_so))}")
+    
+    w_sp, lambda_sp_next= calc_w_mu(W_sp,t_lambda_sp)
+    w_so, lambda_so_next= calc_w_mu(W_so,-t_lambda_so)
+#    print(f"前下标weyl元是w_sp = {w_sp}")
+#    print(f"后下标weyl元是w_so = {w_so}")
+#    print(f"下标:{list(lambda_sp_next)+list(-lambda_so_next)}")
+
+    #    Dic_P_mu_tensor_V_befor_Pr = Counter(P_mu_tensor_V_befor_Pr)
+#    Dic_P_mu_tensor_V_after_Pr = Counter(P_mu_tensor_V_after_Pr)
+
+    sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
+    lowest_module = Lowest_Module(n,m)
+#    print(f"sum_sp_plus_so: {len(sum_sp_plus_so)}")
+    P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
+
+    flag = 0
+
+#    print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
+#    print(f"P_mu_tensor_V_after_Pr: {len(P_mu_tensor_V_after_Pr)}")
+
+    if is_tensor_V_true(at_lambda_sp_plus_so, P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
+#        print(f"投射成立，lambda{at_lambda_sp_plus_so}是极小权")
+        flag = 1
+    else:
+        zhengli(P_mu_tensor_V_befor_Pr)
+        print(f"*********注意!*********")
+        print(f"投射后不一定是最小权")
+        flag = 0
+
+    lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,20)
+    cant_judge = P_mu_tensor_V_after_Pr[:]
+    return_sums = []
+    return_no_sums = []
+    if flag == 1:
+#        lambda_judge_hash, lambda_judge = judge_mu_in_P(at_lambda_sp_plus_so,n,m,8)
+        check_counts = 0
+        immutable_vecs = [vector(v, immutable=True) for v in P_mu_tensor_V_after_Pr]
+        P_mu_tensor_V_after_Pr_dic = Counter(immutable_vecs)
+        for v,k in P_mu_tensor_V_after_Pr_dic.items():
+            v_hash = tuple(v)
+            if v_hash not in lambda_judge_hash:
+                print(f"{v}不能判断是否在里面,数量: {k}")
+            else:
+                check_counts = check_counts+1
+                cant_judge.remove(v)
+#                print(f"{v}在里面")
+#                show_steps(v,lambda_judge)
+        if not check_counts == len(lambda_judge_hash):
+            print("***********************")
+            print("数据有问题, 本次计算作废!!!")
+            print("***********************")
+            flag = 0
+
+        else:
+            print("\n")
+            print("-----计算kl折叠:------")
+            return_sums, return_no_sums = show_kl_comps(P_mu_tensor_V_after_Pr,n,m)
+
+    if flag ==1 and return_no_sums ==None and return_sums ==None:
+        return False, None
+
+    if flag == 1 and cant_judge == [] and return_no_sums == []:
+        return True, return_sums
+    else:
+        return False, None
 
 
 
@@ -557,15 +843,14 @@ def test_a(store_gl,nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp
 #    Dic_P_mu_tensor_V_after_Pr = Counter(P_mu_tensor_V_after_Pr)
 
     sum_sp_weyl,sum_so_weyl,sum_sp_plus_so = K_L_decompose(W_sp,w_sp,lambda_sp_next, W_so,w_so,lambda_so_next)  
-
     lowest_module = Lowest_Module(n,m)
-    print(f"sum_sp_plus_so: {len(sum_sp_plus_so)}")
+#    print(f"sum_sp_plus_so: {len(sum_sp_plus_so)}")
     P_mu_tensor_V_befor_Pr, P_mu_tensor_V_after_Pr = P_tensor_V(at_lambda_sp_plus_so,sum_sp_plus_so,lowest_module.get_module(which_mod),n,m)
 
     flag = 0
 
-    print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
-    print(f"P_mu_tensor_V_after_Pr: {len(P_mu_tensor_V_after_Pr)}")
+#    print(f"P_mu_tensor_V_befor_Pr: {len(P_mu_tensor_V_befor_Pr)}")
+#    print(f"P_mu_tensor_V_after_Pr: {len(P_mu_tensor_V_after_Pr)}")
 
     if is_tensor_V_true(at_lambda_sp_plus_so, P_mu_tensor_V_after_Pr, lowest_module.basis_plus):
         print(f"投射成立，lambda{at_lambda_sp_plus_so}是极小权")
@@ -610,12 +895,35 @@ def test_a(store_gl,nn,mm,typical_lambda_sp,typical_lambda_so,atypical_lambda_sp
 
     if flag == 1:
         if cant_judge:
-            is_pre_treatment = input(f"是否需要处理本次结果")
+            is_pre_treatment = input(f"是否需要处理本次结果?: ")
             if is_pre_treatment == "yes":
                 pre_treatment_wheather_in_P(store_gl,cant_judge,n,m)
-        is_store = input(f"是否储存本次特征标计算结果？")
+        is_store = input(f"是否储存本次特征标计算结果? ")
         if is_store == "yes":
             add_store(store_gl,at_lambda_sp_plus_so,P_mu_tensor_V_after_Pr)
+        is_to_tex = input(f"是否需要转化本次结果为tex? ")
+        if is_to_tex == "yes":
+            output_file = input("输入文件是:")
+            output_file = "test//"+output_file+".txt"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(f"{which_mod}\n\n")
+#  删除文件内容重新写入
+            num_tem_dict = to_tex_next(sum_sp_plus_so,n,m,None,output_file,True,False)
+            num_tem_dict = to_tex_next(P_mu_tensor_V_after_Pr,n,m,num_tem_dict,output_file,True,False,True)
+
+            if cant_judge:
+                is_pre_treatment = input(f"是否需要处理并转化本次结果?: ")
+                if is_pre_treatment == "yes":
+                    pre_treatment_wheather_in_P(store_gl,cant_judge,n,m,num_tem_dict,output_file,True)
+                else:
+                    with open(output_file, 'a', encoding='utf-8') as f:
+                        f.write(f"Placeholder\n\n")
+                        f.write(f"Placeholder")
+            else:
+                with open(output_file, 'a', encoding='utf-8') as f:
+                    f.write(f"Placeholder\n\n")
+                    f.write(f"Placeholder")
+                
 
 
 
@@ -657,8 +965,8 @@ def find_path_vector(store_path_gl, lam, n, m , which_mod,flag=0):
     anti_repeat_vectors_hash = []
     for w_sp in W_sp.W:
         for w_so in W_so.W:
-            lam_sp_after = w_sp.to_matrix() * lam_sp
-            lam_so_after = w_so.to_matrix() * lam_so
+            lam_sp_after = w_sp.matrix() * lam_sp
+            lam_so_after = w_so.matrix() * lam_so
             sp_plus_so = vector(QQ, list(lam_sp_after)+list(lam_so_after))
             for v in lowest_module_V:
                 at_lambda_sp_plus_so = v + sp_plus_so
@@ -991,10 +1299,290 @@ def auto_calc_long_time(store_gl,store_path_gl, at_lambda_sp_plus_so,n,m, sheaf)
                         
     return wheather_end
 
+def to_tex(weights,n,m,num_tem_dict = None):
+    if num_tem_dict==None:
+        num_tem_dict = {}
+
+    weight_set = weights[:]
+    immutable_vecs = [vector(v, immutable=True) for v in weight_set]
+    weight_set_count = Counter(immutable_vecs)
+
+    results_sums, results_no_sums = show_kl_comps(weight_set,n,m)
+
+    immutable_vecs_results_sums = [vector(v, immutable=True) for v in results_sums]
+    weight_set_count_results_sums = Counter(immutable_vecs_results_sums)
+
+    immutable_vecs_results_no_sums = [vector(v, immutable=True) for v in results_no_sums]
+    weight_set_count_results_no_sums = Counter(immutable_vecs_results_no_sums)
 
 
+    if len(weight_set)==0:
+        return None
 
+    for v in results_sums:
+        for i in range(len(v)):
+            num_tem = v[i]
+            if num_tem not in num_tem_dict:
+                char_c = input(f"{num_tem}代表: ")
+                if char_c == '':
+                    num_tem_dict[num_tem] = str(num_tem) 
+                else:
+                    char_c = ''.join(char_c.split())
+                    num_tem_dict[num_tem] = char_c 
+    for v in results_no_sums:
+        for i in range(len(v)):
+            num_tem = v[i]
+            if num_tem not in num_tem_dict:
+                char_c = input(f"{num_tem}代表: ")
+                if char_c == '':
+                    num_tem_dict[num_tem] = str(num_tem) 
+                else:
+                    char_c = ''.join(char_c.split())
+                    num_tem_dict[num_tem] = char_c 
+     
+    resulttttt = ''
+    print("")
+    print("=========数量结果===========")
+    print("")
+    for v,k in weight_set_count.items():
+        str_s = []
+        for i in range(len(v)):
+                str_s.append(num_tem_dict[v[i]])
 
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        if k > 1:
+            print("+"+str(k)+"M_{"+results[:-1] +"}")
+        else:
+            print("+"+"M_{"+results[:-1] +"}")
+            
+    print("")
+    print("=========折叠结果===========")
+    print("")
+
+    resulttttt_zd = ''
+    for v,k in weight_set_count_results_sums.items():
+        str_s = []
+        for i in range(len(v)):
+                str_s.append(num_tem_dict[v[i]])
+
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        if k > 1:
+            print("+"+str(k)+"\\sum M_{"+results[:-1] +"}")
+        else:
+            print("+"+"\\sum M_{"+results[:-1] +"}")
+
+    for v,k in weight_set_count_results_no_sums.items():
+        str_s = []
+        for i in range(len(v)):
+                str_s.append(num_tem_dict[v[i]])
+
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        if k > 1:
+            print("+"+str(k)+"M_{"+results[:-1] +"}")
+        else:
+            print("+"+"M_{"+results[:-1] +"}")
+    return num_tem_dict
+
+def to_tex_next(weights, n, m, num_tem_dict=None, output_file=None, append_mode=False, 
+           silent_mode=False, include_sums=False):
+    """
+    将权重转换为 LaTeX 格式并可选地输出到文件
+    
+    参数:
+    weights: 权重列表
+    n, m: 整数参数
+    num_tem_dict: 数字到字符的映射字典
+    output_file: 输出文件名，为 None 则不写入文件
+    append_mode: True 为追加模式，False 为覆盖模式
+    silent_mode: True 不打印到控制台，只写入文件
+    include_headers: 是否在文件中包含分隔标题
+    """
+    if num_tem_dict is None:
+        num_tem_dict = {}
+    
+    # 初始化文件输出内容
+    file_output_lines = []
+    
+    # 如果有输出文件，记录文件模式
+    if output_file:
+        file_mode = 'a' if append_mode else 'w'
+    
+    weight_set = weights[:]
+    immutable_vecs = [vector(v, immutable=True) for v in weight_set]
+    weight_set_count = Counter(immutable_vecs)
+
+    results_sums, results_no_sums = show_kl_comps(weight_set, n, m)
+
+    immutable_vecs_results_sums = [vector(v, immutable=True) for v in results_sums]
+    weight_set_count_results_sums = Counter(immutable_vecs_results_sums)
+
+    immutable_vecs_results_no_sums = [vector(v, immutable=True) for v in results_no_sums]
+    weight_set_count_results_no_sums = Counter(immutable_vecs_results_no_sums)
+
+    if len(weight_set) == 0:
+        if output_file:
+            with open(output_file, 'a' if append_mode else 'w', encoding='utf-8') as f:
+                f.write("% 空权重集合\n")
+        return None
+
+    # 收集用户输入的部分（这部分无法静默）
+    for v in results_sums:
+        for i in range(len(v)):
+            num_tem = v[i]
+            if num_tem not in num_tem_dict:
+                char_c = input(f"{num_tem}代表: ")
+                if char_c == '':
+                    num_tem_dict[num_tem] = str(num_tem) 
+                else:
+                    char_c = ''.join(char_c.split())
+                    num_tem_dict[num_tem] = char_c
+    
+    for v in results_no_sums:
+        for i in range(len(v)):
+            num_tem = v[i]
+            if num_tem not in num_tem_dict:
+                char_c = input(f"{num_tem}代表: ")
+                if char_c == '':
+                    num_tem_dict[num_tem] = str(num_tem) 
+                else:
+                    char_c = ''.join(char_c.split())
+                    num_tem_dict[num_tem] = char_c
+    
+    # 准备输出内容
+    output_sections = []
+    
+    # 1. 数量结果部分
+    if not silent_mode:
+        print("\n=========数量结果===========\n")
+    
+    section_lines = []
+    for v, k in weight_set_count.items():
+        str_s = []
+        for i in range(len(v)):
+            str_s.append(num_tem_dict[v[i]])
+
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        
+        line = ""
+        if k > 1:
+            line = "+" + str(k) + "M_{" + results[:-1] + "}"
+        else:
+            line = "+" + "M_{" + results[:-1] + "}"
+        
+        if not silent_mode:
+            print(line)
+        section_lines.append(line[1:])
+    
+    output_sections.append(section_lines)
+    
+    # 2. 折叠结果部分
+    if not silent_mode:
+        print("\n=========折叠结果===========\n")
+    
+    
+    section_lines = []
+    for v, k in weight_set_count_results_sums.items():
+        str_s = []
+        for i in range(len(v)):
+            str_s.append(num_tem_dict[v[i]])
+
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        
+        line = ""
+        if k > 1:
+            line = "+" + str(k) + "\\sum M_{" + results[:-1] + "}"
+        else:
+            line = "+" + "\\sum M_{" + results[:-1] + "}"
+        
+        if not silent_mode:
+            print(line)
+        if include_sums:
+            section_lines.append(line[1:])
+    
+    for v, k in weight_set_count_results_no_sums.items():
+        str_s = []
+        for i in range(len(v)):
+            str_s.append(num_tem_dict[v[i]])
+
+        results = ''
+        for i in range(n):
+            results = results + str_s[i] + ','
+        results = results[:-1] + '|' 
+        for i in range(m):
+            results = results + str_s[n+i] + ','
+        
+        line = ""
+        if k > 1:
+            line = "+" + str(k) + "M_{" + results[:-1] + "}"
+        else:
+            line = "+" + "M_{" + results[:-1] + "}"
+        
+        if not silent_mode:
+            print(line)
+        if include_sums:
+            section_lines.append(line[1:])
+    
+    output_sections.append(section_lines)
+    
+    # 写入文件（如果有指定）
+    if output_file:
+        try:
+            with open(output_file, file_mode, encoding='utf-8') as f:
+                # 写入文件头（如果是新文件）
+#                if not append_mode or (append_mode and os.path.getsize(output_file) == 0):
+#                    f.write("% 生成时间: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
+#                    f.write("% 参数: n=" + str(n) + ", m=" + str(m) + "\n")
+#                    f.write("% 权重数量: " + str(len(weights)) + "\n")
+#                    f.write("%" + "="*50 + "\n\n")
+                
+                # 写入输出内容
+                for line in file_output_lines:
+                    f.write(line + "\n")
+                
+                for section in output_sections:
+                    for line in section:
+                        f.write(line + "\n")
+                    f.write("\n")
+                
+                # 写入映射字典
+#                if num_tem_dict:
+#                    f.write("%" + "="*50 + "\n")
+#                    f.write("% 数字到字符的映射:\n")
+#                    for num, char in sorted(num_tem_dict.items()):
+#                        f.write(f"%   {num} → {char}\n")
+                
+            if not silent_mode:
+                print(f"\n✓ 结果已保存到文件: {output_file}")
+        except Exception as e:
+            if not silent_mode:
+                print(f"✗ 写入文件失败: {e}")
+    
+    return num_tem_dict
 
 
 if __name__ == "__main__":
@@ -1005,10 +1593,10 @@ if __name__ == "__main__":
     lambda_sp_plus_so_next = vector(QQ,[-1/2,1/2,1/2])
 
     
-    n=3 
-    m=2
-    store_gl = SageVectorGroupStore('my_vectors_gl_32.db')
-    store_path_gl = SageVectorGroupStore('path_gl_32.db')
+    n=4 
+    m=1
+    store_gl = SageVectorGroupStore('my_vectors_gl_41.db')
+    store_path_gl = SageVectorGroupStore('path_gl_41.db')
     while True:
         print("*******开始计算***********************************")
         print("你想要做什么？")
@@ -1027,6 +1615,8 @@ if __name__ == "__main__":
         print("12,文件中的向量转化成latex代码")
         print("13,特征标数据库操作")
         print("14,计算自动机,耗时极长,并且不一定有结果,适合离开工位时使用")
+        print("15,文件转化成latex代码")
+        print("16,对比input2和input3")
 
         while True:
             try:
@@ -1034,14 +1624,25 @@ if __name__ == "__main__":
                 break  # 如果成功转换为整数，跳出循环
             except ValueError:
                 print("输入无效，请输入一个整数。")
-        if select_case==0:
+        if select_case==-1:
+            toulan(n,m)
 
+        if select_case==0:
             lowest_module = Lowest_Module(n,m)
             basis_plus_tem = [-v for v in lowest_module.basis_plus]
 
-            for i in range(10):
+            for i in range(14):
                 lowest_weight = which_one_lowest(lowest_module.get_module(i+1),lowest_module.basis_plus)
                 print(f"{i+1}----->{lowest_weight}")
+
+            user_input_low = input("是否继续?")
+            if user_input_low == "yes":
+                which_low_module = int(input("输入模:"))
+                i=0
+                result_low_weights = lowest_module.get_module(which_low_module)
+                for v in result_low_weights:
+                    i=i+1
+                    print(f"{i}: {v}")
             continue
 
             user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
@@ -1074,6 +1675,21 @@ if __name__ == "__main__":
            # tem = vectors_set_min(lowest_module.g,lowest_module.gV)
            # print(tem)
            # test_kl(n)
+        if select_case==15:
+            user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
+            try:
+                for_tex_entry(user_input)
+            except ValueError:
+                print("文件内容应该是有误,请检查")
+
+        if select_case==16:
+
+            user_input = print("检查input2 in input3? : ")# 将输入转换为有理数列表并创建向量
+            try:
+                for_tex_contained("input2","input3")
+            except ValueError:
+                print("文件内容应该是有误,请检查")
+
 
         if select_case==14:
             print("读取要计算的特征标向量")
@@ -1161,81 +1777,7 @@ if __name__ == "__main__":
         if select_case==12:
             user_input = input("请输入权集合set所在文档的名字:")# 将输入转换为有理数列表并创建向量
             weight_set = read_vectors_from_file("test//"+user_input+".txt")
-
-            immutable_vecs = [vector(v, immutable=True) for v in weight_set]
-            weight_set_count = Counter(immutable_vecs)
-
-            if len(weight_set)==0:
-                continue
-
-            selects = input("你是否选择替换(回车表示不替换): ")
-
-            if selects =='':
-                for v,k in weight_set_count.items():
-                    str_s = []
-                    for i in range(len(v)):
-                        if v[i]> 0:
-                            str_s.append("\\fracc{"+str(abs(v[i])*2)+"}")
-                        else:
-                            str_s.append("-\\fracc{"+str(abs(v[i])*2)+"}")
-
-                    results = ''
-                    for i in range(n):
-                        results = results + str_s[i] + ','
-                    results = results[:-1] + '|' 
-                    for i in range(m):
-                        results = results + str_s[n+i] + ','
-                    if k > 1:
-                        print( str(k)+"M_{"+results[:-1] +"}")
-                    else:
-                        print( "M_{"+results[:-1] +"}")
-
-            else: 
-                num_tem_dict = {}
-                for i in range(len(weight_set[0])):
-                    num_tem = abs(weight_set[0][i])
-                    if num_tem not in num_tem_dict:
-                        char_c = input(f"{num_tem}代表: ")
-                        if char_c == '':
-                            num_tem_dict[num_tem] = str(num_tem) 
-                            num_tem_dict[-num_tem] = '-'+str(num_tem) 
-                        else:
-                            char_c = ''.join(char_c.split())
-                            if char_c[0] == '+':
-                                char_c = char_c[1:]
-
-                            num_tem_dict[num_tem] = char_c 
-
-                            if len(char_c)==1:
-                                num_tem_dict[-num_tem] = '-'+char_c
-                            elif len(char_c)==2 and char_c[0] == '-':
-                                num_tem_dict[-num_tem] =  char_c[1:]
-                            elif len(char_c)==3 and char_c[1] == '+':
-                                num_tem_dict[-num_tem] = '-'+char_c[0]+'-'+char_c[2]
-                            elif len(char_c)==3 and char_c[1] == '-':
-                                num_tem_dict[-num_tem] = '-'+char_c[0]+'+'+char_c[2]
-                            elif len(char_c)==4 and char_c[0] == '-' and char_c[2] == '+':
-                                num_tem_dict[-num_tem] = char_c[1]+'-'+char_c[3]
-                            elif len(char_c)==4 and char_c[0] == '-' and char_c[2] == '-':
-                                num_tem_dict[-num_tem] = char_c[1]+'+'+char_c[3]
-                
-                for v,k in weight_set_count.items():
-                    str_s = []
-                    for i in range(len(v)):
-                            str_s.append(num_tem_dict[v[i]])
-
-                    results = ''
-                    for i in range(n):
-                        results = results + str_s[i] + ','
-                    results = results[:-1] + '|' 
-                    for i in range(m):
-                        results = results + str_s[n+i] + ','
-                    if k > 1:
-                        print(str(k)+"M_{"+results[:-1] +"}")
-                    else:
-                        print("M_{"+results[:-1] +"}")
-                        
-
+            to_tex_next(weight_set,n,m)
                             
 
 
@@ -1286,6 +1828,14 @@ if __name__ == "__main__":
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
             elif which_mod==10:
                 print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==11:
+                print("使用模:S4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==12:
+                print("使用模:S4V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==13:
+                print("使用模:W4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==14:
+                print("使用模:W4V_star")# 将输入转换为有理数列表并创建向量
             typical_lambda_sp = typical_lambda_sp_plus_so[:n]
             typical_lambda_so = typical_lambda_sp_plus_so[-m:]
             test_a(store_gl,n,m,typical_lambda_sp,typical_lambda_so, atypical_lambda_sp_plus_so,which_mod)
@@ -1354,6 +1904,14 @@ if __name__ == "__main__":
                     print("使用模:W3V")# 将输入转换为有理数列表并创建向量
                 elif which_mod==10:
                     print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==11:
+                    print("使用模:S4V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==12:
+                    print("使用模:S4V_star")# 将输入转换为有理数列表并创建向量
+                elif which_mod==13:
+                    print("使用模:W4V")# 将输入转换为有理数列表并创建向量
+                elif which_mod==14:
+                    print("使用模:W4V_star")# 将输入转换为有理数列表并创建向量
 
                 P_mu_tensor_V_after_Pr = again_calc(store_gl,atypical_lambda_sp_plus_so,P_mu_tensor_V_after_Pr,which_mod,n,m)
             elif sub_select_case ==1:
@@ -1419,15 +1977,19 @@ if __name__ == "__main__":
                 print(v)
         elif select_case==6:
             user_input = input("请输入文档的名字:")# 将输入转换为有理数列表并创建向量
-            with open('test//'+user_input+'.txt', 'r') as f:
-                lines = f.readlines()
-            for line in lines:
-                rat_list = [QQ(x.strip()) for x in line.split(',')]
-                typical_lambda_sp_plus_so = vector(QQ,rat_list)          
+            # with open('test//'+user_input+'.txt', 'r') as f:
+            #     lines = f.readlines()
+
+            weight_set = read_vectors_from_file("test//"+user_input+".txt")
+            for line in weight_set:
+                # rat_list = [QQ(x.strip()) for x in line.split(',')]
+                typical_lambda_sp_plus_so = line[:]          
                 print(f"直接计算typical情况，要计算的tipycal有理数向量lambda(用逗号,分隔):{typical_lambda_sp_plus_so}")# 将输入转换为有理数列表并创建向量
                 typical_lambda_sp = typical_lambda_sp_plus_so[:n]
                 typical_lambda_so = typical_lambda_sp_plus_so[-m:]
-                test_K_L(n,m,typical_lambda_sp,typical_lambda_so,1)
+                results_typical = test_K_L(n,m,typical_lambda_sp,typical_lambda_so,1)
+                
+                show_kl_comps(results_typical,n,m)
         
         elif select_case==7:
                 
@@ -1459,6 +2021,14 @@ if __name__ == "__main__":
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
             elif which_mod==10:
                 print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==11:
+                print("使用模:S4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==12:
+                print("使用模:S4V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==13:
+                print("使用模:W4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==14:
+                print("使用模:W4V_star")# 将输入转换为有理数列表并创建向量
 
             P_tensor_V_show(P_mu_tensor_V_after_Pr,which_mod,n,m)
 
@@ -1573,6 +2143,14 @@ if __name__ == "__main__":
                 print("使用模:W3V")# 将输入转换为有理数列表并创建向量
             elif which_mod==10:
                 print("使用模:W3V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==11:
+                print("使用模:S4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==12:
+                print("使用模:S4V_star")# 将输入转换为有理数列表并创建向量
+            elif which_mod==13:
+                print("使用模:W4V")# 将输入转换为有理数列表并创建向量
+            elif which_mod==14:
+                print("使用模:W4V_star")# 将输入转换为有理数列表并创建向量
 
             results_ten = []
             lam_s_imm = [vector(v, immutable=True) for v in lam_s]

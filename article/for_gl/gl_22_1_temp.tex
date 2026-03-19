@@ -1,0 +1,1463 @@
+%! TEX root = main.tex
+
+\section{gl(2|2)}
+\subsection{degree of atypicality = 1}
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|c,b)$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $a>b>c$
+    \begin{enumerate}
+      \item $a>b+1$ \par
+      Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{a,b+1|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) =
+M_{a,b|c,b}
++M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a=b+1$ \par
+      Let $\mu:=\lambda + (1,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =  M_{b+2,b+1|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_6) =
+    M_{b+1,b|c,b}
++M_{b+1,b+1|c,b+1}
++M_{b+2,b+1|c,b+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    \end{enumerate}
+
+  \item $a=b>c$
+      Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{a,a|c,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) =
+M_{a+1,a|c,a+1}
++M_{a,a+1|c,a+1}
++M_{a,a|c,a} 
+= M_{a,a|c,a}
++\sum M_{a,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+
+  \item $a>b=c$
+    \begin{enumerate}
+      \item $a>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{a,b+1|b,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) =
++M_{a,b|b,b}
++M_{a,b+1|b+1,b}
++M_{a,b+1|b,b+1} 
+= M_{a,b|b,b}
++\sum M_{a,b+1|b+1,b}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $a=b+1$
+        Let $\mu:=\lambda + (1,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{b+2,b+1|b,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_6) &=
+M_{b+1,b|b,b}
++M_{b+1,b+1|b+1,b}
++M_{b+1,b+1|b,b+1}
++M_{b+2,b+1|b+2,b}
++M_{b+2,b+1|b,b+2} \\
+                                    &= 
+ M_{b+1,b|b,b}
++\sum M_{b+1,b+1|b+1,b}
++\sum M_{b+2,b+1|b+2,b}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    \end{enumerate}
+
+  \item $b>a>c$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = 
+M_{a,b+1|c,b}
++M_{b+1,a|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,b}
++M_{a,b+1|c,b+1}
++M_{b,a|c,b}
++M_{b+1,a|c,b+1} \\
+                                    &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $a>c>b$
+  \begin{enumerate}
+    \item $c>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = 
+M_{a,b+1|c,b}
++M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,b}
++M_{a,b+1|c,b+1}
++M_{a,b|b,c}
++M_{a,b+1|b+1,c} \\
+                                    &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    \item $c=b+1 $
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{a,b|b+1,b+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_1) &=
++M_{a,b+1|b+1,b+1}
++M_{a,b|b,b+1}
++M_{a,b|b+1,b}\\
+                                    &=
+\sum M_{a,b|b+1,b}
+\sum M_{a,b+1|b+1,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+  \end{enumerate}
+
+\item $a>c=b$ Already calculated!
+\item $c>a>b$
+  \begin{enumerate}
+    \item $a>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|c,b}
++M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
++M_{a,b|c,b}
++M_{a,b+1|c,b+1}
++M_{a,b|b,c}
++M_{a,b+1|b+1,c} \\
+                                    &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $a=b+1, c>a+1$
+        Let $\mu:=\lambda + (1,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{b+2,b+1|c,b}
++M_{b+2,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_6) &=
+M_{b+1,b|c,b}
++M_{b+1,b+1|c,b+1}
++M_{b+2,b+1|c,b+2} \\
+                                    &+
+M_{b+1,b|b,c}
++M_{b+1,b+1|b+1,c}
++M_{b+2,b+1|b+2,c}\\
+                                    &=
+\sum M_{b+1,b|c,b}
++\sum M_{b+1,b+1|c,b+1}
++\sum M_{b+2,b+1|c,b+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $a=b+1, c=a+1$
+        Let $\mu:=\lambda + (0,0,0,2) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{b+1,b|b+2,b+2}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_5) &=
+M_{b+2,b+1|b+2,b+2}
++M_{b+1,b+1|b+1,b+2}
++M_{b+1,b+1|b+2,b+1}  \\
+                                    &+
+M_{b+1,b|b,b+2}
++M_{b+1,b|b+2,b} \\
+                                    &=
+\sum M_{b+1,b|b+2,b}
++\sum M_{b+1,b+1|b+2,b+1}
++ M_{b+2,b+1|b+2,b+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $c>a=b$ 
+  \begin{enumerate}
+    \item $c>a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,a|c,a+1}
++M_{a,a|a+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,a|c,a+1}
++M_{a,a+1|c,a+1}
++M_{a,a|c,a} \\
+                                    &+
+M_{a+1,a|a+1,c}
++M_{a,a+1|a+1,c}
++M_{a,a|a,c} \\
+                                    &=
+\sum M_{a,a|c,a}
++\sum M_{a,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $c=a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,a|a+1,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,a|a+1,a+1}
++M_{a,a+1|a+1,a+1} 
++M_{a,a|a,a+1}
++M_{a,a|a+1,a} \\
+                                    &=
+\sum M_{a,a|a+1,a}
++\sum M_{a,a+1|a+1,a+1}
+\sum M_{a,a|c,a}
++\sum M_{a,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $b>c>a$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|c,b}
++M_{b+1,a|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,b}
++M_{a,b+1|c,b+1}
++M_{b,a|c,b}
++M_{b+1,a|c,b+1} \\
+                                    &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $b=c>a$ Already calculated! 
+
+\item $c>b>a$
+  \begin{enumerate}
+    \item $c>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|c,b}
++M_{a,b+1|b,c}
++M_{b+1,a|c,b}
++M_{b+1,a|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,b}
++M_{a,b+1|c,b+1}
++M_{a,b|b,c}
++M_{a,b+1|b+1,c} \\
+                                    &+
+M_{b,a|c,b}
++M_{b+1,a|c,b+1}
++M_{b,a|b,c}
++M_{b+1,a|b+1,c}\\
+                                    &=
+\sum M_{a,b|c,b}
++\sum M_{a,b+1|c,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $c=b+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|b+1,b+1}
++M_{b,a|b+1,b+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a,b+1|b+1,b+1}
++M_{a,b|b,b+1}
++M_{a,b|b+1,b}
+    +M_{b+1,a|b+1,b+1} \\
+                                    &+
+M_{b,a|b,b+1}
++M_{b,a|b+1,b}
+=\sum M_{a,b|b+1,b}
++\sum M_{a,b+1|b+1,b+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \end{enumerate}
+
+\item $c>b=a$ Already calculated! 
+
+\end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|b,c)$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{a|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $a>b>c$
+  \begin{enumerate}
+    \item $a>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|b,c}
++M_{a,b+1|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+    Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|b,c}
++M_{a,b+1|b+1,c}
++M_{a,b|c,b}
++M_{a,b+1|c,b+1}\\
+                                    &=
+\sum M_{a,b|b,c}
++\sum M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $a=b>c$
+        Let $\mu:=\lambda + (1,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{b+2,b+1|b,c}
++M_{b+2,b+1|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_6) &=
+M_{b+1,b|b,c}
++M_{b+1,b+1|b+1,c}
++M_{b+2,b+1|b+2,c} \\
+                                  &+
+M_{b+1,b|c,b}
++M_{b+1,b+1|c,b+1} 
++M_{b+2,b+1|c,b+2} \\
+                                    &=
+\sum M_{b+1,b|b,c}
++\sum M_{b+1,b+1|b+1,c}
++\sum M_{b+2,b+1|b+2,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $a=b>c$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,a|a+1,c}
++M_{a,a|c,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
++M_{a+1,a|a+1,c}
++M_{a,a+1|a+1,c}
++M_{a,a|a,c} 
++M_{a+1,a|c,a+1}
++M_{a,a+1|c,a+1}
++M_{a,a|c,a} \\
+                                  &=
+\sum M_{a,a|a,c}
++\sum M_{a,a+1|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $a>b=c$ Already calculated!
+
+\item $b>a>c$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|b,c}
++M_{a,b+1|c,b}
++M_{b+1,a|b,c}
++M_{b+1,a|c,b}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|b,c}
++M_{a,b+1|b+1,c}
++M_{a,b|c,b}
++M_{a,b+1|c,b+1} \\
+                                  &+
+M_{b,a|b,c}
++M_{b+1,a|b+1,c}
++M_{b,a|c,b}
++M_{b+1,a|c,b+1}\\
+                                  &=
+\sum M_{a,b|b,c}
++\sum M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $a>c>b$
+\begin{enumerate}
+  \item $c>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|b,c}
++M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \item $c=b+1, a>c+1$
+        Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,b|b+1,b+2}
+M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_3) &=
+M_{a,b|b,b+1}
++M_{a,b+1|b+1,b+1}
++M_{a,b+2|b+1,b+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \item $c=b+1, a=c+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{b+3,b|b,b+1}
++M_{b+3,b+1|b+1,b+1}
++M_{b+3,b+2|b+1,b+2}
+M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{b+2,b|b,b+1}
++M_{b+2,b+1|b+1,b+1}
++M_{b+2,b+2|b+1,b+2}
++M_{b+3,b+2|b+1,b+3}
+  \end{aligned}
+\end{equation}
+By \cref{prop:1} and \cref{lemma:2}, all terms except $M_{b+3,b+2|b+1,b+3}$ must belong to $P_\lambda$. Since $M_{b+4,b+2|b+1,b+4}$ must appear in $P_{b+3,b+2|b+1,b+3}$ by \cref{prop:1},  the one remaining term cannot form a projective, it must also belong to $P_\lambda$.
+\end{enumerate}
+
+\item $a>c=b$ Already calculated!
+
+\item $c>a>b$
+  \begin{enumerate}
+    \item $a>b+1$
+        Let $\mu:=\lambda + (0,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+      M_{a,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|b,c}
++M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $a=b+1$
+        Let $\mu:=\lambda + (1,1,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{b+2,b+1|b,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_6) &=
+M_{b+1,b|b,c}
++M_{b+1,b+1|b+1,c}
++M_{b+2,b+1|b+2,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $c>a=b$ 
+  \begin{enumerate}
+    \item $c>b+1$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,a|a+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,a|a+1,c}
++M_{a,a+1|a+1,c}
++M_{a,a|a,c}
+                                  &=
+ M_{a,a|a,c}
++\sum M_{a,a+1|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $c=b+1$
+        Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,a|a+1,a+2}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_3) &=
++M_{a,a|a,a+1}
++M_{a+1,a|a+1,a+1}
++M_{a,a+1|a+1,a+1} \\
+                                  &+
+M_{a+2,a|a+1,a+2}
++M_{a,a+2|a+1,a+2} \\
+                                  &=
+M_{a,a|a,a+1}
++\sum M_{a,a+1|a+1,a+1}
++\sum M_{a,a+2|a+1,a+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $b>c>a$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|b+1,c}
++M_{a,b|c,b+1}
++M_{b,a|b+1,c}
++M_{b,a|c,b+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a,b+1|b+1,c}
++M_{a,b|b,c}
++M_{a,b+1|c,b+1}
++M_{a,b|c,b} \\
+                                  &+
+M_{b+1,a|b+1,c}
++M_{b,a|b,c}
++M_{b+1,a|c,b+1}
++M_{b,a|c,b} \\
+                                  &=
+\sum M_{a,b|b,c}
++\sum M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  
+\item $b=c>a$ Already calculated!
+
+\item $c>b>a$
+  \begin{enumerate}
+    \item $c>b+1$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|b+1,c}
++M_{b,a|b+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a,b+1|b+1,c}
++M_{a,b|b,c}
++M_{b+1,a|b+1,c}
++M_{b,a|b,c}
+                                  &=
+\sum M_{a,b|b,c}
++\sum M_{a,b+1|b+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+    \item $c=b+1$
+        Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|b+1,b+2}
++M_{b,a|b+1,b+2}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_3) &=
++M_{a,b|b,b+1}
++M_{a,b+1|b+1,b+1}
++M_{a,b+2|b+1,b+2}
++M_{b,a|b,b+1} \\
+                                  &+
+M_{b+1,a|b+1,b+1}
++M_{b+2,a|b+1,b+2} \\
+                                  &=
+\sum M_{a,b|b,b+1}
++\sum M_{a,b+1|b+1,b+1}
++\sum M_{a,b+2|b+1,b+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\item $a>b=a$ Already calculated!
+
+\end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|c,a)$ with $a \neq b$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+
+\item $a>b>c$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} = M_{a,b|c,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,b|c,a+1}
++M_{a,b|c,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $b>a>c$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|c,a+1}
++M_{b,a|c,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,b|c,a+1}
++M_{a,b|c,a}
++M_{b,a+1|c,a+1}
++M_{b,a|c,a}
+                                  =
+\sum M_{a,b|c,a}
++\sum M_{a+1,b|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,a+1|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,a+1|c,a}
++M_{a+1,a|c,a}
++M_{a+1,a+1|c,a+1}
+                                  &=
+\sum M_{a,a+1|c,a}
++ M_{a+1,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $b>a=c$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|a,a}
++M_{b,a+1|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|a,a}
++M_{a+1,b|a+1,a}
++M_{a+1,b|a,a+1}
++M_{b,a|a,a}
++M_{b,a+1|a+1,a}
++M_{b,a+1|a,a+1} \\
+                                  &=
+\sum M_{a,b|a,a}
++\sum M_{a+1,b|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,a+1|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,a+1|a,a}
++M_{a+1,a|a,a}
++M_{a+1,a+1|a+1,a}
++M_{a+1,a+1|a,a+1} \\
+                                  &=
+\sum M_{a,a+1|a,a}
++\sum M_{a+1,a+1|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $a>c>b$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,a}
++M_{a+1,b|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  
+\item $a=c>b$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,b|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
++M_{a,b|a,a}
++M_{a+1,b|a+1,a}
++M_{a+1,b|a,a+1}
+                                  &=
+ M_{a,b|a,a}
++\sum M_{a+1,b|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  
+\item $c>a>b$
+  \begin{enumerate}
+    \item $c>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,b|c,a}
++M_{a+1,b|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,a}
++M_{a+1,b|c,a+1}
++M_{a,b|a,c}
++M_{a+1,b|a+1,c} \\
+                                  &=
+\sum M_{a,b|c,a}
++\sum M_{a+1,b|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $c=a+1$
+        Let $\mu:=\lambda + (0,-1,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,b-1|a+1,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_5) &=
+ M_{a+1,b|a+1,a+1}
++M_{a,b|a,a+1}
++M_{a,b|a+1,a}
+                                  &=
+\sum M_{a,b|a+1,a}
++ M_{a+1,b|a+1,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $c=a>b$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|a,a}
++M_{a+1,b|a+1,a}
++M_{a+1,b|a,a+1}
+                                  &=
+ M_{a,b|a,a}
++\sum M_{a+1,b|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  
+\item $b>c>a$
+  \begin{enumerate}
+    \item $c>a+1$ 
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+      M_{a+1,b|c,a}
++M_{a+1,b|a,c}
++M_{b,a+1|c,a}
++M_{b,a+1|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,a}
++M_{a+1,b|c,a+1}
++M_{a,b|a,c}
++M_{a+1,b|a+1,c} 
++M_{b,a|c,a}
++M_{b,a+1|c,a+1} \\
+                                  &+
+M_{b,a|a,c}
++M_{b,a+1|a+1,c}
+=\sum M_{a,b|c,a}
++\sum M_{a+1,b|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $c=a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+      M_{a,b|a+1,a+1}
++M_{b,a|a+1,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,b|a+1,a+1}
++M_{a,b|a,a+1}
++M_{a,b|a+1,a}
++M_{b,a+1|a+1,a+1}
++M_{b,a|a,a+1}
++M_{b,a|a+1,a} \\
+                                  &=
+\sum M_{a,b|a+1,a}
++\sum M_{a+1,b|a+1,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $b>c=a$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|a,a}
++M_{b,a+1|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|a,a}
++M_{a+1,b|a+1,a}
++M_{a+1,b|a,a+1}
++M_{b,a|a,a}
++M_{b,a+1|a+1,a}
++M_{b,a+1|a,a+1} \\
+                                  &=
++\sum M_{a,b|a,a}
++\sum M_{a+1,b|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,a+1|a,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,a+1|a,a}
++M_{a+1,a|a,a}
++M_{a+1,a+1|a+1,a}
++M_{a+1,a+1|a,a+1} \\
+                                  &=
+\sum M_{a,a+1|a,a}
++\sum M_{a+1,a+1|a+1,a}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $c>b>a$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|c,a}
++M_{a+1,b|a,c}
++M_{b,a+1|c,a}
++M_{b,a+1|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|c,a}
++M_{a+1,b|c,a+1}
++M_{a,b|a,c}
++M_{a+1,b|a+1,c} \\
+                                  &+
+M_{b,a|c,a}
++M_{b,a+1|c,a+1}
++M_{b,a|a,c}
++M_{b,a+1|a+1,c} \\
+                                  &=
+\sum M_{a,b|c,a}
++\sum M_{a+1,b|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,a+1|c,a}
++M_{a+1,a+1|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a,a+1|c,a}
++M_{a+1,a|c,a}
++M_{a+1,a+1|c,a+1}
++M_{a,a+1|a,c}
++M_{a+1,a|a,c}
++M_{a+1,a+1|a+1,c}\\
+                                  &=
+\sum M_{a,a+1|c,a}
++\sum M_{a+1,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $c>b=a$
+  \begin{enumerate}
+    \item $c>a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,a|c,a+1}
++M_{a,a|a+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,a|c,a+1}
++M_{a,a+1|c,a+1}
++M_{a,a|c,a}
++M_{a+1,a|a+1,c}
++M_{a,a+1|a+1,c}
++M_{a,a|a,c} \\
+                                  &=
+\sum M_{a,a|c,a}
++\sum M_{a,a+1|c,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $c=a+1$
+        Let $\mu:=\lambda + (0,0,0,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,a|a+1,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,a|a+1,a+1}
++M_{a,a+1|a+1,a+1}
++M_{a,a|a,a+1}
++M_{a,a|a+1,a} \\
+                                  &=
+\sum M_{a,a|a+1,a}
++\sum M_{a,a+1|a+1,a+1}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+  Let $a,b,c \in \mathbb{Z}$ and $\lambda = (a,b|a,c)$ with $a \neq b$ and $a \neq c$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b|c}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+
+\item $a>b>c$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,b|a,c}
++M_{a+1,b|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|a,c}
++M_{a+1,b|a+1,c}
++M_{a,b|c,a}
++M_{a+1,b|c,a+1} \\
+                                  &=
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $b>a>c$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,b|a,c}
++M_{a+1,b|c,a}
++M_{b,a+1|a,c}
++M_{b,a+1|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2 &=
+M_{a,b|a,c}
++M_{a+1,b|a+1,c}
++M_{a,b|c,a}
++M_{a+1,b|c,a+1}
++M_{b,a|a,c}
++M_{b,a+1|a+1,c} \\
+                                 &+
+M_{b,a|c,a}
++M_{b,a+1|c,a+1}
+                                 =
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,a+1|a,c}
++M_{a+1,a+1|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,a+1|a,c}
++M_{a+1,a|a,c}
++M_{a+1,a+1|a+1,c}
++M_{a,a+1|c,a}
++M_{a+1,a|c,a}
++M_{a+1,a+1|c,a+1}\\
+                                  &=
+\sum M_{a,a+1|a,c}
++\sum M_{a+1,a+1|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $a>c>b$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a+1,b|a,c}
++M_{a+1,b|c,a}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
++M_{a,b|a,c}
++M_{a+1,b|a+1,c}
++M_{a,b|c,a}
++M_{a+1,b|c,a+1}
+                                  &=
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $c>a>b$
+  \begin{enumerate}
+    \item $c>a+1$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,b|a+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,b|a+1,c}
++M_{a,b|a,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $c=a+1$
+        Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|a+1,a+2}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_3) &=
+M_{a,b|a,a+1}
++M_{a+1,b|a+1,a+1}
++M_{a+2,b|a+1,a+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+  
+\item $b>c>a$
+  \begin{enumerate}
+    \item $c>a+1$
+        Let $\mu:=\lambda + (0,0,1,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a,b|a+1,c}
++M_{b,a|a+1,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+1,b|a+1,c}
++M_{a,b|a,c}
++M_{b,a+1|a+1,c}
++M_{b,a|a,c}
+                                  &=
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \item $c=a+1,b>c+1$
+   Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =
+M_{a,b|a+1,a+2}
++M_{b,a|a+1,a+2}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a,b|a,a+1}
++M_{a+1,b|a+1,a+1}
++M_{a+2,b|a+1,a+2} \\
+                                  &+
+M_{b,a|a,a+1}
++M_{b,a+1|a+1,a+1}
++M_{b,a+2|a+1,a+2}\\
+                                  &=
+\sum M_{a,b|a,a+1}
++\sum M_{a+1,b|a+1,a+1}
++\sum M_{a+2,b|a+1,a+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+\item $c=a+1,b=c+1$
+   Let $\mu:=\lambda + (0,0,1,1) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+2,a+2|a,a+1}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_1) &=
+M_{a+2,a+2|a+1,a+2}
++M_{a+1,a+2|a+1,a+1}\\
+                                  &+
+M_{a+2,a+1|a+1,a+1}
++M_{a,a+2|a,a+1}
++M_{a+2,a|a,a+1} \\
+                                  &=
+\sum M_{a,a+2|a,a+1}
++\sum M_{a+1,a+2|a+1,a+1}
++ M_{a+2,a+2|a+1,a+2}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+  \end{enumerate}
+  
+\item $c>b>a$
+  \begin{enumerate}
+    \item $b>a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,b|a,c}
++M_{b,a+1|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
+M_{a,b|a,c}
++M_{a+1,b|a+1,c}
++M_{b,a|a,c}
++M_{b,a+1|a+1,c}
+                                  =
+\sum M_{a,b|a,c}
++\sum M_{a+1,b|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+    
+\item $b=a+1$
+        Let $\mu:=\lambda + (1,0,0,0) $. 
+\begin{equation}\notag
+  \begin{aligned}
+      P_{\mu} =M_{a+1,a+1|a,c}
+  \end{aligned}
+\end{equation}
+\begin{equation}\notag
+  \begin{aligned}
+  Pr_{\lambda}(P_\mu \otimes V_2) &=
++M_{a,a+1|a,c}
++M_{a+1,a|a,c}
++M_{a+1,a+1|a+1,c}
+                                  =
+\sum M_{a,a+1|a,c}
++ M_{a+1,a+1|a+1,c}
+  \end{aligned}
+\end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+  \end{enumerate}
+
+\end{enumerate}
+\end{proof}
+

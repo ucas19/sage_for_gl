@@ -4,7 +4,7 @@
 from sage.all_cmdline import *   # import sage library
 
 _sage_const_3 = Integer(3); _sage_const_1 = Integer(1); _sage_const_2 = Integer(2); _sage_const_0 = Integer(0)# 构造Coxeter群 of type C3 (对应 sp(6))
-W = WeylGroup(['C', _sage_const_3 ], prefix="w")
+W = WeylGroup(['A', _sage_const_3 ], prefix="w")
 w = W.simple_reflections()  # w[1], w[2], w[3]
 
 # 构造x = w3 * w1 * w2
@@ -39,4 +39,9 @@ else:
     P = P_poly.subs(q=_sage_const_1 )
 
 print("P_{yw0, xw0}(1) =", P)
+
+
+for w in W:
+    if not w.to_matrix() == w.matrix():
+        print(f"==={w}")
 

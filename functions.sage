@@ -31,16 +31,16 @@ def get_S(Weyl_W, lambda_sp_next):
 
     S_sp = [] # 这是W_sp的子抛物子群生成元集合（序号）
 #    for w in W_sp.W.gens():
-#        print(f"{w} ---- {w.to_matrix()}")
-#        if w.to_matrix() * lambda_sp_next == lambda_sp_next:
-    #            print(f"{w} -- {w.to_matrix()}")
+#        print(f"{w} ---- {w.matrix()}")
+#        if w.matrix() * lambda_sp_next == lambda_sp_next:
+    #            print(f"{w} -- {w.matrix()}")
 
     #这里是weyl的所有生成元集
     S_of_W_sp = Weyl_W.simple_reflections()
     #    print(S_of_W_sp[i].coset_representative([2],side = "left"))
     for i in S_of_W_sp.keys():
-        #        print(f"{i}-- --{S_of_W_sp[i].to_matrix()}")
-        if S_of_W_sp[i].to_matrix() * lambda_sp_next == lambda_sp_next :
+        #        print(f"{i}-- --{S_of_W_sp[i].matrix()}")
+        if S_of_W_sp[i].matrix() * lambda_sp_next == lambda_sp_next :
             S_sp.append(i)
     return S_sp
 
@@ -53,8 +53,8 @@ def calc_w_mu( W_Group , lambda_before ):
     calc_sum = 0
     for w in W_Group.W:
         flag = 0
-        mu = w.to_matrix() * lambda_before
- #       print(f"{mu} = {lambda_before}*\n {w.to_matrix()}")
+        mu = w.matrix() * lambda_before
+ #       print(f"{mu} = {lambda_before}*\n {w.matrix()}")
         for i in range(n):
             for j in range(i+1,n):
                 delta_add_delta = [0 for _ in range(n)]
@@ -70,7 +70,7 @@ def calc_w_mu( W_Group , lambda_before ):
                     break
 
         if flag == 0:
-            lambda_result = w.to_matrix() * lambda_before
+            lambda_result = w.matrix() * lambda_before
             w_result.append(w)
   #          print(f"{w} and {lambda_result}")
             calc_sum = calc_sum+1
@@ -406,28 +406,28 @@ def K_L_decompose_no_kl(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     S_sp = [] # 这是W_sp的子抛物子群生成元集合（序号）
     S_so = [] # 这是W_so的子抛物子群生成元集合（序号）
 #    for w in W_sp.W.gens():
-#        print(f"{w} ---- {w.to_matrix()}")
-#        if w.to_matrix() * lambda_sp_next == lambda_sp_next:
-    #            print(f"{w} -- {w.to_matrix()}")
+#        print(f"{w} ---- {w.matrix()}")
+#        if w.matrix() * lambda_sp_next == lambda_sp_next:
+    #            print(f"{w} -- {w.matrix()}")
 
     #这里是weyl的所有生成元集
     S_of_W_sp = W_sp.W.simple_reflections()
     S_of_W_so = W_so.W.simple_reflections()
     #    print(S_of_W_sp[i].coset_representative([2],side = "left"))
     for i in S_of_W_sp.keys():
-        #        print(f"{i}-- --{S_of_W_sp[i].to_matrix()}")
-        if S_of_W_sp[i].to_matrix() * lambda_sp_next == lambda_sp_next :
+        #        print(f"{i}-- --{S_of_W_sp[i].matrix()}")
+        if S_of_W_sp[i].matrix() * lambda_sp_next == lambda_sp_next :
             S_sp.append(i)
 
     for i in S_of_W_so.keys():
-        if S_of_W_so[i].to_matrix() * lambda_so_next == lambda_so_next :
+        if S_of_W_so[i].matrix() * lambda_so_next == lambda_so_next :
             S_so.append(i)
 
     #    for i in range(W_sp.W.rank()):
-    #        print(f"{W_sp.W[i].to_matrix()} * {lambda_sp_next}")
-    #        if W_sp.W[i].to_matrix() * lambda_sp_next == lambda_sp_next :
+    #        print(f"{W_sp.W[i].matrix()} * {lambda_sp_next}")
+    #        if W_sp.W[i].matrix() * lambda_sp_next == lambda_sp_next :
     #            S_sp.append(i+1)
-    # print(f"{W_sp.W[i].to_matrix()} * {lambda_sp_next}")
+    # print(f"{W_sp.W[i].matrix()} * {lambda_sp_next}")
     #    print(S_sp)
     #    min_reps_sp = W_sp.W_cox.coset_representative(S_sp,side = "left" ) 
     #    W_S = W_sp.W.parabolic_subgroup(S_of_W_sp)
@@ -449,8 +449,8 @@ def K_L_decompose_no_kl(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
         is_bruhat_le_reverse = w_sp.bruhat_le(rep)
         if w_sp.bruhat_le(rep) or w_sp == rep:
             #            print(f"sp的kl多项式的sum中weyl元={rep}")
-            #print(f"sp的kl多项式的sum中后M_?集合={rep.to_matrix() * lambda_sp_next }")
-            #           sum_sp.append(rep.to_matrix() * lambda_sp_next)
+            #print(f"sp的kl多项式的sum中后M_?集合={rep.matrix() * lambda_sp_next }")
+            #           sum_sp.append(rep.matrix() * lambda_sp_next)
 
             #w_sp_cox = W_sp_coxeter.from_reduced_word(w_sp.reduced_word())
             #rep_cox = W_sp_coxeter.from_reduced_word(rep.reduced_word())
@@ -462,8 +462,8 @@ def K_L_decompose_no_kl(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
         is_bruhat_le_reverse = w_so.bruhat_le(rep)
         if w_so.bruhat_le(rep):
             #print(f"so的kl多项式的sum中weyl元={rep}")
-            #print(f"so的kl多项式的sum中后M_?集合={rep.to_matrix() * lambda_so_next }")
-            #           sum_so.append(rep.to_matrix() * lambda_so_next)
+            #print(f"so的kl多项式的sum中后M_?集合={rep.matrix() * lambda_so_next }")
+            #           sum_so.append(rep.matrix() * lambda_so_next)
             #w_so_cox = W_so_coxeter.from_reduced_word(w_so.reduced_word())
             #rep_cox = W_so_coxeter.from_reduced_word(rep.reduced_word())
             #k_l_on_one = W_so_coxeter.kazhdan_lusztig_polynomial(rep_cox*W_so_coxeter.long_element(),w_so_cox*W_so_coxeter.long_element())
@@ -475,7 +475,7 @@ def K_L_decompose_no_kl(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     calc_sum = 1
     for v in sum_sp_weyl:
         for w in sum_so_weyl:
-            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*(-lambda_so_next)))
+            v_plus_w = vector(QQ, list(v.matrix()*lambda_sp_next)+list(w.matrix()*(-lambda_so_next)))
             sum_sp_plus_so.append(v_plus_w)
             #            print(f"{calc_sum}: {v_plus_w}")
             calc_sum += 1
@@ -487,37 +487,37 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     S_sp = [] # 这是W_sp的子抛物子群生成元集合（序号）
     S_so = [] # 这是W_so的子抛物子群生成元集合（序号）
 #    for w in W_sp.W.gens():
-#        print(f"{w} ---- {w.to_matrix()}")
-#        if w.to_matrix() * lambda_sp_next == lambda_sp_next:
-    #            print(f"{w} -- {w.to_matrix()}")
+#        print(f"{w} ---- {w.matrix()}")
+#        if w.matrix() * lambda_sp_next == lambda_sp_next:
+    #            print(f"{w} -- {w.matrix()}")
 
     #这里是weyl的所有生成元集
     S_of_W_sp = W_sp.W.simple_reflections()
     S_of_W_so = W_so.W.simple_reflections()
     #    print(S_of_W_sp[i].coset_representative([2],side = "left"))
     for i in S_of_W_sp.keys():
-        #        print(f"{i}-- --{S_of_W_sp[i].to_matrix()}")
-        if S_of_W_sp[i].to_matrix() * lambda_sp_next == lambda_sp_next :
+        #        print(f"{i}-- --{S_of_W_sp[i].matrix()}")
+        if S_of_W_sp[i].matrix() * lambda_sp_next == lambda_sp_next :
             S_sp.append(i)
 
     for i in S_of_W_so.keys():
-        if S_of_W_so[i].to_matrix() * lambda_so_next == lambda_so_next :
+        if S_of_W_so[i].matrix() * lambda_so_next == lambda_so_next :
             S_so.append(i)
     #    for i in range(W_sp.W.rank()):
-    #        print(f"{W_sp.W[i].to_matrix()} * {lambda_sp_next}")
-    #        if W_sp.W[i].to_matrix() * lambda_sp_next == lambda_sp_next :
+    #        print(f"{W_sp.W[i].matrix()} * {lambda_sp_next}")
+    #        if W_sp.W[i].matrix() * lambda_sp_next == lambda_sp_next :
     #            S_sp.append(i+1)
-    # print(f"{W_sp.W[i].to_matrix()} * {lambda_sp_next}")
+    # print(f"{W_sp.W[i].matrix()} * {lambda_sp_next}")
     #    print(S_sp)
     #    min_reps_sp = W_sp.W_cox.coset_representative(S_sp,side = "left" ) 
     #    W_S = W_sp.W.parabolic_subgroup(S_of_W_sp)
     #这里得到S_sp（S_so）为生成元的子抛物子群的最小左陪集代表元集合
     min_left_coset_reps_sp = get_coset_representatives(W_sp, S_sp)
     min_left_coset_reps_so = get_coset_representatives(W_so, S_so)
-    print("S_sp")
-    print("min_left_coset_reps_sp")
-    print("S_so")
-    print("min_left_coset_reps_so")
+#    print("S_sp")
+#    print("min_left_coset_reps_sp")
+#    print("S_so")
+#    print("min_left_coset_reps_so")
 
     #这里是在最小左陪集代表元集合中，找到符合条件的，也就是比w_sp大的元素
     sum_sp_weyl = []
@@ -555,7 +555,7 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
         #        print(f"这里是rep--{rep}")
         is_bruhat_le_reverse = w_sp.bruhat_le(rep)
         if w_sp.bruhat_le(rep) or w_sp == rep:
-            #sum_sp.append(rep.to_matrix() * lambda_sp_next)
+            #sum_sp.append(rep.matrix() * lambda_sp_next)
 
             #w_sp_cox = W_sp_coxeter.from_reduced_word(w_sp.reduced_word())
             #rep_cox = W_sp_coxeter.from_reduced_word(rep.reduced_word())
@@ -564,10 +564,11 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
             k_l_on_one=k_l_poly(1)
 #            if k_l_on_one > 1:
 
-            print(f"sp: {w_sp}")
-            print(f"sp_kl: {k_l_poly}")
-            print(f"sp的kl多项式的sum中weyl元={rep}")
-            print(f"sp的kl多项式的sum中后M_?集合={rep.to_matrix() * lambda_sp_next }")
+            if not k_l_on_one == 1:
+                print(f"sp: {w_sp}")
+                print(f"sp_kl:=====> {k_l_poly}")
+                print(f"sp的kl多项式的sum中weyl元={rep}")
+                print(f"sp的kl多项式的sum中后M_?集合={rep.matrix() * lambda_sp_next }")
 
             for i in range(k_l_on_one):
                 sum_sp_weyl.append(rep)
@@ -577,18 +578,19 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
         is_bruhat_le_reverse = w_so.bruhat_le(rep)
         if w_so.bruhat_le(rep):
             #print(f"so的kl多项式的sum中weyl元={rep}")
-            #print(f"so的kl多项式的sum中后M_?集合={rep.to_matrix() * lambda_so_next }")
-            #           sum_so.append(rep.to_matrix() * lambda_so_next)
+            #print(f"so的kl多项式的sum中后M_?集合={rep.matrix() * lambda_so_next }")
+            #           sum_so.append(rep.matrix() * lambda_so_next)
             #w_so_cox = W_so_coxeter.from_reduced_word(w_so.reduced_word())
             #rep_cox = W_so_coxeter.from_reduced_word(rep.reduced_word())
             #k_l_on_one = W_so_coxeter.kazhdan_lusztig_polynomial(rep_cox*W_so_coxeter.long_element(),w_so_cox*W_so_coxeter.long_element())
             k_l_poly = KL_so.P(rep*W_so.W.long_element(),w_so*W_so.W.long_element())
             k_l_on_one= k_l_poly(1)
 
-            print(f"so: {w_so}")
-            print(f"so_kl: {k_l_poly}")
-            print(f"so的kl多项式的sum中weyl元={rep}")
-            print(f"so的kl多项式的sum中后M_?集合={rep.to_matrix() * lambda_so_next }")
+            if not k_l_on_one == 1:
+                print(f"so: {w_so}")
+                print(f"so_kl:=====> {k_l_poly}")
+                print(f"so的kl多项式的sum中weyl元={rep}")
+                print(f"so的kl多项式的sum中后M_?集合={rep.matrix() * lambda_so_next }")
             for i in range(k_l_on_one):
                 sum_so_weyl.append(rep)
 
@@ -598,7 +600,7 @@ def K_L_decompose(W_sp,w_sp, lambda_sp_next, W_so, w_so, lambda_so_next):
     calc_sum = 1
     for v in sum_sp_weyl:
         for w in sum_so_weyl:
-            v_plus_w = vector(QQ, list(v.to_matrix()*lambda_sp_next)+list(w.to_matrix()*(-lambda_so_next)))
+            v_plus_w = vector(QQ, list(v.matrix()*lambda_sp_next)+list(w.matrix()*(-lambda_so_next)))
             sum_sp_plus_so.append(v_plus_w)
             #        print(f"{calc_sum}: {v_plus_w}")
             calc_sum += 1

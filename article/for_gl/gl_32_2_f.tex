@@ -1,0 +1,1462 @@
+%! TEX root = main.tex
+
+\subsection{degree of atypicality = 2}
+\begin{theorem}
+  Let $a,b,c,d \in \mathbb{Z}$ and $\lambda = (a,b,c|c,a)$ with $a \neq b, c\neq b,a \neq c$. The projective objects $P_{\lambda}$ in $\mathfrak{B}_{b}$ have the following Verma flag formulae.
+\end{theorem}
+\begin{proof} The Cases are as follows:\par
+\begin{enumerate}
+  \item $a>b>c$ 
+    \begin{enumerate}
+      \item $b>c+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a,b,c|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{a,b,c|c,a}
++ M_{a+1,b,c|c,a+1}
++ M_{a,b,c+1|c+1,a}
++ M_{a+1,b,c+1|c+1,a+1} 
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $b=c+1,a>b+1$ \par
+        Let $\mu:=\lambda + (1,1,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,c+2,c+1|c,a}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{10}) &=
+M_{a,c+1,c|c,a}
++ M_{a,c+1,c+1|c+1,a}
++ M_{a+1,c+1,c|c,a+1}\\ 
+                                              &
++ M_{a,c+2,c+1|c+2,a}
++ M_{a+1,c+1,c+1|c+1,a+1}
++ M_{a+1,c+2,c+1|c+2,a+1} 
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is $U = \{
+M_{a+1,c+2,c+1|c+2,a+1}
+\}$. We have $Pr_{\lambda}(P_\mu \otimes V_{10}) = P_\lambda  $ by \cref{tab:verma-analysis_f_1}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{10})) $ } \label{tab:verma-analysis_f_1}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{10})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,c+2,c+1|c+2,a+1}$ & \makecell{
+ $M_{a+2,c+2,c+1|c+2,a+2}$,
+ $M_{a+1,c+3,c+1|c+3,a+1}$,
+ $M_{a+2,c+3,c+1|c+3,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+      \item $b=c+1,a=b+1$ \par
+        In the present case, we first utilize the result of $P_{c+2,c+1,c|c,c+4}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (0,0,0,0,2) =(c+2,c+1,c|c,c+4) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = 
+M_{c+3,c+2,c+1|c+3,c+4}
++M_{c+2,c+2,c+1|c+2,c+4}
++M_{c+2,c+1,c+1|c+1,c+4}
++M_{c+2,c+1,c|c,c+4}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{c+4,c+3,c+1|c+3,c+4}
++ M_{c+4,c+2,c+1|c+2,c+4}
++ M_{c+3,c+3,c+1|c+3,c+3}\\ 
+                                              &
++ 2M_{c+3,c+2,c+1|c+2,c+3}
++ M_{c+3,c+2,c+1|c+3,c+2}
++ M_{c+2,c+3,c+1|c+2,c+3}\\ 
+                                              &
++ M_{c+2,c+2,c+1|c+2,c+2}
++ M_{c+3,c+1,c+1|c+1,c+3}
++ M_{c+2,c+1,c+1|c+1,c+2}\\ 
+                                              &
++ M_{c+3,c+1,c|c,c+3}
++ M_{c+2,c+1,c|c,c+2} \\
+                                               &=
+ M_{c+2,c+1,c|c,c+2}
++  M_{c+2,c+1,c+1|c+1,c+2}
++  M_{c+2,c+2,c+1|c+2,c+2}\\ 
+                                              &
++ \sum M_{c+3,c+2,c+1|c+3,c+2}
++ \sum M_{c+2,c+3,c+1|c+2,c+3}
++  M_{c+3,c+1,c|c,c+3}\\ 
+                                              &
++  M_{c+3,c+1,c+1|c+1,c+3}
++  M_{c+3,c+3,c+1|c+3,c+3}
++  M_{c+4,c+2,c+1|c+2,c+4}\\ 
+                                              &
++  M_{c+4,c+3,c+1|c+3,c+4}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+4,c+3,c+1|c+3,c+4},
+M_{c+4,c+2,c+1|c+2,c+4},
+M_{c+3,c+3,c+1|c+3,c+3},
+2M_{c+3,c+2,c+1|c+2,c+3},\\
+M_{c+3,c+2,c+1|c+3,c+2},
+M_{c+2,c+3,c+1|c+2,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{5}) = P_\lambda  $ by \cref{tab:verma-analysis_f_2}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{5})) $ } \label{tab:verma-analysis_f_2}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{5})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+4,c+3,c+1|c+3,c+4}$ & \makecell{
+ $M_{c+5,c+3,c+1|c+3,c+5}$,
+ $M_{c+4,c+4,c+1|c+4,c+4}$,
+ $M_{c+5,c+4,c+1|c+5,c+4}$,
+ $M_{c+5,c+4,c+1|c+4,c+5}$, \\
+ $M_{c+4,c+5,c+1|c+4,c+5}$
+}\\
+ & \\
+ $P_{c+4,c+2,c+1|c+2,c+4}$ & \makecell{
+ $M_{c+5,c+2,c+1|c+2,c+5}$,
+ $M_{c+5,c+3,c+1|c+3,c+5}$
+}\\
+ & \\
+ $P_{c+3,c+3,c+1|c+3,c+3}$ & \makecell{
+ $M_{c+3,c+4,c+1|c+3,c+4}$,
+ $M_{c+4,c+3,c+1|c+4,c+3}$,
+ $M_{c+3,c+4,c+1|c+4,c+3}$,
+ $M_{c+4,c+4,c+1|c+4,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+3,c+1|c+4,c+3}$,
+ $M_{c+3,c+4,c+1|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+3,c+2}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+4,c+2}$
+}\\
+ & \\
+ $P_{c+2,c+3,c+1|c+2,c+3}$ & \makecell{
+ $M_{c+2,c+4,c+1|c+2,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+  \item $b>a>c$ 
+    \begin{enumerate}
+      \item $ b>a+1,a>c+1 $\par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a,b,c|c+1,a+1}
++ M_{b,a,c|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{5}) &=
+M_{a+1,b,c+1|c+1,a+1}
++ M_{a+1,b,c|c,a+1}
++ M_{a,b,c+1|c+1,a}\\ 
+                                              &
++ M_{a,b,c|c,a}
++ M_{b,a+1,c+1|c+1,a+1}
++ M_{b,a+1,c|c,a+1}\\ 
+                                              &
++ M_{b,a,c+1|c+1,a}
++ M_{b,a,c|c,a} \\
+                                               &=
+\sum M_{a,b,c|c,a}
++ \sum M_{a,b,c+1|c+1,a}
++ \sum M_{a+1,b,c|c,a+1}
++ \sum M_{a+1,b,c+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ b=a+1,a>c+1 $\par
+        Let $\mu:=\lambda + (1,0,1,0,0) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,a+1,c+1|c,a}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{6}) &=
+M_{a,a+1,c|c,a}
++ M_{a+1,a,c|c,a}
++ M_{a,a+1,c+1|c+1,a}\\ 
+                                              &
++ M_{a+1,a,c+1|c+1,a}
++ M_{a+1,a+1,c|c,a+1}
++ M_{a+1,a+1,c+1|c+1,a+1} \\
+                                               &=
+\sum M_{a,a+1,c|c,a}
++ \sum M_{a,a+1,c+1|c+1,a}
++  M_{a+1,a+1,c|c,a+1}
++  M_{a+1,a+1,c+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $ b>a+2,a=c+1 $\par
+        In the present case, we first utilize the result of $P_{c+3,b,c|c,c+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (2,0,0,0,0) =(c+3,b,c|c,c+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= 
+M_{c+3,b,c+2|c+1,c+2}
++M_{c+3,b,c+1|c+1,c+1}
++M_{c+3,b,c|c,c+1}\\ 
+                                              &
++M_{b,c+3,c+2|c+1,c+2}
++M_{b,c+3,c+1|c+1,c+1}
++M_{b,c+3,c|c,c+1} \\
+                  &=
+\sum M_{c+3,b,c|c,c+1}
++\sum M_{c+3,b,c+1|c+1,c+1}
++\sum M_{c+3,b,c+2|c+1,c+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{4}) &=
+M_{c+3,b,c+2|c+2,c+3}
++ M_{c+2,b,c+2|c+2,c+2}
++ M_{c+3,b,c+1|c+1,c+3}\\
+                                               &
++ M_{c+1,b,c+2|c+1,c+2}
++ 2M_{c+2,b,c+1|c+1,c+2}
++ M_{c+2,b,c+1|c+2,c+1}\\
+                                               &
++ M_{c+1,b,c+1|c+1,c+1}
++ M_{c+2,b,c|c,c+2}
++ M_{c+1,b,c|c,c+1}\\
+                                               &
++ M_{b,c+3,c+2|c+2,c+3}
++ M_{b,c+2,c+2|c+2,c+2}
++ M_{b,c+3,c+1|c+1,c+3}\\
+                                               &
++ M_{b,c+1,c+2|c+1,c+2}
++ 2M_{b,c+2,c+1|c+1,c+2}
++ M_{b,c+2,c+1|c+2,c+1}\\
+                                               &
++ M_{b,c+1,c+1|c+1,c+1}
++ M_{b,c+2,c|c,c+2}
++ M_{b,c+1,c|c,c+1} \\
+                                               &=
+\sum M_{c+1,b,c|c,c+1}
++ \sum M_{c+1,b,c+1|c+1,c+1}
++ \sum M_{c+1,b,c+2|c+1,c+2}\\ 
+                                              &
++ \sum M_{c+2,b,c+1|c+2,c+1}
++ \sum M_{c+2,b,c|c,c+2}
++ \sum M_{c+2,b,c+2|c+2,c+2}\\ 
+                                              &
++ \sum M_{c+3,b,c+1|c+1,c+3}
++ \sum M_{c+3,b,c+2|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,b,c+2|c+2,c+3},
+M_{c+2,b,c+2|c+2,c+2},
+M_{c+3,b,c+1|c+1,c+3},\\ 
+M_{c+2,b,c+1|c+1,c+2},
+M_{b,c+3,c+2|c+2,c+3},
+M_{b,c+2,c+2|c+2,c+2},\\ 
+M_{b,c+3,c+1|c+1,c+3},
+M_{b,c+2,c+1|c+1,c+2}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{4}) = P_\lambda  $ by \cref{tab:verma-analysis_f_3}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{4})) $ } \label{tab:verma-analysis_f_3}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{4})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,b,c+2|c+2,c+3}$ & \makecell{
+ $M_{c+4,b,c+2|c+2,c+4}$,
+ $M_{c+3,b,c+3|c+3,c+3}$,
+ $M_{c+4,b,c+3|c+4,c+3}$,
+ $M_{c+4,b,c+3|c+3,c+4}$, \\
+ $M_{c+3,b,c+4|c+3,c+4}$,
+ $M_{b,c+4,c+2|c+2,c+4}$,
+ $M_{b,c+3,c+3|c+3,c+3}$,
+ $M_{b,c+4,c+3|c+4,c+3}$, \\
+ $M_{b,c+4,c+3|c+3,c+4}$,
+ $M_{b,c+3,c+4|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+2,b,c+2|c+2,c+2}$ & \makecell{
+ $M_{c+3,b,c+2|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+2,c+3}$,
+ $M_{c+3,b,c+3|c+3,c+3}$, \\
+ $M_{b,c+3,c+2|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+2,c+3}$,
+ $M_{b,c+3,c+3|c+3,c+3}$
+}\\
+ & \\
+ $P_{c+3,b,c+1|c+1,c+3}$ & \makecell{
+ $M_{c+4,b,c+1|c+1,c+4}$,
+ $M_{c+4,b,c+2|c+2,c+4}$,
+ $M_{b,c+4,c+1|c+1,c+4}$,
+ $M_{b,c+4,c+2|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+2,b,c+1|c+1,c+2}$ & \makecell{
+ $M_{c+3,b,c+2|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+2,c+3}$,
+ $M_{b,c+3,c+2|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+2,c+3}$
+}\\
+ & \\
+ $P_{b,c+3,c+2|c+2,c+3}$ & \makecell{
+ $M_{b,c+4,c+2|c+2,c+4}$,
+ $M_{b,c+3,c+3|c+3,c+3}$,
+ $M_{b,c+4,c+3|c+4,c+3}$,
+ $M_{b,c+4,c+3|c+3,c+4}$, \\
+ $M_{b,c+3,c+4|c+3,c+4}$
+}\\
+ & \\
+ $P_{b,c+2,c+2|c+2,c+2}$ & \makecell{
+ $M_{b,c+3,c+2|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+2,c+3}$,
+ $M_{b,c+3,c+3|c+3,c+3}$
+}\\
+ & \\
+ $P_{b,c+3,c+1|c+1,c+3}$ & \makecell{
+ $M_{b,c+4,c+1|c+1,c+4}$,
+ $M_{b,c+4,c+2|c+2,c+4}$
+}\\
+ & \\
+ $P_{b,c+2,c+1|c+1,c+2}$ & \makecell{
+ $M_{b,c+3,c+2|c+3,c+2}$,
+ $M_{b,c+2,c+3|c+2,c+3}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+      \item $ b=a+2,a=c+1 $\par
+        In the present case, we first utilize the result of $P_{c+3,c+3,c|c,c+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (2,0,0,0,0) =(c+3,c+3,c|c,c+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = 
+M_{c+3,c+3,c+2|c+1,c+2}
++M_{c+3,c+3,c+1|c+1,c+1}
++M_{c+3,c+3,c|c,c+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{4}) &=
+M_{c+3,c+3,c+2|c+2,c+3}
++ M_{c+2,c+3,c+2|c+2,c+2}
++ M_{c+3,c+2,c+2|c+2,c+2}\\ 
+                                              &
++ M_{c+3,c+3,c+1|c+1,c+3}
++ M_{c+1,c+3,c+2|c+1,c+2}
++ 2M_{c+2,c+3,c+1|c+1,c+2}\\ 
+                                              &
++ M_{c+3,c+1,c+2|c+1,c+2}
++ 2M_{c+3,c+2,c+1|c+1,c+2}
++ M_{c+2,c+3,c+1|c+2,c+1}\\ 
+                                              &
++ M_{c+3,c+2,c+1|c+2,c+1}
++ M_{c+1,c+3,c+1|c+1,c+1}
++ M_{c+3,c+1,c+1|c+1,c+1}\\ 
+                                              &
++ M_{c+2,c+3,c|c,c+2}
++ M_{c+3,c+2,c|c,c+2}
++ M_{c+1,c+3,c|c,c+1}
++ M_{c+3,c+1,c|c,c+1} \\
+                                               &=
+\sum M_{c+1,c+3,c|c,c+1}
++ \sum M_{c+1,c+3,c+1|c+1,c+1}
++ \sum M_{c+1,c+3,c+2|c+1,c+2}\\ 
+                                              &
++ \sum M_{c+2,c+3,c+1|c+2,c+1}
++ \sum M_{c+2,c+3,c|c,c+2}
++ \sum M_{c+2,c+3,c+2|c+2,c+2}\\ 
+                                              &
++  M_{c+3,c+3,c+1|c+1,c+3}
++  M_{c+3,c+3,c+2|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+3,c+2|c+2,c+3},
+M_{c+2,c+3,c+2|c+2,c+2},
+M_{c+3,c+2,c+2|c+2,c+2},
+M_{c+3,c+3,c+1|c+1,c+3},\\
+M_{c+2,c+3,c+1|c+1,c+2},
+M_{c+3,c+2,c+1|c+1,c+2}
+\}.
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{4}) = P_\lambda  $ by \cref{tab:verma-analysis_f_4}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{4})) $ } \label{tab:verma-analysis_f_4}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{4})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+3,c+2|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+3,c+2|c+2,c+4}$,
+ $M_{c+3,c+4,c+2|c+2,c+4}$,
+ $M_{c+3,c+3,c+3|c+3,c+3}$,
+ $M_{c+4,c+3,c+3|c+4,c+3}$, \\
+ $M_{c+4,c+3,c+3|c+3,c+4}$,
+ $M_{c+3,c+4,c+3|c+4,c+3}$,
+ $M_{c+3,c+4,c+3|c+3,c+4}$,
+ $M_{c+3,c+3,c+4|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+3,c+2|c+2,c+2}$ & \makecell{
+ $M_{c+3,c+3,c+2|c+3,c+2}$,
+ $M_{c+2,c+3,c+3|c+3,c+2}$,
+ $M_{c+2,c+3,c+3|c+2,c+3}$,
+ $M_{c+3,c+3,c+3|c+3,c+3}$, \\
+ $M_{c+2,c+4,c+3|c+4,c+2}$,
+ $M_{c+2,c+4,c+3|c+2,c+4}$,
+ $M_{c+3,c+2,c+3|c+3,c+2}$,
+ $M_{c+3,c+2,c+3|c+2,c+3}$, \\
+ $M_{c+4,c+2,c+3|c+4,c+2}$,
+ $M_{c+3,c+4,c+2|c+4,c+2}$,
+ $M_{c+4,c+3,c+2|c+4,c+2}$,
+ $M_{c+4,c+2,c+3|c+2,c+4}$, \\
+ $M_{c+3,c+4,c+2|c+2,c+4}$,
+ $M_{c+4,c+3,c+2|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+2|c+2,c+2}$ & \makecell{
+ $M_{c+3,c+3,c+2|c+3,c+2}$,
+ $M_{c+3,c+2,c+3|c+3,c+2}$,
+ $M_{c+3,c+2,c+3|c+2,c+3}$,
+ $M_{c+4,c+3,c+2|c+4,c+2}$, \\
+ $M_{c+4,c+3,c+2|c+2,c+4}$,
+ $M_{c+4,c+2,c+3|c+4,c+2}$,
+ $M_{c+3,c+3,c+3|c+3,c+3}$,
+ $M_{c+4,c+2,c+3|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+3,c+1|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+3,c+1|c+1,c+4}$,
+ $M_{c+3,c+4,c+1|c+1,c+4}$,
+ $M_{c+4,c+3,c+2|c+2,c+4}$,
+ $M_{c+3,c+4,c+2|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+3,c+1|c+1,c+2}$ & \makecell{
+ $M_{c+3,c+3,c+2|c+3,c+2}$,
+ $M_{c+2,c+3,c+3|c+2,c+3}$,
+ $M_{c+3,c+2,c+3|c+2,c+3}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+1,c+2}$ & \makecell{
+ $M_{c+4,c+3,c+1|c+1,c+4}$,
+ $M_{c+3,c+3,c+2|c+3,c+2}$,
+ $M_{c+3,c+2,c+3|c+2,c+3}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+      \item $ b=a+1,a=c+1 $\par
+        In the present case, we first utilize the result of $P_{c+2,c+2,c|c,c+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (1,0,0,0,0) =(c+2,c+2,c|c,c+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &=
+M_{c+3,c+2,c+2|c+1,c+3}
++M_{c+2,c+3,c+2|c+1,c+3}
++M_{c+2,c+2,c|c,c+1}\\ 
+                                              &
++M_{c+2,c+2,c+1|c+1,c+1}
++M_{c+2,c+2,c+2|c+1,c+2}\\
+                  &=
+ M_{c+2,c+2,c|c,c+1}
++ M_{c+2,c+2,c+1|c+1,c+1}
++ M_{c+2,c+2,c+2|c+1,c+2}
++\sum M_{c+2,c+3,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+3,c+1,c+2|c+1,c+3}
++ M_{c+3,c+2,c+1|c+1,c+3}
++ M_{c+3,c+2,c+2|c+2,c+3}\\ 
+                                              &
++ M_{c+1,c+3,c+2|c+1,c+3}
++ M_{c+2,c+3,c+1|c+1,c+3}
++ M_{c+2,c+3,c+2|c+2,c+3}\\ 
+                                              &
++ M_{c+1,c+2,c+2|c+1,c+2}
++ M_{c+2,c+1,c+2|c+1,c+2}
++ 2M_{c+2,c+2,c+1|c+1,c+2}\\ 
+                                              &
++ M_{c+2,c+2,c+2|c+2,c+2}
++ M_{c+1,c+2,c+1|c+1,c+1}
++ M_{c+2,c+1,c+1|c+1,c+1}\\ 
+                                              &
++ M_{c+2,c+2,c+1|c+2,c+1}
++ M_{c+1,c+2,c|c,c+1}
++ M_{c+2,c+1,c|c,c+1}
++ M_{c+2,c+2,c|c,c+2} \\
+                                               &=
+\sum M_{c+1,c+2,c|c,c+1}
++ \sum M_{c+1,c+2,c+1|c+1,c+1}
++ \sum M_{c+1,c+2,c+2|c+1,c+2}\\ 
+                                              &
++ \sum M_{c+1,c+3,c+2|c+1,c+3}
++ \sum M_{c+2,c+2,c+1|c+2,c+1}
++  M_{c+2,c+2,c|c,c+2}\\ 
+                                              &
++  M_{c+2,c+2,c+2|c+2,c+2}
++ \sum M_{c+2,c+3,c+2|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+3,c+1,c+2|c+1,c+3},
+M_{c+3,c+2,c+1|c+1,c+3},
+M_{c+3,c+2,c+2|c+2,c+3},
+M_{c+1,c+3,c+2|c+1,c+3},\\
+M_{c+2,c+3,c+1|c+1,c+3},
+M_{c+2,c+3,c+2|c+2,c+3},
+M_{c+2,c+2,c+2|c+2,c+2},
+M_{c+2,c+2,c+1|c+1,c+2}
+\}.
+  \end{aligned}
+\end{equation}
+     We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_f_5}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_f_5}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+3,c+1,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+1,c+2|c+1,c+4}$,
+ $M_{c+4,c+2,c+2|c+2,c+4}$,
+ $M_{c+4,c+2,c+1|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+1|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+1|c+1,c+4}$,
+ $M_{c+4,c+2,c+2|c+2,c+4}$,
+ $M_{c+3,c+3,c+2|c+3,c+3}$
+}\\
+ & \\
+ $P_{c+3,c+2,c+2|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+2,c+2|c+2,c+4}$,
+ $M_{c+3,c+3,c+2|c+3,c+3}$,
+ $M_{c+3,c+2,c+3|c+3,c+3}$,
+ $M_{c+4,c+3,c+2|c+4,c+3}$, \\
+ $M_{c+4,c+3,c+2|c+3,c+4}$,
+ $M_{c+3,c+4,c+2|c+3,c+4}$,
+ $M_{c+4,c+2,c+3|c+4,c+3}$,
+ $M_{c+4,c+2,c+3|c+3,c+4}$, \\
+ $M_{c+3,c+2,c+4|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+1,c+3,c+2|c+1,c+3}$ & \makecell{
+ $M_{c+1,c+4,c+2|c+1,c+4}$,
+ $M_{c+4,c+1,c+2|c+1,c+4}$,
+ $M_{c+2,c+4,c+1|c+1,c+4}$,
+ $M_{c+4,c+2,c+1|c+1,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+3,c+1|c+1,c+3}$ & \makecell{
+ $M_{c+2,c+4,c+1|c+1,c+4}$,
+ $M_{c+3,c+3,c+2|c+3,c+3}$,
+ $M_{c+2,c+4,c+2|c+2,c+4}$,
+ $M_{c+4,c+2,c+1|c+1,c+4}$, \\
+ $M_{c+4,c+2,c+2|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+3,c+2|c+2,c+3}$ & \makecell{
+ $M_{c+3,c+3,c+2|c+3,c+3}$,
+ $M_{c+2,c+4,c+2|c+2,c+4}$,
+ $M_{c+2,c+3,c+3|c+3,c+3}$,
+ $M_{c+4,c+3,c+2|c+3,c+4}$, \\
+ $M_{c+2,c+4,c+3|c+4,c+3}$,
+ $M_{c+2,c+4,c+3|c+3,c+4}$,
+ $M_{c+2,c+3,c+4|c+3,c+4}$,
+ $M_{c+4,c+2,c+2|c+2,c+4}$, \\
+ $M_{c+3,c+2,c+3|c+3,c+3}$,
+ $M_{c+4,c+2,c+3|c+4,c+3}$,
+ $M_{c+3,c+4,c+2|c+4,c+3}$,
+ $M_{c+4,c+3,c+2|c+4,c+3}$, \\
+ $M_{c+4,c+2,c+3|c+3,c+4}$,
+ $M_{c+3,c+4,c+2|c+3,c+4}$,
+ $M_{c+3,c+2,c+4|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+2,c+2|c+2,c+2}$ & \makecell{
+ $M_{c+3,c+2,c+2|c+3,c+2}$,
+ $M_{c+2,c+3,c+2|c+3,c+2}$,
+ $M_{c+2,c+2,c+3|c+3,c+2}$,
+ $M_{c+2,c+2,c+3|c+2,c+3}$, \\
+ $M_{c+3,c+3,c+2|c+3,c+3}$,
+ $M_{c+3,c+2,c+3|c+3,c+3}$,
+ $M_{c+2,c+3,c+3|c+3,c+3}$
+}\\
+ & \\
+ $P_{c+2,c+2,c+1|c+1,c+2}$ & \makecell{
+ $M_{c+3,c+2,c+2|c+3,c+2}$,
+ $M_{c+2,c+3,c+2|c+3,c+2}$,
+ $M_{c+2,c+2,c+3|c+2,c+3}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+  \item $a>c>b$ 
+    \begin{enumerate}
+      \item $a>c+1$\par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a,b,c|c+1,a+1}
++ M_{a,c,b|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{a,b,c|c,a}
++ M_{a+1,b,c|c,a+1}
++ M_{a,b,c+1|c+1,a}\\ 
+                                              &
++ M_{a+1,b,c+1|c+1,a+1}
++ M_{a,c,b|c,a}
++ M_{a+1,c,b|c,a+1}\\ 
+                                              &
++ M_{a,c+1,b|c+1,a}
++ M_{a+1,c+1,b|c+1,a+1} \\
+                                               &=
+\sum M_{a,b,c|c,a}
++ \sum M_{a,b,c+1|c+1,a}
++ \sum M_{a+1,b,c|c,a+1}
++ \sum M_{a+1,b,c+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+
+      \item $a=c+1$\par
+        In the present case, we first utilize the result of $P_{c+2,b,c|c,c+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (1,0,0,0,0) =(c+2,b,c|c,c+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= 
+M_{c+2,b,c|c,c+1}
++M_{c+2,b,c+1|c+1,c+1}
++M_{c+2,b,c+2|c+1,c+2}\\ 
+                                              &
++M_{c+3,b,c+2|c+1,c+3}
++M_{c+2,c,b|c,c+1}
++M_{c+2,c+1,b|c+1,c+1}\\ 
+                                              &
++M_{c+2,c+2,b|c+1,c+2}
++M_{c+3,c+2,b|c+1,c+3}\\
+                  &=
+\sum M_{c+2,b,c|c,c+1}
++\sum M_{c+2,b,c+1|c+1,c+1}\\ 
+                                              &
++\sum M_{c+2,b,c+2|c+1,c+2}
++\sum M_{c+3,b,c+2|c+1,c+3}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+1,b,c|c,c+1}
++ M_{c+2,b,c|c,c+2}
++ M_{c+1,b,c+1|c+1,c+1}\\ 
+                                              &
++ M_{c+2,b,c+1|c+2,c+1}
++ 2M_{c+2,b,c+1|c+1,c+2}
++ M_{c+1,b,c+2|c+1,c+2}\\ 
+                                              &
++ M_{c+2,b,c+2|c+2,c+2}
++ M_{c+3,b,c+1|c+1,c+3}
++ M_{c+3,b,c+2|c+2,c+3}\\ 
+                                              &
++ M_{c+1,c,b|c,c+1}
++ M_{c+2,c,b|c,c+2}
++ M_{c+1,c+1,b|c+1,c+1}\\ 
+                                              &
++ M_{c+2,c+1,b|c+2,c+1}
++ 2M_{c+2,c+1,b|c+1,c+2}
++ M_{c+1,c+2,b|c+1,c+2}\\ 
+                                              &
++ M_{c+2,c+2,b|c+2,c+2}
++ M_{c+3,c+1,b|c+1,c+3}
++ M_{c+3,c+2,b|c+2,c+3} \\
+                                               &=
+\sum M_{c+1,b,c|c,c+1}
++ \sum M_{c+1,b,c+1|c+1,c+1}
++ \sum M_{c+2,b,c|c,c+2}\\ 
+                                              &
++ \sum M_{c+2,b,c+1|c+2,c+1}
++ \sum M_{c+1,b,c+2|c+1,c+2}
++ \sum M_{c+2,b,c+2|c+2,c+2}\\ 
+                                              &
++ \sum M_{c+3,b,c+1|c+1,c+3}
++ \sum M_{c+3,b,c+2|c+2,c+3}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+2,b,c+1|c+1,c+2},
+M_{c+2,b,c+2|c+2,c+2},
+M_{c+3,b,c+1|c+1,c+3},\\ 
+M_{c+3,b,c+2|c+2,c+3},
+M_{c+2,c+1,b|c+1,c+2},
+M_{c+2,c+2,b|c+2,c+2},\\ 
+M_{c+3,c+1,b|c+1,c+3},
+M_{c+3,c+2,b|c+2,c+3}
+\}.
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_f_6}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_f_6}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+2,b,c+1|c+1,c+2}$ & \makecell{
+ $M_{c+3,b,c+2|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+2,c+3}$,
+ $M_{c+3,c+2,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+2,c+3}$
+}\\
+ & \\
+ $P_{c+2,b,c+2|c+2,c+2}$ & \makecell{
+ $M_{c+3,b,c+2|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+3,c+2}$,
+ $M_{c+2,b,c+3|c+2,c+3}$,
+ $M_{c+3,b,c+3|c+3,c+3}$, \\
+ $M_{c+3,c+2,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+2,c+3}$,
+ $M_{c+3,c+3,b|c+3,c+3}$
+}\\
+ & \\
+ $P_{c+3,b,c+1|c+1,c+3}$ & \makecell{
+ $M_{c+4,b,c+1|c+1,c+4}$,
+ $M_{c+4,b,c+2|c+2,c+4}$,
+ $M_{c+4,c+1,b|c+1,c+4}$,
+ $M_{c+4,c+2,b|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,b,c+2|c+2,c+3}$ & \makecell{
+ $M_{c+4,b,c+2|c+2,c+4}$,
+ $M_{c+3,b,c+3|c+3,c+3}$,
+ $M_{c+4,b,c+3|c+4,c+3}$,
+ $M_{c+4,b,c+3|c+3,c+4}$, \\
+ $M_{c+3,b,c+4|c+3,c+4}$,
+ $M_{c+4,c+2,b|c+2,c+4}$,
+ $M_{c+3,c+3,b|c+3,c+3}$,
+ $M_{c+4,c+3,b|c+4,c+3}$, \\
+ $M_{c+4,c+3,b|c+3,c+4}$,
+ $M_{c+3,c+4,b|c+3,c+4}$
+}\\
+ & \\
+ $P_{c+2,c+1,b|c+1,c+2}$ & \makecell{
+ $M_{c+3,c+2,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+2,c+3}$
+}\\
+ & \\
+ $P_{c+2,c+2,b|c+2,c+2}$ & \makecell{
+ $M_{c+3,c+2,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+3,c+2}$,
+ $M_{c+2,c+3,b|c+2,c+3}$,
+ $M_{c+3,c+3,b|c+3,c+3}$
+}\\
+ & \\
+ $P_{c+3,c+1,b|c+1,c+3}$ & \makecell{
+ $M_{c+4,c+1,b|c+1,c+4}$,
+ $M_{c+4,c+2,b|c+2,c+4}$
+}\\
+ & \\
+ $P_{c+3,c+2,b|c+2,c+3}$ & \makecell{
+ $M_{c+4,c+2,b|c+2,c+4}$,
+ $M_{c+3,c+3,b|c+3,c+3}$,
+ $M_{c+4,c+3,b|c+4,c+3}$,
+ $M_{c+4,c+3,b|c+3,c+4}$, \\
+ $M_{c+3,c+4,b|c+3,c+4}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+  \item $c>a>b$ 
+    \begin{enumerate}
+      \item $c>a+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{c,b,a|c+1,a+1}
++ M_{c,b,a|a+1,c+1}
++ M_{a,c,b|c+1,a+1}\\
+                        &
++ M_{a,c,b|a+1,c+1}
++ M_{a,b,c|c+1,a+1}
++ M_{a,b,c|a+1,c+1}
++ M_{c,a,b|c+1,a+1}
++ M_{c,a,b|a+1,c+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{c,b,a|c,a}
++ M_{c,b,a+1|c,a+1}
++ M_{c+1,b,a|c+1,a}\\ 
+                                              &
++ M_{c+1,b,a+1|c+1,a+1}
++ M_{c,b,a|a,c}
++ M_{c+1,b,a|a,c+1}\\ 
+                                              &
++ M_{c,b,a+1|a+1,c}
++ M_{c+1,b,a+1|a+1,c+1}
++ M_{a,c,b|c,a}\\ 
+                                              &
++ M_{a+1,c,b|c,a+1}
++ M_{a,c+1,b|c+1,a}
++ M_{a+1,c+1,b|c+1,a+1}\\ 
+                                              &
++ M_{a,c,b|a,c}
++ M_{a,c+1,b|a,c+1}
++ M_{a+1,c,b|a+1,c}\\ 
+                                              &
++ M_{a+1,c+1,b|a+1,c+1}
++ M_{a,b,c|c,a}
++ M_{a+1,b,c|c,a+1}\\ 
+                                              &
++ M_{a,b,c+1|c+1,a}
++ M_{a+1,b,c+1|c+1,a+1}
++ M_{a,b,c|a,c}\\ 
+                                              &
++ M_{a,b,c+1|a,c+1}
++ M_{a+1,b,c|a+1,c}
++ M_{a+1,b,c+1|a+1,c+1}\\ 
+                                              &
++ M_{c,a,b|c,a}
++ M_{c,a+1,b|c,a+1}
++ M_{c+1,a,b|c+1,a}\\ 
+                                              &
++ M_{c+1,a+1,b|c+1,a+1}
++ M_{c,a,b|a,c}
++ M_{c+1,a,b|a,c+1}\\ 
+                                              &
++ M_{c,a+1,b|a+1,c}
++ M_{c+1,a+1,b|a+1,c+1} \\
+                                               &=
+\sum M_{a,b,c|c,a}
++ \sum M_{a,b,c+1|c+1,a}
++ \sum M_{a+1,b,c|c,a+1}
++ \sum M_{a+1,b,c+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $c=a+1$ \par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{a+1,b,a|a+2,a+2}
++ M_{a,a+1,b|a+2,a+2}
++ M_{a,b,a+1|a+2,a+2}
++ M_{a+1,a,b|a+2,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{9}) &=
+M_{a+2,b,a+1|a+1,a+2}
++ M_{a+2,b,a+1|a+2,a+1}
++ M_{a+2,b,a|a,a+2}\\ 
+                                              &
++ 2M_{a+1,b,a+1|a+1,a+1}
++ M_{a+2,b,a|a+2,a}
++ M_{a+1,b,a|a,a+1}\\ 
+                                              &
++ M_{a+1,b,a|a+1,a}
++ M_{a+1,a+2,b|a+1,a+2}
++ M_{a+1,a+2,b|a+2,a+1}\\ 
+                                              &
++ M_{a,a+2,b|a,a+2}
++ 2M_{a+1,a+1,b|a+1,a+1}
++ M_{a,a+2,b|a+2,a}\\ 
+                                              &
++ M_{a,a+1,b|a,a+1}
++ M_{a,a+1,b|a+1,a}
++ M_{a+1,b,a+2|a+1,a+2}\\ 
+                                              &
++ M_{a+1,b,a+2|a+2,a+1}
++ M_{a,b,a+2|a,a+2}
++ M_{a,b,a+2|a+2,a}\\ 
+                                              &
++ M_{a,b,a+1|a,a+1}
++ M_{a,b,a+1|a+1,a}
++ M_{a+2,a+1,b|a+1,a+2}\\ 
+                                              &
++ M_{a+2,a+1,b|a+2,a+1}
++ M_{a+2,a,b|a,a+2}
++ M_{a+2,a,b|a+2,a}\\ 
+                                              &
++ M_{a+1,a,b|a,a+1}
++ M_{a+1,a,b|a+1,a} \\
+                                               &=
+\sum M_{a,b,a+1|a+1,a}
++ \sum M_{a,b,a+2|a+2,a}\\ 
+                                              &
++ 2\sum M_{a+1,b,a+1|a+1,a+1}
++ \sum M_{a+1,b,a+2|a+2,a+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+     U = \{
+M_{a+1,b,a+1|a+1,a+1},
+M_{a+1,a+1,b|a+1,a+1}
+\}. 
+  \end{aligned}
+\end{equation}
+    We have $Pr_{\lambda}(P_\mu \otimes V_{9}) = P_\lambda  $ by \cref{tab:verma-analysis_f_7}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{9})) $ } \label{tab:verma-analysis_f_7}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{9})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,b,a+1|a+1,a+1}$ & \makecell{
+ $M_{a+2,b,a+1|a+2,a+1}$,
+ $M_{a+2,b,a+1|a+1,a+2}$,
+ $M_{a+1,b,a+2|a+2,a+1}$,
+ $M_{a+1,b,a+2|a+1,a+2}$, \\
+ $M_{a+2,b,a+2|a+2,a+2}$,
+ $M_{a+2,a+1,b|a+2,a+1}$,
+ $M_{a+2,a+1,b|a+1,a+2}$,
+ $M_{a+1,a+2,b|a+2,a+1}$, \\
+ $M_{a+1,a+2,b|a+1,a+2}$,
+ $M_{a+2,a+2,b|a+2,a+2}$
+}\\
+ & \\
+ $P_{a+1,a+1,b|a+1,a+1}$ & \makecell{
+ $M_{a+2,a+1,b|a+2,a+1}$,
+ $M_{a+2,a+1,b|a+1,a+2}$,
+ $M_{a+1,a+2,b|a+2,a+1}$,
+ $M_{a+1,a+2,b|a+1,a+2}$, \\
+ $M_{a+2,a+2,b|a+2,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+    \end{enumerate}
+
+  \item $b>c>a$ 
+    \begin{enumerate}
+      \item $b>c+1,c>a+1$\par
+        Let $\mu:=\lambda + (0,0,0,1,1) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu &= M_{b,a,c|c+1,a+1}
++ M_{b,a,c|a+1,c+1}
++ M_{c,b,a|c+1,a+1}\\ 
+                                              &
++ M_{c,b,a|a+1,c+1}
++ M_{a,b,c|c+1,a+1}
++ M_{a,b,c|a+1,c+1}\\ 
+                                              &
++ M_{b,c,a|c+1,a+1}
++ M_{b,c,a|a+1,c+1}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{3}) &=
+M_{b,a,c|c,a}
++ M_{b,a+1,c|c,a+1}
++ M_{b,a,c+1|c+1,a}\\ 
+                                              &
++ M_{b,a+1,c+1|c+1,a+1}
++ M_{b,a,c|a,c}
++ M_{b,a,c+1|a,c+1}\\ 
+                                              &
++ M_{b,a+1,c|a+1,c}
++ M_{b,a+1,c+1|a+1,c+1}
++ M_{c,b,a|c,a}\\ 
+                                              &
++ M_{c,b,a+1|c,a+1}
++ M_{c+1,b,a|c+1,a}
++ M_{c+1,b,a+1|c+1,a+1}\\ 
+                                              &
++ M_{c,b,a|a,c}
++ M_{c+1,b,a|a,c+1}
++ M_{c,b,a+1|a+1,c}\\ 
+                                              &
++ M_{c+1,b,a+1|a+1,c+1}
++ M_{a,b,c|c,a}
++ M_{a+1,b,c|c,a+1}\\ 
+                                              &
++ M_{a,b,c+1|c+1,a}
++ M_{a+1,b,c+1|c+1,a+1}
++ M_{a,b,c|a,c}\\ 
+                                              &
++ M_{a,b,c+1|a,c+1}
++ M_{a+1,b,c|a+1,c}
++ M_{a+1,b,c+1|a+1,c+1}\\ 
+                                              &
++ M_{b,c,a|c,a}
++ M_{b,c,a+1|c,a+1}
++ M_{b,c+1,a|c+1,a}\\ 
+                                              &
++ M_{b,c+1,a+1|c+1,a+1}
++ M_{b,c,a|a,c}
++ M_{b,c+1,a|a,c+1}\\ 
+                                              &
++ M_{b,c,a+1|a+1,c}
++ M_{b,c+1,a+1|a+1,c+1} \\
+                                               &=
+\sum M_{a,b,c|c,a}
++ \sum M_{a,b,c+1|c+1,a}
++ \sum M_{a+1,b,c|c,a+1}
++ \sum M_{a+1,b,c+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+All items belong to $P_\lambda$ by \cref{prop:1}.
+
+      \item $b>c+1,c=a+1$\par
+        Let $\mu:=\lambda + (0,0,0,1,2) $.
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = M_{b,a,a+1|a+2,a+2}
++ M_{a+1,b,a|a+2,a+2}
++ M_{a,b,a+1|a+2,a+2}
++ M_{b,a+1,a|a+2,a+2}
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{9}) &=
+M_{b,a+1,a+2|a+1,a+2}
++ M_{b,a+1,a+2|a+2,a+1}
++ M_{b,a,a+2|a,a+2}\\ 
+                                              &
++ 2M_{b,a+1,a+1|a+1,a+1}
++ M_{b,a,a+2|a+2,a}
++ M_{b,a,a+1|a,a+1}\\ 
+                                              &
++ M_{b,a,a+1|a+1,a}
++ M_{a+2,b,a+1|a+1,a+2}
++ M_{a+2,b,a+1|a+2,a+1}\\ 
+                                              &
++ M_{a+2,b,a|a,a+2}
++ 2M_{a+1,b,a+1|a+1,a+1}
++ M_{a+2,b,a|a+2,a}\\ 
+                                              &
++ M_{a+1,b,a|a,a+1}
++ M_{a+1,b,a|a+1,a}
++ M_{a+1,b,a+2|a+1,a+2}\\ 
+                                              &
++ M_{a+1,b,a+2|a+2,a+1}
++ M_{a,b,a+2|a,a+2}
++ M_{a,b,a+2|a+2,a}\\ 
+                                              &
++ M_{a,b,a+1|a,a+1}
++ M_{a,b,a+1|a+1,a}
++ M_{b,a+2,a+1|a+1,a+2}\\ 
+                                              &
++ M_{b,a+2,a+1|a+2,a+1}
++ M_{b,a+2,a|a,a+2}
++ M_{b,a+2,a|a+2,a}\\ 
+                                              &
++ M_{b,a+1,a|a,a+1}
++ M_{b,a+1,a|a+1,a} \\
+                                               &=
+\sum M_{a,b,a+1|a+1,a}
++ \sum M_{a,b,a+2|a+2,a}\\ 
+                                              &
++ 2\sum M_{a+1,b,a+1|a+1,a+1}
++ \sum M_{a+1,b,a+2|a+2,a+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{a+1,b,a+1|a+1,a+1},
+M_{b,a+1,a+1|a+1,a+1}
+\}.
+  \end{aligned}
+\end{equation}
+       We have $Pr_{\lambda}(P_\mu \otimes V_{9}) = P_\lambda  $ by \cref{tab:verma-analysis_f_8}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{9})) $ } \label{tab:verma-analysis_f_8}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{9})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{a+1,b,a+1|a+1,a+1}$ & \makecell{
+ $M_{a+2,b,a+1|a+2,a+1}$,
+ $M_{a+2,b,a+1|a+1,a+2}$,
+ $M_{a+1,b,a+2|a+2,a+1}$,
+ $M_{a+1,b,a+2|a+1,a+2}$, \\
+ $M_{a+2,b,a+2|a+2,a+2}$,
+ $M_{b,a+2,a+1|a+2,a+1}$,
+ $M_{b,a+2,a+1|a+1,a+2}$,
+ $M_{b,a+1,a+2|a+2,a+1}$, \\
+ $M_{b,a+1,a+2|a+1,a+2}$,
+ $M_{b,a+2,a+2|a+2,a+2}$
+}\\
+ & \\
+ $P_{b,a+1,a+1|a+1,a+1}$ & \makecell{
+ $M_{b,a+2,a+1|a+2,a+1}$,
+ $M_{b,a+2,a+1|a+1,a+2}$,
+ $M_{b,a+1,a+2|a+2,a+1}$,
+ $M_{b,a+1,a+2|a+1,a+2}$, \\
+ $M_{b,a+2,a+2|a+2,a+2}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+      \item $b=c+1,c>a+1$\par
+        In the present case, we first utilize the result of $P_{a,c+1,c|c,c+1}$ established in \colorbox{orange}{Placeholder} Critically, examination of the proof of \colorbox{orange}{Placeholder} confirms that our argument does not involve circular reasoning, as the theorem's derivation is independent of the current context. Let $\mu = \lambda + (1,0,0,0,0) =(c+2,b,c|c,c+1) $, by \colorbox{orange}{Placeholder}, we have
+        \begin{equation}\notag
+          \begin{aligned}
+            P_\mu = Placeholder
+          \end{aligned}
+        \end{equation}
+        \begin{equation}\notag
+          \begin{aligned}
+            Pr_{\lambda}(P_\mu \otimes V_{2}) &=
+M_{c+1,a,c|c,a}
++ M_{c+1,a+1,c|c,a+1}
++ M_{c+1,a,c+1|c+1,a}\\ 
+                                              &
++ M_{c+1,a+1,c+1|c+1,a+1}
++ M_{c+2,a,c+1|c+2,a}
++ M_{c+2,a+1,c+1|c+2,a+1}\\ 
+                                              &
++ M_{c+1,a,c|a,c}
++ M_{c+1,a+1,c|a+1,c}
++ M_{c+1,a,c+1|a,c+1}\\ 
+                                              &
++ M_{c+1,a+1,c+1|a+1,c+1}
++ M_{c+2,a,c+1|a,c+2}
++ M_{c+2,a+1,c+1|a+1,c+2}\\ 
+                                              &
++ M_{c,c+1,a|c,a}
++ M_{c,c+1,a+1|c,a+1}
++ 2M_{c+1,c+1,a|c+1,a}\\ 
+                                              &
++ 2M_{c+1,c+1,a+1|c+1,a+1}
++ M_{c+1,c+2,a|c+2,a}
++ M_{c+1,c+2,a+1|c+2,a+1}\\ 
+                                              &
++ M_{c,c+1,a|a,c}
++ M_{c,c+1,a+1|a+1,c}
++ 2M_{c+1,c+1,a|a,c+1}\\ 
+                                              &
++ 2M_{c+1,c+1,a+1|a+1,c+1}
++ M_{c+1,c+2,a|a,c+2}
++ M_{c+1,c+2,a+1|a+1,c+2}\\ 
+                                              &
++ M_{a,c+1,c|c,a}
++ M_{a+1,c+1,c|c,a+1}
++ M_{a,c+1,c+1|c+1,a}\\ 
+                                              &
++ M_{a+1,c+1,c+1|c+1,a+1}
++ M_{a,c+2,c+1|c+2,a}
++ M_{a+1,c+2,c+1|c+2,a+1}\\ 
+                                              &
++ M_{a,c+1,c|a,c}
++ M_{a+1,c+1,c|a+1,c}
++ M_{a,c+1,c+1|a,c+1}\\ 
+                                              &
++ M_{a+1,c+1,c+1|a+1,c+1}
++ M_{a,c+2,c+1|a,c+2}
++ M_{a+1,c+2,c+1|a+1,c+2}\\ 
+                                              &
++ M_{c+1,c,a|c,a}
++ M_{c+1,c,a+1|c,a+1}
++ M_{c+2,c+1,a|c+2,a}\\ 
+                                              &
++ M_{c+2,c+1,a+1|c+2,a+1}
++ M_{c+1,c,a|a,c}
++ M_{c+1,c,a+1|a+1,c}\\ 
+                                              &
++ M_{c+2,c+1,a|a,c+2}
++ M_{c+2,c+1,a+1|a+1,c+2} \\
+                                               &=
+\sum M_{a,c+1,c|c,a}
++ \sum M_{a,c+1,c+1|c+1,a}
++ \sum M_{a+1,c+1,c|c,a+1}\\ 
+                                              &
++ \sum M_{a,c+2,c+1|c+2,a}
++ \sum M_{a+1,c+1,c+1|c+1,a+1}
++ \sum M_{a+1,c+2,c+1|c+2,a+1}\\ 
+                                              &
++ \sum M_{c+1,c+1,a|c+1,a}
++ \sum M_{c+1,c+1,a+1|c+1,a+1}
+          \end{aligned}
+        \end{equation}
+      Similarly, the set of indeterminate composition factors is 
+\begin{equation}\notag
+  \begin{aligned}
+    U = \{
+M_{c+2,a+1,c+1|c+2,a+1},
+M_{c+2,a+1,c+1|a+1,c+2},
+M_{c+1,c+2,a+1|c+2,a+1},
+M_{c+1,c+2,a+1|a+1,c+2},\\
+M_{a+1,c+2,c+1|c+2,a+1},
+M_{a+1,c+2,c+1|a+1,c+2},
+M_{c+1,c+1,a|c+1,a},
+M_{c+1,c+1,a+1|c+1,a+1},\\
+M_{c+2,c+1,a+1|c+2,a+1},
+M_{c+1,c+1,a|a,c+1},
+M_{c+1,c+1,a+1|a+1,c+1},
+M_{c+2,c+1,a+1|a+1,c+2}
+\}.
+  \end{aligned}
+\end{equation}
+      We have $Pr_{\lambda}(P_\mu \otimes V_{2}) = P_\lambda  $ by \cref{tab:verma-analysis_f_0}.
+\begin{table}[htbp]
+\centering
+\caption{Calculation of Verma modules in $\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\lambda \otimes V_{2})) $ } \label{tab:verma-analysis_f_0}
+\begin{tabular}{cc}
+\toprule
+\textbf{Proj. Cover} & \textbf{$\operatorname{Filt}(P_*) \setminus \operatorname{Filt}(\prl(P_\mu \otimes V_{2})) $}  \\
+     & \textbf{(via Prop.～1)}  \\
+\midrule
+ $P_{c+2,a+1,c+1|c+2,a+1}$ & \makecell{
+ $M_{c+3,a+1,c+1|c+3,a+1}$,
+ $M_{c+2,a+2,c+1|c+2,a+2}$,
+ $M_{c+3,c+1,a+1|c+3,a+1}$,
+ $M_{c+3,a+1,c+1|a+1,c+3}$, \\
+ $M_{c+3,c+1,a+1|a+1,c+3}$,
+ $M_{c+2,c+1,a+2|c+2,a+2}$,
+ $M_{c+2,a+2,c+1|a+2,c+2}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$
+}\\
+ & \\
+ $P_{c+2,a+1,c+1|a+1,c+2}$ & \makecell{
+ $M_{c+3,a+1,c+1|a+1,c+3}$,
+ $M_{c+2,a+2,c+1|a+2,c+2}$,
+ $M_{c+3,a+2,c+1|a+2,c+3}$,
+ $M_{c+3,c+1,a+1|a+1,c+3}$, \\
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,c+1,a+2|a+2,c+3}$
+}\\
+ & \\
+ $P_{c+1,c+2,a+1|c+2,a+1}$ & \makecell{
+ $M_{c+1,c+3,a+1|c+3,a+1}$,
+ $M_{c+1,c+2,a+2|c+2,a+2}$,
+ $M_{c+3,c+1,a+1|c+3,a+1}$,
+ $M_{c+1,c+3,a+1|a+1,c+3}$, \\
+ $M_{c+3,c+1,a+1|a+1,c+3}$,
+ $M_{c+2,c+1,a+2|c+2,a+2}$,
+ $M_{c+1,c+2,a+2|a+2,c+2}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$
+}\\
+ & \\
+ $P_{c+1,c+2,a+1|a+1,c+2}$ & \makecell{
+ $M_{c+1,c+3,a+1|a+1,c+3}$,
+ $M_{c+1,c+2,a+2|a+2,c+2}$,
+ $M_{c+1,c+3,a+2|a+2,c+3}$,
+ $M_{c+3,c+1,a+1|a+1,c+3}$, \\
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,c+1,a+2|a+2,c+3}$
+}\\
+ & \\
+ $P_{a+1,c+2,c+1|c+2,a+1}$ & \makecell{
+ $M_{a+2,c+2,c+1|c+2,a+2}$,
+ $M_{a+1,c+3,c+1|c+3,a+1}$,
+ $M_{a+2,c+3,c+1|c+3,a+2}$,
+ $M_{c+2,a+2,c+1|c+2,a+2}$, \\
+ $M_{c+1,c+2,a+2|c+2,a+2}$,
+ $M_{a+2,c+2,c+1|a+2,c+2}$,
+ $M_{c+2,c+1,a+2|c+2,a+2}$,
+ $M_{c+2,a+2,c+1|a+2,c+2}$, \\
+ $M_{c+1,c+2,a+2|a+2,c+2}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,a+1,c+1|c+3,a+1}$,
+ $M_{c+1,c+3,a+1|c+3,a+1}$, \\
+ $M_{a+1,c+3,c+1|a+1,c+3}$,
+ $M_{c+3,c+1,a+1|c+3,a+1}$,
+ $M_{c+3,a+1,c+1|a+1,c+3}$,
+ $M_{c+1,c+3,a+1|a+1,c+3}$, \\
+ $M_{c+3,c+1,a+1|a+1,c+3}$,
+ $M_{c+3,a+2,c+1|c+3,a+2}$,
+ $M_{c+1,c+3,a+2|c+3,a+2}$,
+ $M_{a+2,c+3,c+1|a+2,c+3}$, \\
+ $M_{c+3,c+1,a+2|c+3,a+2}$,
+ $M_{c+3,a+2,c+1|a+2,c+3}$,
+ $M_{c+1,c+3,a+2|a+2,c+3}$,
+ $M_{c+3,c+1,a+2|a+2,c+3}$
+}\\
+ & \\
+ $P_{a+1,c+2,c+1|a+1,c+2}$ & \makecell{
+ $M_{a+2,c+2,c+1|a+2,c+2}$,
+ $M_{a+1,c+3,c+1|a+1,c+3}$,
+ $M_{c+2,a+2,c+1|a+2,c+2}$,
+ $M_{c+1,c+2,a+2|a+2,c+2}$, \\
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,a+1,c+1|a+1,c+3}$,
+ $M_{c+1,c+3,a+1|a+1,c+3}$,
+ $M_{c+3,c+1,a+1|a+1,c+3}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|c+1,a}$ & \makecell{
+ $M_{c+2,c+1,a|c+2,a}$,
+ $M_{c+1,c+2,a|c+2,a}$,
+ $M_{c+2,c+1,a|a,c+2}$,
+ $M_{c+1,c+2,a|a,c+2}$
+}\\
+ & \\
+ $P_{c+1,c+1,a+1|c+1,a+1}$ & \makecell{
+ $M_{c+1,c+1,a+2|c+1,a+2}$,
+ $M_{c+2,c+1,a+2|c+2,a+2}$,
+ $M_{c+1,c+1,a+2|a+2,c+1}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$
+}\\
+ & \\
+ $P_{c+2,c+1,a+1|c+2,a+1}$ & \makecell{
+ $M_{c+3,c+1,a+1|c+3,a+1}$,
+ $M_{c+2,c+1,a+2|c+2,a+2}$,
+ $M_{c+3,c+1,a+2|c+3,a+2}$,
+ $M_{c+3,c+1,a+1|a+1,c+3}$, \\
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,c+1,a+2|a+2,c+3}$
+}\\
+ & \\
+ $P_{c+1,c+1,a|a,c+1}$ & \makecell{
+ $M_{c+2,c+1,a|a,c+2}$,
+ $M_{c+1,c+2,a|a,c+2}$
+}\\
+ & \\
+ $P_{c+1,c+1,a+1|a+1,c+1}$ & \makecell{
+ $M_{c+1,c+1,a+2|a+2,c+1}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+1,c+2,a+2|a+2,c+2}$
+}\\
+ & \\
+ $P_{c+2,c+1,a+1|a+1,c+2}$ & \makecell{
+ $M_{c+3,c+1,a+1|a+1,c+3}$,
+ $M_{c+2,c+1,a+2|a+2,c+2}$,
+ $M_{c+3,c+1,a+2|a+2,c+3}$
+}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\parbox{\linewidth}{\small
+\textbf{Interpretation:}
+This table displays only selected computational results. This partial presentation does not affect our conclusion.
+}
+\end{table}
+
+      \item $b=c+1,c=a+1$\par
+    \end{enumerate}
+  \item $c>b>a$ 
+\end{enumerate}
+\end{proof}

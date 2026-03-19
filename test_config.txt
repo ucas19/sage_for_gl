@@ -1,0 +1,19 @@
+# 测试配置文件
+
+# 集合定义
+setA = [7]
+setB = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+setC = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+setD = [8]
+
+# 其他参数
+which_mod = 1
+
+# 向量顺序
+atypical_order = [a, b, c, d, a]
+typical_order = [a, b, c, d, a+1]
+
+result_assume = [(a, b, c, d, a), (a+1,b,c,d,a+1)]
+
+# 判断条件
+condition = not (d==b or d==c or a==b or a==c or a==d or b==a+1 or c==a+1)

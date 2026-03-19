@@ -173,6 +173,86 @@ def wedge_3( n, m,V_0,V_1):
 
 
 
+def wedge_4( n, m,V_0,V_1):
+    
+    result = []
+    for i in range(len(V_0)):
+        for j in range(i+1,len(V_0)):
+            for k in range(j+1,len(V_0)):
+                for l in range(k+1,len(V_0)):
+                    tem = V_0[i]+V_0[j]+V_0[k]+V_0[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i+1,len(V_0)):
+            for l in range(j+1,len(V_0)):
+                for k in range(len(V_1)):
+                    tem = V_0[i]+V_0[j]+V_0[l]+V_1[k]
+                    result.append(tem[:])
+
+
+    for i in range(len(V_1)):
+        for j in range(i,len(V_1)):
+            for k in range(len(V_0)):
+                for l in range(k+1,len(V_0)):
+                    tem = V_1[i]+V_1[j]+V_0[k]+V_0[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_1)):
+        for j in range(i,len(V_1)):
+            for k in range(j,len(V_1)):
+                for l in range(len(V_0)):
+                    tem = V_1[i]+V_1[j]+V_1[k]+V_0[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_1)):
+        for j in range(i,len(V_1)):
+            for k in range(j,len(V_1)):
+                for l in range(k,len(V_1)):
+                    tem = V_1[i]+V_1[j]+V_1[k]+V_1[l]
+                    result.append(tem[:])
+    return result
+
+
+def sym_4( n, m,V_0,V_1):
+    
+    result = []
+    for i in range(len(V_1)):
+        for j in range(i+1,len(V_1)):
+            for k in range(j+1,len(V_1)):
+                for l in range(k+1,len(V_1)):
+                    tem = V_1[i]+V_1[j]+V_1[k]+V_1[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_1)):
+        for j in range(i+1,len(V_1)):
+            for l in range(j+1,len(V_1)):
+                for k in range(len(V_0)):
+                    tem = V_1[i]+V_1[j]+V_1[l]+V_0[k]
+                    result.append(tem[:])
+
+
+    for i in range(len(V_0)):
+        for j in range(i,len(V_0)):
+            for k in range(len(V_1)):
+                for l in range(k+1,len(V_1)):
+                    tem = V_0[i]+V_0[j]+V_1[k]+V_1[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i,len(V_0)):
+            for k in range(j,len(V_0)):
+                for l in range(len(V_1)):
+                    tem = V_0[i]+V_0[j]+V_0[k]+V_1[l]
+                    result.append(tem[:])
+
+    for i in range(len(V_0)):
+        for j in range(i,len(V_0)):
+            for k in range(j,len(V_0)):
+                for l in range(k,len(V_0)):
+                    tem = V_0[i]+V_0[j]+V_0[k]+V_0[l]
+                    result.append(tem[:])
+    return result
 
 
 class Lowest_Module:
@@ -222,12 +302,16 @@ class Lowest_Module:
         self.W2V = wedge_2(n,m,self.V_0,self.V_1)
         self.S3V = sym_3(n,m,self.V_0,self.V_1)
         self.W3V = wedge_3(n,m,self.V_0,self.V_1)
+        self.S4V = sym_4(n,m,self.V_0,self.V_1)
+        self.W4V = wedge_4(n,m,self.V_0,self.V_1)
 
         self.V_star = self.V_star_0 + self.V_star_1
         self.S2V_star = sym_2(n,m,self.V_star_0,self.V_star_1)
         self.W2V_star = wedge_2(n,m,self.V_star_0,self.V_star_1)
         self.S3V_star = sym_3(n,m,self.V_star_0,self.V_star_1)
         self.W3V_star = wedge_3(n,m,self.V_star_0,self.V_star_1)
+        self.S4V_star = sym_4(n,m,self.V_star_0,self.V_star_1)
+        self.W4V_star = wedge_4(n,m,self.V_star_0,self.V_star_1)
 
     def get_module(self,which_mod):
         if which_mod == 1:
@@ -250,6 +334,14 @@ class Lowest_Module:
             return self.W3V
         elif which_mod ==10:
             return self.W3V_star
+        elif which_mod ==11:
+            return self.S4V
+        elif which_mod ==12:
+            return self.S4V_star
+        elif which_mod ==13:
+            return self.W4V
+        elif which_mod ==14:
+            return self.W4V_star
         else:
             print("get_module错误,没有这个模")
             return None

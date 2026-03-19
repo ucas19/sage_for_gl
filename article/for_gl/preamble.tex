@@ -1,0 +1,101 @@
+%! TEX root = main.tex
+
+% 数学相关宏包
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[bookmarks = false]{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[scheme=plain]{ctex}
+\usepackage{booktabs}   % 提供 \toprule, \midrule, \bottomrule
+\usepackage{caption}    % 改善图表标题间距（可选但推荐）
+\usepackage{siunitx}    % 用于对齐数字（如需数值列）
+\usepackage{makecell}
+\usepackage{ctex}
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{center}
+        \vspace*{-1cm}  % 调整这个值来控制顶部间距
+        {\LARGE\bfseries \@title \par}
+        \vspace{0.2cm}  % 标题与作者间距
+        {\large \@author }
+%        \vspace{-0cm}  % 作者与日期间距
+        {\normalsize \@date \par}
+        \vspace{1cm}    % 日期与正文间距
+    \end{center}
+}
+\makeatother
+
+% 页面设置
+\geometry{left=1.0cm,right=1.0cm,top=1.0cm,bottom=1.0cm}
+% 超链接设置
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=red
+}
+% 定理环境定义
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}{Proposition}[theorem]
+\newtheorem{definition}{Definition}[theorem]
+\newtheorem{example}{Example}[theorem]
+\newtheorem{remark}{Remark}[theorem]
+
+\usepackage[noabbrev,nameinlink]{cleveref}
+% 设置cleveref的标签名称
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+% 数学符号定义
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\prl}{pr_{\lambda}}
+\newcommand{\pr}{pr}
+\newcommand{\prt}{pr_{\theta}}
+\newcommand{\fracc}[1]{\frac{#1}{2}}
+\newcommand{\Filt}{\operatorname{Filt}}
+\newcommand{\indentedline}[1]{%
+  \par\noindent\hspace*{#1em}
+}
+% 自定义 enumerate 样式：使用 (1), (1.1), (1.1.1) 等格式
+% 第1级：(1), (2), ...
+\setlist[enumerate,1]{label=(\arabic{enumi})}
+% 第2级：(1.1), (1.2), ...
+\setlist[enumerate,2]{label=(\arabic{enumi}.\arabic{enumii})}
+% 第3级：(1.1.1), (1.1.2), ...
+\setlist[enumerate,3]{label=(\arabic{enumi}.\arabic{enumii}.\arabic{enumiii})}
+% 第4级（如有需要）
+\setlist[enumerate,4]{label=(\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv})}
+% 文档信息
+\title{Results  }
+\author{Wei}
+\date{\today}
+
+% 临时抑制 Overfull/Underfull 警告
+% TEMP: suppress all overfull warnings
+\hfuzz=\maxdimen
+\vfuzz=\maxdimen
+\hbadness=10000
+\vbadness=10000
+
+

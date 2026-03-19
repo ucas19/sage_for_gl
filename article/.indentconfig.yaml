@@ -1,0 +1,23 @@
+# .indentconfig.yaml
+# 基础配置：保护你的代码不被过度格式化
+
+# 1. 缩进设置
+defaultIndent: "\t"  # 使用 4 个空格缩进，如果你喜欢 Tab，可以改为 "\t"
+
+# 2. 换行保护（最重要：防止它把你的长句子切断）
+modifyLineBreaks:
+    preserveLookingGlass: 1      # 保持你手动留下的空行
+    removeDuplicateBlankLines: 0  # 不要删除重复的空行
+    textWrap: 0                   # 禁用自动换行（设为 0）
+
+# 3. 缩进对齐设置
+indentAfterItems: 1               # item 后面自动缩进
+indentAfterHeadings: 0            # 章节标题后不缩进
+
+# 4. 排除列表：以下环境内的内容完全不进行缩进处理
+# 适合放入复杂的数学公式或代码块
+noIndentBlock:
+    - equation*
+    - align*
+    - verbatim
+    - lstlisting

@@ -1,0 +1,23 @@
+4
+
+M_{a+1,b+1,c|b,c+1}
+M_{a+1,c,b+1|b,c+1}
+
+
+M_{a+1,b+1,c|b+1,a+1}
+M_{c+1,b+1,c|b+1,c+1}
+M_{a+1,b,c|b,a+1}
+M_{c+1,b,c|b,c+1}
+M_{a+1,c,b+1|b+1,a+1}
+M_{c+1,c,b+1|b+1,c+1}
+M_{a+1,c,b|b,a+1}
+M_{c+1,c,b|b,c+1}
+
+\sum M_{c+1,b,c|b,c+1}
+\sum M_{c+1,b+1,c|b+1,c+1}
+\sum M_{a+1,b,c|b,a+1}
+\sum M_{a+1,b+1,c|b+1,a+1}
+
+Placeholder
+
+Placeholder
